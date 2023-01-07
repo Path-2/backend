@@ -1,4 +1,4 @@
-package ao.path2.path2
+package ao.path2.app
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

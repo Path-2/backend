@@ -1,4 +1,4 @@
-package ao.path2.path2
+package ao.path2.app
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

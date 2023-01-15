@@ -21,13 +21,9 @@ class UserRepositoryH2(private val repository: UserRepositorySpringData, private
     return user
   }
 
-  override fun findByEmail(email: String): User {
-    TODO("Not yet implemented")
-  }
+  override fun findByEmail(email: String): User = mapper.map(repository.findByEmail(email), User()) as User
 
-  override fun findByPhone(phone: String): User {
-    TODO("Not yet implemented")
-  }
+  override fun findByPhone(phone: String): User = mapper.map(repository.existsByPhone(phone), User()) as User
 
   override fun findByUsername(username: String): User = mapper.map(repository.findByUsername(username), User()) as User
 

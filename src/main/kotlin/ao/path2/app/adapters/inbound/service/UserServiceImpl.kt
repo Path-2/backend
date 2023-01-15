@@ -1,5 +1,6 @@
 package ao.path2.app.adapters.inbound.service
 
+import ao.path2.app.core.domain.PageQuery
 import ao.path2.app.core.domain.User
 import ao.path2.app.core.exceptions.ResourceExistsException
 import ao.path2.app.core.exceptions.ResourceNotFoundException
@@ -7,7 +8,9 @@ import ao.path2.app.core.repository.UserRepository
 import ao.path2.app.core.service.UserService
 import ao.path2.app.utils.mapping.Mapper
 import org.springframework.stereotype.Service
+import java.util.*
 import java.util.logging.Logger
+import java.util.stream.IntStream
 
 @Service
 class UserServiceImpl(private val repo: UserRepository, private val mapper: Mapper) : UserService {
@@ -21,11 +24,16 @@ class UserServiceImpl(private val repo: UserRepository, private val mapper: Mapp
     }
     log.info("User not found...")
 
-    if (user.image == null) {
-      user.image = ""
-    }
-
     user.username = user.email.substring(0, user.email.indexOf("@"))
+
+    if (repo.existsByUsername(user.username)) {
+      for (i in 1..9)
+        if (user.username.endsWith(".$i")) {
+          user.username += (i + 1)
+        }
+      if (!"[a-z.]+[.][0-9]".matches(user.username))
+        user.username += ".1"
+    }
 
     log.info("Username ${user.username}...")
 
@@ -54,7 +62,7 @@ class UserServiceImpl(private val repo: UserRepository, private val mapper: Mapp
     return repo.findByPhone(phone)
   }
 
-  override fun listAll(): List<User> = repo.listAll()
+  override fun listAll(pageQuery: PageQuery): List<User> = repo.listAll(pageQuery)
 
   override fun update(user: User): User {
     log.info("Searching user...")
@@ -77,3 +85,5 @@ class UserServiceImpl(private val repo: UserRepository, private val mapper: Mapp
     return repo.findByUsername(username)
   }
 }
+
+private fun String.matches(regex: String): Boolean = regex.endsWith(".1")

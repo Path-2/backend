@@ -13,7 +13,7 @@ class UserEntity {
     @NotBlank
     @NotEmpty
     @NotNull
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     lateinit var name: String
 
     @NotBlank
@@ -28,7 +28,7 @@ class UserEntity {
     @Size(min = 9, max = 9)
     @Column(nullable = false, unique = true)
     lateinit var phone: String
-    
+
     @NotNull
     lateinit var image: String
 
@@ -43,6 +43,6 @@ class UserEntity {
     @NotNull
     @NotEmpty
     @NotBlank
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     lateinit var password: String
 }

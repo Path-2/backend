@@ -10,6 +10,5 @@ interface UserRepositorySpringData: PagingAndSortingRepository<UserEntity, Long>
   fun existsByEmailIgnoreCase(email: String): Boolean
   fun existsByPhone(phone: String): Boolean
   fun existsByUsername(username: String): Boolean
-
   fun findByUsername(username: String): UserEntity
 }

@@ -28,8 +28,7 @@ class UserEntity {
     @Size(min = 9, max = 9)
     @Column(nullable = false, unique = true)
     lateinit var phone: String
-
-    @NotBlank
+    
     @NotNull
     lateinit var image: String
 

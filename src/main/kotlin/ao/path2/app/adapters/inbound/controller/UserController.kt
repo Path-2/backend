@@ -17,8 +17,17 @@ class UserController(private val service: UserService, private val mapper: Mappe
   fun getAll() = service.listAll()
 
   @PostMapping
-  fun save(@RequestBody @Valid user: UserDTO) =
-    ResponseEntity.created(URI.create("/api/v1/users")).body(mapper.map(service.save(mapper.map(user, User()) as User), ao.path2.app.adapters.inbound.dto.response.UserDTO()))
+  fun save(@RequestBody @Valid user: UserDTO): ResponseEntity<Any> {
+
+    if(user.image == null)
+      user.image = ""
+
+    val userSaved = service.save(mapper.map(user, User()) as User)
+
+    val res = mapper.map(userSaved, ao.path2.app.adapters.inbound.dto.response.UserDTO())
+
+    return ResponseEntity.created(URI.create("/api/v1/users")).body(res)
+  }
 
   @PatchMapping("/{username}")
   fun update(@RequestBody @Valid user: User, @PathVariable("username") username: String): ResponseEntity<out Any> {

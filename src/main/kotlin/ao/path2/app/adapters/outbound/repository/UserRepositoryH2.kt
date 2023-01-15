@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component
 class UserRepositoryH2(private val repository: UserRepositorySpringData, private val mapper: Mapper) : UserRepository{
   override fun save(user: User): User {
 
-    user.id = repository.save(mapper.map(user, UserEntity()) as UserEntity).id
+    repository.save(mapper.map(user, UserEntity()) as UserEntity)
 
     return user
   }

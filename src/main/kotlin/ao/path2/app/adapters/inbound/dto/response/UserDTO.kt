@@ -11,21 +11,18 @@ class UserDTO() {
   @NotBlank
   @NotEmpty
   @NotNull
-  lateinit var name: String
-
-  lateinit var username: String
+  var name: String? = null
+  var username: String? = null
 
   @NotNull
   @NotEmpty
   @NotBlank
-  lateinit var phone: String
-
-  @Column(nullable = false, unique = true)
-  lateinit var image: String
+  var phone: String? = null
+  var image: String? = null
 
   @NotBlank
   @NotEmpty
   @NotNull
   @Email
-  lateinit var email: String
+  var email: String? = null
 }

@@ -58,9 +58,9 @@ class UserServiceImpl(private val repo: UserRepository, private val mapper: Mapp
 
   override fun update(user: User): User {
     log.info("Searching user...")
-    if (!repo.exists(user.id)) {
-      log.severe("User with id ${user.id} not found...")
-      throw ResourceExistsException("User ${user.id} not exist!!!")
+    if (!repo.existsByEmail(user.email)) {
+      log.severe("User with id ${user.email} not found...")
+      throw ResourceExistsException("User ${user.email} not exist!!!")
     }
     log.info("User found...")
     return repo.save(user)

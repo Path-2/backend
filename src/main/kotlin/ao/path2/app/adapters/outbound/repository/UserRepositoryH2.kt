@@ -34,7 +34,7 @@ class UserRepositoryH2(private val repository: UserRepositorySpringData, private
   override fun listAll(pageQuery: PageQuery): List<User> {
 
     return repository
-      .findAll(Pageable.ofSize(pageQuery.pageSize))
+      .findAll(Pageable.ofSize(pageQuery.pageSize).withPage(pageQuery.pageNumber))
       .map { entity -> mapper.map(entity, User()) as User }
       .toList()
   }

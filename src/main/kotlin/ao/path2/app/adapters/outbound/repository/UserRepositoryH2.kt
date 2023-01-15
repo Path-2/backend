@@ -25,27 +25,24 @@ class UserRepositoryH2(private val repository: UserRepositorySpringData, private
     TODO("Not yet implemented")
   }
 
-  override fun findByUsername(username: String): User {
-    TODO("Not yet implemented")
-  }
+  override fun findByUsername(username: String): User = mapper.map(repository.findByUsername(username), User()) as User
 
   override fun listAll(): List<User> {
     TODO("Not yet implemented")
   }
 
   override fun exists(id: Long?): Boolean {
-    TODO("Not yet implemented")
+    if(id == null)
+      return false
+    return repository.existsById(id)
   }
 
-  override fun existsByEmail(email: String): Boolean {
-    TODO("Not yet implemented")
-  }
+  override fun existsByEmail(email: String): Boolean = repository.existsByEmailIgnoreCase(email)
 
-  override fun existsByPhone(phone: String): Boolean {
-    TODO("Not yet implemented")
-  }
 
-  override fun existsByUsername(username: String): Boolean {
-    TODO("Not yet implemented")
-  }
+  override fun existsByPhone(phone: String): Boolean = repository.existsByPhone(phone)
+
+
+  override fun existsByUsername(username: String): Boolean = repository.existsByUsername(username)
+
 }

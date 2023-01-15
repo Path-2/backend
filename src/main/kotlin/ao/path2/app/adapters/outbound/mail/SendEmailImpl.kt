@@ -2,8 +2,8 @@ package ao.path2.app.adapters.outbound.mail
 
 import ao.path2.app.core.domain.mail.Email
 import ao.path2.app.core.service.Path2Mailer
-import org.springframework.mail.*
-import org.springframework.mail.javamail.JavaMailSender
+import org.springframework.mail.MailException
+import org.springframework.mail.SimpleMailMessage
 import org.springframework.stereotype.Component
 import java.util.*
 import java.util.logging.Logger

@@ -1,31 +1,35 @@
 package ao.path2.app.adapters.inbound.service
 
 import ao.path2.app.core.domain.User
-import ao.path2.app.core.exceptions.ResourceNotFoundException
 import ao.path2.app.core.exceptions.ResourceExistsException
+import ao.path2.app.core.exceptions.ResourceNotFoundException
 import ao.path2.app.core.repository.UserRepository
 import ao.path2.app.core.service.UserService
+import ao.path2.app.utils.mapping.Mapper
 import org.springframework.stereotype.Service
 import java.util.logging.Logger
 
 @Service
-class UserServiceImpl(private val repo: UserRepository) : UserService {
+class UserServiceImpl(private val repo: UserRepository, private val mapper: Mapper) : UserService {
   private val log: Logger = Logger.getLogger("userLogger")
 
   override fun save(user: User): User {
     log.info("Searching user...")
-    if (repo.exists(user.id) || repo.existsByEmail(user.email) || repo.existsByPhone(user.phone)) {
+    if (repo.existsByEmail(user.email) || repo.existsByPhone(user.phone)) {
       log.severe("User exists...")
       throw ResourceExistsException("User exists!!!")
     }
     log.info("User not found...")
+
+    if (user.image == null) {
+      user.image = ""
+    }
 
     user.username = user.email.substring(0, user.email.indexOf("@"))
 
     log.info("Username ${user.username}...")
 
     return repo.save(user)
-
   }
 
   override fun findByEmail(email: String): User {

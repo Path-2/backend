@@ -2,6 +2,7 @@ package ao.path2.app.adapters.outbound.repository.entity
 
 import ao.path2.app.utils.annotations.GlobalValidator
 import javax.persistence.*
+import javax.validation.constraints.Email
 
 @Entity(name = "User")
 @Table(name = "TB_USER")
@@ -18,6 +19,7 @@ class UserEntity {
     @GlobalValidator
     @Column(nullable = false, unique = true)
     lateinit var image: String
+    @Email
     @GlobalValidator
     @Column(nullable = false, unique = true)
     lateinit var email: String

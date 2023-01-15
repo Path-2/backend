@@ -7,4 +7,6 @@ interface UserService {
     fun findByEmail(email: String): User
     fun findByPhone(phone: String): User
     fun listAll(): List<User>
+    fun update(user: User): User
+    fun findByUsername(username: String): User
 }

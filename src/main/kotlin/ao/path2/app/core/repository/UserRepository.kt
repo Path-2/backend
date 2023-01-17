@@ -9,7 +9,7 @@ interface UserRepository {
     fun findByPhone(phone: String): User
     fun findByUsername(username: String): User
     fun listAll(pageQuery: PageQuery): List<User>
-    fun exists(id: Long?): Boolean
+    fun exists(id: Long): Boolean
     fun existsByEmail(email: String): Boolean
     fun existsByPhone(phone: String): Boolean
     fun existsByUsername(username: String): Boolean

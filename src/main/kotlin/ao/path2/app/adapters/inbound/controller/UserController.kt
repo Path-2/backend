@@ -4,6 +4,7 @@ import ao.path2.app.adapters.inbound.dto.request.UserDTO
 import ao.path2.app.core.domain.PageQuery
 import ao.path2.app.core.domain.User
 import ao.path2.app.core.service.UserService
+import ao.path2.app.utils.JwtTokenUtil
 import ao.path2.app.utils.mapping.Mapper
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable
@@ -16,7 +17,7 @@ import javax.validation.Valid
 @RequestMapping("/api/v1/users")
 @RestController
 @CrossOrigin("*")
-class UserController(private val service: UserService, private val mapper: Mapper) {
+class UserController(private val service: UserService, private val mapper: Mapper, private val jwt: JwtTokenUtil) {
   @GetMapping
   fun getAll(@PageableDefault(size = 15, page = 0) page: Pageable): ResponseEntity<PageImpl<User>> {
     val pageQuery: PageQuery = PageQuery(page.pageSize, page.pageNumber)
@@ -29,14 +30,13 @@ class UserController(private val service: UserService, private val mapper: Mappe
   @PostMapping
   fun save(@RequestBody @Valid user: UserDTO): ResponseEntity<Any> {
 
-    if (user.image == null)
-      user.image = ""
-
     val userSaved = service.save(mapper.map(user, User()) as User)
 
-    val res = mapper.map(userSaved, ao.path2.app.adapters.inbound.dto.response.UserDTO())
+    val res = mapper.map(userSaved, ao.path2.app.adapters.inbound.dto.response.UserDTO()) as ao.path2.app.adapters.inbound.dto.response.UserDTO
 
-    return ResponseEntity.created(URI.create("/api/v1/users")).body(res)
+    val token = jwt.generateToken(res.username)
+
+    return ResponseEntity.created(URI.create("/api/v1/users")).header("Token", token).body("")
   }
 
   @PatchMapping("/{username}")

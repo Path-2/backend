@@ -8,9 +8,7 @@ import ao.path2.app.core.repository.UserRepository
 import ao.path2.app.core.service.UserService
 import ao.path2.app.utils.mapping.Mapper
 import org.springframework.stereotype.Service
-import java.util.*
 import java.util.logging.Logger
-import java.util.stream.IntStream
 
 @Service
 class UserServiceImpl(private val repo: UserRepository, private val mapper: Mapper) : UserService {
@@ -86,4 +84,4 @@ class UserServiceImpl(private val repo: UserRepository, private val mapper: Mapp
   }
 }
 
-private fun String.matches(regex: String): Boolean = regex.endsWith(".1")
+private fun String.matches(regex: String?): Boolean = regex!!.endsWith(".1")

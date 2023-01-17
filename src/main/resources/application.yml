@@ -1,9 +1,14 @@
-keycloak:
-  realm: example
-  resource: spring-boot
-  bearer-only: true
-  auth-server-url: http://localhost:8080/auth
-
+server:
+  port: 8080
 spring:
-  data:
-    show-sql: true
+  datasource:
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.spatial.dialect.h2geodb.GeoDBDialect
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+
+jwt:
+  secret: ${JWT_SECRET}

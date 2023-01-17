@@ -6,23 +6,23 @@ class UserDTO() {
   @NotBlank
   @NotEmpty
   @NotNull
-  var name: String? = null
+  var name: String = ""
 
   @NotNull
   @NotEmpty
   @NotBlank
-  var phone: String? = null
-  var image: String? = null
+  var phone: String = ""
+  var image: String = ""
 
   @NotBlank
   @NotEmpty
   @NotNull
   @Email
-  var email: String? = null
+  var email: String = ""
 
   @Size(min = 8)
   @NotNull
   @NotEmpty
   @NotBlank
-  var password: String? = null
+  var password: String = ""
 }

@@ -2,6 +2,9 @@ package ao.path2.app.handlers
 
 import ao.path2.app.core.exceptions.ResourceExistsException
 import ao.path2.app.core.exceptions.ResourceNotFoundException
+import io.jsonwebtoken.ExpiredJwtException
+import io.jsonwebtoken.JwtException
+import io.jsonwebtoken.MalformedJwtException
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -16,17 +19,32 @@ import java.time.LocalDateTime
 class ExceptionHandler : ResponseEntityExceptionHandler() {
 
   @ExceptionHandler(ResourceNotFoundException::class)
-  fun resourceNotFoundHandler(exception: java.lang.Exception, request: WebRequest): ResponseEntity<Any> {
+  fun resourceNotFoundHandler(exception: Exception, request: WebRequest): ResponseEntity<Any> {
     return handleExceptionInternal(exception, null, HttpHeaders(), HttpStatus.NOT_FOUND, request)
   }
 
   @ExceptionHandler(ResourceExistsException::class)
-  fun resourceExistsHandler(exception: java.lang.Exception, request: WebRequest): ResponseEntity<Any> {
+  fun resourceExistsHandler(exception: Exception, request: WebRequest): ResponseEntity<Any> {
+    return handleExceptionInternal(exception, null, HttpHeaders(), HttpStatus.BAD_REQUEST, request)
+  }
+
+  @ExceptionHandler(ExpiredJwtException::class)
+  fun expiredJwtHandler(exception: Exception, request: WebRequest): ResponseEntity<Any> {
+    return handleExceptionInternal(exception, null, HttpHeaders(), HttpStatus.BAD_REQUEST, request)
+  }
+
+  @ExceptionHandler(MalformedJwtException::class)
+  fun malformedJwtHandler(exception: Exception, request: WebRequest): ResponseEntity<Any> {
+    return handleExceptionInternal(exception, null, HttpHeaders(), HttpStatus.BAD_REQUEST, request)
+  }
+
+  @ExceptionHandler(JwtException::class)
+  fun jwtHandler(exception: Exception, request: WebRequest): ResponseEntity<Any> {
     return handleExceptionInternal(exception, null, HttpHeaders(), HttpStatus.BAD_REQUEST, request)
   }
 
   override fun handleExceptionInternal(
-    ex: java.lang.Exception,
+    ex: Exception,
     body: Any?,
     headers: HttpHeaders,
     status: HttpStatus,

@@ -1,6 +1,5 @@
 package ao.path2.app.adapters.outbound.repository
 
-import ao.path2.app.adapters.outbound.repository.entity.UserEntity
 import ao.path2.app.core.domain.PageQuery
 import ao.path2.app.core.domain.User
 import ao.path2.app.core.repository.UserRepository
@@ -14,7 +13,10 @@ import org.springframework.stereotype.Component
 class UserRepositoryH2(private val repository: UserRepositorySpringData, private val mapper: Mapper) : UserRepository {
   override fun save(user: User): User {
 
-    repository.save(mapper.map(user, UserEntity()) as UserEntity)
+    repository.save(mapper.map(user,
+      ao.path2.app.adapters.outbound.repository.entity.User()
+    ) as ao.path2.app.adapters.outbound.repository.entity.User
+    )
 
     return user
   }
@@ -34,7 +36,7 @@ class UserRepositoryH2(private val repository: UserRepositorySpringData, private
   }
 
   override fun exists(id: Long): Boolean {
-    if (id == null)
+    if (id == 0L)
       return false
     return repository.existsById(id)
   }

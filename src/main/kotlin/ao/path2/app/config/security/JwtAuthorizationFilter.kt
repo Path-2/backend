@@ -1,6 +1,6 @@
 package ao.path2.app.config.security
 
-import ao.path2.app.utils.JwtTokenUtil
+import ao.path2.app.utils.jwt.JwtTokenUtil
 import org.springframework.http.HttpHeaders.AUTHORIZATION
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -38,9 +38,11 @@ class JwtAuthorizationFilter(
   }
 
   private fun getAuthentication(token: String): UsernamePasswordAuthenticationToken? {
+    println(token)
     if (!jwtTokenUtil.isTokenValid(token)) return null
     val email = jwtTokenUtil.getEmail(token)
     val user = service.loadUserByUsername(email)
+
     return UsernamePasswordAuthenticationToken(user, null, user.authorities)
   }
 }

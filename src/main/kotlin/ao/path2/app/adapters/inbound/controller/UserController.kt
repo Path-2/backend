@@ -4,7 +4,7 @@ import ao.path2.app.adapters.inbound.dto.request.UserDTO
 import ao.path2.app.core.domain.PageQuery
 import ao.path2.app.core.domain.User
 import ao.path2.app.core.service.UserService
-import ao.path2.app.utils.JwtTokenUtil
+import ao.path2.app.utils.jwt.JwtTokenUtil
 import ao.path2.app.utils.mapping.Mapper
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable

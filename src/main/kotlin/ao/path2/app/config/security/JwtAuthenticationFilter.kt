@@ -1,12 +1,11 @@
 package ao.path2.app.config.security
 
-import ao.path2.app.utils.JwtTokenUtil
+import ao.path2.app.utils.jwt.JwtTokenUtil
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.AuthenticationException
-import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 import java.util.*
 import javax.servlet.FilterChain
@@ -24,7 +23,7 @@ class JwtAuthenticationFilter(
     val auth = UsernamePasswordAuthenticationToken(
       credentials.username,
       credentials.password,
-      Collections.singleton(SimpleGrantedAuthority("user"))
+      null
     )
     return authenticationManager.authenticate(auth)
   }

@@ -1,11 +1,12 @@
 package ao.path2.app.adapters.outbound.repository.entity
 
+import ao.path2.app.core.domain.Role
 import javax.persistence.*
 import javax.validation.constraints.*
 
 @Entity(name = "User")
 @Table(name = "TB_USER")
-class UserEntity {
+class User {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "gn_user")
   var id: Long = 0
@@ -45,4 +46,16 @@ class UserEntity {
   @NotBlank
   @Column(nullable = false)
   var password: String = ""
+
+  @ManyToMany
+  @JoinTable(
+    name = "users_roles",
+    joinColumns = [JoinColumn(
+      name = "user_id", referencedColumnName = "id"
+    )],
+    inverseJoinColumns = [JoinColumn(
+      name = "role_id", referencedColumnName = "id"
+    )]
+  )
+  var roles: List<Role> = listOf()
 }

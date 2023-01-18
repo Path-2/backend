@@ -7,11 +7,17 @@ import ao.path2.app.core.exceptions.ResourceNotFoundException
 import ao.path2.app.core.repository.UserRepository
 import ao.path2.app.core.service.UserService
 import ao.path2.app.utils.mapping.Mapper
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
+import java.util.*
 import java.util.logging.Logger
 
 @Service
-class UserServiceImpl(private val repo: UserRepository, private val mapper: Mapper) : UserService {
+class UserServiceImpl(
+  private val repo: UserRepository,
+  private val mapper: Mapper,
+  private val encoder: PasswordEncoder
+) : UserService {
   private val log: Logger = Logger.getLogger("userLogger")
 
   override fun save(user: User): User {
@@ -22,7 +28,10 @@ class UserServiceImpl(private val repo: UserRepository, private val mapper: Mapp
     }
     log.info("User not found...")
 
-    user.username = user.email.substring(0, user.email.indexOf("@"))
+    user.username =
+      "@${user.email.substring(0, user.email.indexOf("@"))}.${UUID.randomUUID().toString().substring(0, "-")}"
+
+    user.password = encoder.encode(user.password)
 
     if (repo.existsByUsername(user.username)) {
       for (i in 1..9)
@@ -82,6 +91,13 @@ class UserServiceImpl(private val repo: UserRepository, private val mapper: Mapp
 
     return repo.findByUsername(username)
   }
+}
+
+private fun String.substring(startIndex: Int, endString: String): String {
+  val value = toString()
+  val index = value.indexOf(endString)
+
+  return value.substring(startIndex, index)
 }
 
 private fun String.matches(regex: String?): Boolean = regex!!.endsWith(".1")

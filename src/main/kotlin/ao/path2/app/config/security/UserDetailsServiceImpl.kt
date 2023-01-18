@@ -1,6 +1,5 @@
 package ao.path2.app.config.security
 
-import ao.path2.app.core.domain.Privilege
 import ao.path2.app.core.domain.Role
 import ao.path2.app.core.repository.RoleRepository
 import ao.path2.app.core.repository.UserRepository

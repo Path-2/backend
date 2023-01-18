@@ -5,22 +5,11 @@ import javax.validation.constraints.NotNull
 
 @Entity
 @Table(name = "TB_ROLE")
-data class Role(
+class Role {
   @GeneratedValue
-  @Id val id: Long = 0,
+  @Id
+  val id: Long = 0
+
   @NotNull
-  var name: String,
-  @ManyToMany(mappedBy = "roles")
-  var users: List<User> = listOf(),
-  @ManyToMany
-  @JoinTable(
-    name = "roles_privileges",
-    joinColumns = [JoinColumn(
-      name = "role_id", referencedColumnName = "id"
-    )],
-    inverseJoinColumns = [JoinColumn(
-      name = "privilege_id", referencedColumnName = "id"
-    )]
-  )
-  var privileges: List<Privilege> = listOf()
-)
+  var name: String = ""
+}

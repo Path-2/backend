@@ -10,6 +10,32 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/gateway">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/ms-email">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/ms-stop">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/ms-verify-user">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -50,10 +76,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_directory_selection": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/src/main/kotlin/ao/path2/app/config",
-    "last_opened_file_path": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/src/main/resources",
+    "last_opened_file_path": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-gateway",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
@@ -68,16 +94,17 @@
       <recent name="ao.path2.app.config.security" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="ao.path2.ms.user.config" />
+      <recent name="ao.path2.ms.user.config.security.model" />
+      <recent name="ao.path2.ms.user.config.security.filter" />
       <recent name="ao.path2.app.utils.jwt" />
       <recent name="ao.path2.app.utils" />
-      <recent name="ao.path2.app.adapters.inbound.dto.request" />
-      <recent name="ao.path2.app.core.domain.mail" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="ao.path2.app.adapters.inbound.dto.response" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.Path2ApplicationKt">
+  <component name="RunManager" selected="Kotlin.MSUserApplicationKt">
     <configuration name="Path2ApplicationTests (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <extension name="coverage">
@@ -108,17 +135,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Path2ApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ao.path2.app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ao.path2.app" />
-      <option name="MAIN_CLASS_NAME" value="ao.path2.app.Path2ApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
+    <configuration name="MSUserApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ao.path2.ms.user.MSUserApplicationKt" />
+      <module name="ms-user" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -126,6 +145,19 @@
     <configuration name="Path2ApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ao.path2.app.Path2ApplicationKt" />
       <module name="app" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="path2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="path2" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -141,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MSUserApplicationKt" />
         <item itemvalue="Kotlin.Path2ApplicationKt" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="JUnit.Path2ApplicationTests (2)" />
         <item itemvalue="JUnit.Path2ApplicationTests (1)" />
-        <item itemvalue="JUnit.Path2ApplicationTests" />
       </list>
     </recent_temporary>
   </component>

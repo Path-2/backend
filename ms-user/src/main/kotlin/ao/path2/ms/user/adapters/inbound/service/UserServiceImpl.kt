@@ -46,8 +46,6 @@ class UserServiceImpl(
         user.username += ".1"
     }
 
-
-
     return repo.save(user)
   }
 

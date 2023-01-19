@@ -49,6 +49,7 @@ class SecurityConfig(
     // well you won't be able to do any request
     http.authorizeRequests()
       .antMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
+      .antMatchers(HttpMethod.GET, "/h2-console").permitAll()
       .anyRequest().authenticated()
       .and()
       .csrf().disable()

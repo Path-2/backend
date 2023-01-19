@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault
 import org.springframework.http.ResponseEntity
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.bind.annotation.*
 import java.net.URI
 import javax.validation.Valid
@@ -32,11 +33,7 @@ class UserController(private val service: UserService, private val mapper: Mappe
 
     val userSaved = service.save(mapper.map(user, User()) as User)
 
-    val res = mapper.map(userSaved,
-      UserDTO()
-    ) as UserDTO
-
-    val token = jwt.generateToken(res.username)
+    val token = jwt.generateToken(userSaved.username)
 
     return ResponseEntity.created(URI.create("/api/v1/users")).header("Token", token).body("")
   }
@@ -52,7 +49,8 @@ class UserController(private val service: UserService, private val mapper: Mappe
   fun getUser(@PathVariable username: String) = ResponseEntity.ok(
     mapper.map(
       service.findByUsername(username),
-      UserDTO()
+      UserDTO(),
+      transform = { data -> (data as UserDTO).password = null }
     )
   )
 }

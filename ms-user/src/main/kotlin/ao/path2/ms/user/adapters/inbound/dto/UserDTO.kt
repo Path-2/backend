@@ -3,7 +3,7 @@ package ao.path2.ms.user.adapters.inbound.dto
 import com.fasterxml.jackson.annotation.JsonInclude
 import javax.validation.constraints.*
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(value = JsonInclude.Include.NON_NULL, content = JsonInclude.Include.NON_EMPTY)
 class UserDTO() {
   var username: String = ""
 
@@ -28,5 +28,5 @@ class UserDTO() {
   @NotNull
   @NotEmpty
   @NotBlank
-  var password: String = ""
+  var password: String? = ""
 }

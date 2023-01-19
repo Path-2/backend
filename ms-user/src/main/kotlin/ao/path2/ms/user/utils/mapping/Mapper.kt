@@ -9,4 +9,12 @@ class Mapper {
         BeanUtils.copyProperties(source, target)
         return target
     }
+
+    fun map(source: Any, target: Any, transform: (data: Any) -> Unit): Any {
+        BeanUtils.copyProperties(source, target)
+
+        transform(target)
+
+        return target
+    }
 }

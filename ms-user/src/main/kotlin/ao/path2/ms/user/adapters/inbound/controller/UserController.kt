@@ -1,5 +1,6 @@
 package ao.path2.ms.user.adapters.inbound.controller
 
+import ao.path2.ms.user.adapters.inbound.dto.UserDTO
 import ao.path2.ms.user.core.domain.PageQuery
 import ao.path2.ms.user.core.domain.User
 import ao.path2.ms.user.core.service.UserService
@@ -27,13 +28,13 @@ class UserController(private val service: UserService, private val mapper: Mappe
   }
 
   @PostMapping
-  fun save(@RequestBody @Valid user: ao.path2.ms.user.adapters.inbound.dto.request.UserDTO): ResponseEntity<Any> {
+  fun save(@RequestBody @Valid user: UserDTO): ResponseEntity<Any> {
 
     val userSaved = service.save(mapper.map(user, User()) as User)
 
     val res = mapper.map(userSaved,
-      ao.path2.ms.user.adapters.inbound.dto.response.UserDTO()
-    ) as ao.path2.ms.user.adapters.inbound.dto.response.UserDTO
+      UserDTO()
+    ) as UserDTO
 
     val token = jwt.generateToken(res.username)
 
@@ -51,7 +52,7 @@ class UserController(private val service: UserService, private val mapper: Mappe
   fun getUser(@PathVariable username: String) = ResponseEntity.ok(
     mapper.map(
       service.findByUsername(username),
-      ao.path2.ms.user.adapters.inbound.dto.response.UserDTO()
+      UserDTO()
     )
   )
 }

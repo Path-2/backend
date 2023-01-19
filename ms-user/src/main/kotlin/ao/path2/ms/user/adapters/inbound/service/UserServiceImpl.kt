@@ -35,7 +35,7 @@ class UserServiceImpl(
 
     user.password = encoder.encode(user.password)
 
-    log.info("password: ${user.password}")
+    log.info("password encoded")
 
     if (repo.existsByUsername(user.username)) {
       for (i in 1..9)

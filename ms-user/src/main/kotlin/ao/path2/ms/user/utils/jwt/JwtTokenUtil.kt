@@ -37,13 +37,16 @@ class JwtTokenUtil {
   fun getEmail(token: String): String = getClaims(token).subject
 
   fun isTokenValid(token: String): Boolean {
-    val claims = getClaims(token)
-    val username = claims.subject
-    val expirationDate = claims.expiration
-    val now = Date(System.currentTimeMillis())
-    if (username != null && expirationDate != null && now.before(expirationDate)) {
-      return true
-    }
+    try {
+      val claims = getClaims(token)
+      val username = claims.subject
+      val expirationDate = claims.expiration
+      val now = Date(System.currentTimeMillis())
+      if (username != null && expirationDate != null && now.before(expirationDate)) {
+        return true
+      }
+    } catch(_: Exception) {}
+
     return false
   }
 }

@@ -7,6 +7,7 @@ import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.JwtException
 import io.jsonwebtoken.MalformedJwtException
 import io.jsonwebtoken.security.SignatureException
+import org.springframework.core.annotation.Order
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -18,7 +19,8 @@ import org.springframework.web.context.request.WebRequest
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler
 import java.time.LocalDateTime
 
-@ControllerAdvice
+@Order(Int.MIN_VALUE)
+@RestControllerAdvice
 class ExceptionHandler : ResponseEntityExceptionHandler() {
 
   @ExceptionHandler(ResourceNotFoundException::class)
@@ -30,6 +32,9 @@ class ExceptionHandler : ResponseEntityExceptionHandler() {
   fun resourceExistsHandler(exception: Exception, request: WebRequest): ResponseEntity<Any> {
     return handleExceptionInternal(exception, null, HttpHeaders(), HttpStatus.BAD_REQUEST, request)
   }
+
+  @ExceptionHandler(Exception::class)
+  fun globalHandler(exception: Exception, request: WebRequest) = handleExceptionInternal(exception, null, HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request)
 
   override fun handleExceptionInternal(
     ex: Exception,

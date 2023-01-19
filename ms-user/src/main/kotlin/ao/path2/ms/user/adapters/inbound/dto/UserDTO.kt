@@ -1,8 +1,12 @@
-package ao.path2.ms.user.adapters.inbound.dto.request
+package ao.path2.ms.user.adapters.inbound.dto
 
+import com.fasterxml.jackson.annotation.JsonInclude
 import javax.validation.constraints.*
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 class UserDTO() {
+  var username: String = ""
+
   @NotBlank
   @NotEmpty
   @NotNull

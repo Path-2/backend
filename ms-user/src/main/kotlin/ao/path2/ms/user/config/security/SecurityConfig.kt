@@ -2,7 +2,10 @@ package ao.path2.ms.user.config.security
 
 import ao.path2.ms.user.config.security.filter.JwtAuthenticationFilter
 import ao.path2.ms.user.config.security.filter.JwtAuthorizationFilter
+import ao.path2.ms.user.handlers.CustomAuthenticationFailureHandler
 import ao.path2.ms.user.utils.jwt.JwtTokenUtil
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod
@@ -13,6 +16,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.security.web.AuthenticationEntryPoint
 import org.springframework.security.web.SecurityFilterChain
 
 
@@ -22,6 +26,10 @@ class SecurityConfig(
   private val userDetailsService: UserDetailsService,
 ) {
   private val jwtToken = JwtTokenUtil()
+
+  @Autowired
+  @Qualifier("delegatedAuthenticationEntryPoint")
+  var authEntryPoint: AuthenticationEntryPoint? = null
 
   private fun authManager(http: HttpSecurity): AuthenticationManager {
     val authenticationManagerBuilder = http.getSharedObject(
@@ -47,6 +55,10 @@ class SecurityConfig(
       .authenticationManager(authenticationManager)
       .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
       .and()
+      .exceptionHandling()
+      .accessDeniedHandler(securityExceptionHandler())
+      .authenticationEntryPoint(authEntryPoint)
+      .and()
       .addFilter(JwtAuthenticationFilter(jwtToken, authenticationManager))
       .addFilter(JwtAuthorizationFilter(jwtToken, userDetailsService, authenticationManager))
 
@@ -57,4 +69,7 @@ class SecurityConfig(
   fun passwordEncoder(): BCryptPasswordEncoder {
     return BCryptPasswordEncoder(10)
   }
+
+  @Bean
+  fun securityExceptionHandler() = CustomAuthenticationFailureHandler()
 }

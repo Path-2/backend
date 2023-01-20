@@ -1,4 +1,4 @@
-package ao.path2.ms.user.config.security
+package ao.path2.ms.user.config.security.service
 
 import ao.path2.ms.user.config.security.model.UserSecurity
 import ao.path2.ms.user.core.domain.Role

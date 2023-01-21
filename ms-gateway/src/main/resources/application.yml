@@ -9,9 +9,9 @@ spring:
         - id: ms-user
           uri: lb://ms-user
           predicates:
-            - Path=/v1/users/**
+            - Path=/api/v1/users/**
           filters:
-            - StripPrefix=0
+            - StripPrefix=1
           ## FUND TRANSFER SERVICE
         - id: internet-banking-fund-transfer-service
           uri: lb://internet-banking-fund-transfer-service

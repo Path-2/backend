@@ -47,12 +47,16 @@ class SecurityConfig(
     val authenticationManager = authManager(http)
     // Put your endpoint to create/sign, otherwise spring will secure it as
     // well you won't be able to do any request
-    http.authorizeRequests()
+    http.csrf().disable()
+      .cors()
+      .and()
+      .authorizeRequests()
       .antMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
+      .and()
+      .authorizeRequests()
       .antMatchers(HttpMethod.GET, "/h2-console").permitAll()
       .anyRequest().authenticated()
       .and()
-      .csrf().disable()
       .authenticationManager(authenticationManager)
       .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
       .and()

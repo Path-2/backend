@@ -95,6 +95,10 @@
 			<artifactId>hibernate-spatial</artifactId>
 			<version>5.6.12.Final</version>
 		</dependency>
+		<!--dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency-->
 
 		<!-- https://mvnrepository.com/artifact/org.n52.jackson/jackson-datatype-jts -->
 		<dependency>

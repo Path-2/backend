@@ -10,7 +10,6 @@ import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault
 import org.springframework.http.ResponseEntity
-import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.bind.annotation.*
 import java.net.URI
 import javax.validation.Valid
@@ -35,7 +34,7 @@ class UserController(private val service: UserService, private val mapper: Mappe
 
     val token = jwt.generateToken(userSaved.username)
 
-    return ResponseEntity.created(URI.create("/api/v1/users")).header("Token", token).body("")
+    return ResponseEntity.created(URI.create("/api/v1/users")).header("token", token).body("")
   }
 
   @PatchMapping("/{username}")

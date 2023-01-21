@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*
 import java.net.URI
 import javax.validation.Valid
 
-@RequestMapping("/api/v1/users")
+@RequestMapping("/v1/users")
 @RestController
 @CrossOrigin("*")
 class UserController(private val service: UserService, private val mapper: Mapper, private val jwt: JwtTokenUtil) {

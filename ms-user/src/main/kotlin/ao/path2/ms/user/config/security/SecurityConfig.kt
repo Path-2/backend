@@ -51,7 +51,7 @@ class SecurityConfig(
       .cors()
       .and()
       .authorizeRequests()
-      .antMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
+      .antMatchers(HttpMethod.POST, "/v1/users").permitAll()
       .and()
       .authorizeRequests()
       .antMatchers(HttpMethod.GET, "/h2-console").permitAll()

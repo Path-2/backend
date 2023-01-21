@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: add a software architecture" />
+    <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: add .gitignore" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -191,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673088905371</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: add .gitignore">
+      <created>1674312484668</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674312484668</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,7 +215,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactor: switch main language from 'Java' to 'Kotlin'" />
     <MESSAGE value="feat: add a software architecture" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add a software architecture" />
+    <MESSAGE value="feat: add .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add .gitignore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

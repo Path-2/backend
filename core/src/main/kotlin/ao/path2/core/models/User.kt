@@ -1,0 +1,12 @@
+package ao.path2.core.models
+
+class User() {
+  var id: Long = 0
+  var username: String = ""
+  var name: String = ""
+  var image: String = ""
+  var phone: String = ""
+  var email: String = ""
+  var password: String = ""
+  var roles: List<Role> = listOf()
+}

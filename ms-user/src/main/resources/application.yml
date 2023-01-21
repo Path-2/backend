@@ -1,0 +1,26 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+  application:
+    name: ms-user
+  jpa:
+    database-platform: org.hibernate.spatial.dialect.h2geodb.GeoDBDialect
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+jwt:
+  secret: ${env.JWT_SECRET}
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+web:
+  cors:
+    allowed-origins: "*"
+    allowed-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD
+    max-age: 3600

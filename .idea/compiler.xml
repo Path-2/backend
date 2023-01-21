@@ -25,6 +25,7 @@
       <module name="ms-gateway" options="-parameters" />
       <module name="ms-user" options="-parameters" />
       <module name="path2" options="-parameters" />
+      <module name="path2-token" options="" />
     </option>
   </component>
 </project>

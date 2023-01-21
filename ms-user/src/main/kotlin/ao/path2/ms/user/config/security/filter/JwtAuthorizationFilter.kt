@@ -1,6 +1,6 @@
 package ao.path2.ms.user.config.security.filter
 
-import ao.path2.ms.user.utils.jwt.JwtTokenUtil
+import ao.path2.token.JwtToken
 import org.springframework.http.HttpHeaders
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 class JwtAuthorizationFilter(
-  private val jwtTokenUtil: JwtTokenUtil,
+  private val jwtTokenUtil: JwtToken,
   private val service: UserDetailsService,
   authManager: AuthenticationManager,
 
@@ -40,8 +40,8 @@ class JwtAuthorizationFilter(
   private fun getAuthentication(token: String): UsernamePasswordAuthenticationToken? {
     println(token)
     if (!jwtTokenUtil.isTokenValid(token)) return null
-    val email = jwtTokenUtil.getEmail(token)
-    val user = service.loadUserByUsername(email)
+    val username = jwtTokenUtil.getUsername(token)
+    val user = service.loadUserByUsername(username)
 
     return UsernamePasswordAuthenticationToken(user, null, user.authorities)
   }

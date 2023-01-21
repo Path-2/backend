@@ -1,0 +1,7 @@
+*/target/
+*/.idea/
+*/.env
+*/HELP.md
+*/*.xml
+*/.vscode
+.idea

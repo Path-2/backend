@@ -39,6 +39,8 @@ class User {
   @Column(nullable = false, unique = true)
   var email: String = ""
 
+  var facebookId: String = ""
+
   @Size(min = 8)
   @NotNull
   @NotEmpty

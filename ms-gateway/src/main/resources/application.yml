@@ -12,16 +12,16 @@ spring:
             - Path=/api/v1/users/**
           filters:
             - StripPrefix=1
-          ## FUND TRANSFER SERVICE
-        - id: internet-banking-fund-transfer-service
-          uri: lb://internet-banking-fund-transfer-service
+          ## AUTH SERVICE
+        - id: ms-auth
+          uri: lb://ms-auth
           predicates:
-            - Path=/fund-transfer/**
+            - Path=/api/v1/auth/**
           filters:
-            - StripPrefix=1
+            - StripPrefix=3
 
 server:
-  port: 8082
+  port: 8080
 
 eureka:
   client:

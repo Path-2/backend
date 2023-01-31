@@ -1,5 +1,6 @@
 package ao.path2.ms.user.config.security
 
+import ao.path2.ms.user.config.CustomCorsFilter
 import ao.path2.ms.user.config.security.filter.JwtAuthenticationFilter
 import ao.path2.ms.user.config.security.filter.JwtAuthorizationFilter
 import ao.path2.ms.user.handlers.CustomAuthenticationFailureHandler
@@ -18,6 +19,7 @@ import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.AuthenticationEntryPoint
 import org.springframework.security.web.SecurityFilterChain
+import org.springframework.security.web.access.channel.ChannelProcessingFilter
 
 
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -46,9 +48,8 @@ class SecurityConfig(
     val authenticationManager = authManager(http)
     // Put your endpoint to create/sign, otherwise spring will secure it as
     // well you won't be able to do any request
-    http.csrf().disable()
-      .cors()
-      .and()
+    http.cors().and()
+      .csrf().disable()
       .authorizeRequests()
       .antMatchers(HttpMethod.POST, "/v1/users").permitAll()
       .and()
@@ -65,6 +66,7 @@ class SecurityConfig(
       .and()
       .addFilter(JwtAuthenticationFilter(jwtToken, authenticationManager))
       .addFilter(JwtAuthorizationFilter(jwtToken, userDetailsService, authenticationManager))
+      //.addFilterBefore(CustomCorsFilter(), ChannelProcessingFilter::class.java)
 
     return http.build()
   }

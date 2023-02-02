@@ -14,7 +14,6 @@ import org.springframework.amqp.rabbit.listener.ConditionalRejectingErrorHandler
 import org.springframework.amqp.rabbit.support.ListenerExecutionFailedException
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter
 import org.springframework.amqp.support.converter.MessageConverter
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.util.ErrorHandler
@@ -23,35 +22,13 @@ import org.springframework.util.ErrorHandler
 @EnableRabbit
 @Configuration
 class RabbitMQConfig() {
-  @Value("\${rabbitmq.queue}")
-  private val queueName: String? = null
+  private val queueName: String = "user.name"
+  private val exchange: String = "amqp.direct"
+  private val routingKey: String = ""
+  private val replyTimeout: Int = 2
+  private val concurrentConsumers: Int = 5
+  private val maxConcurrentConsumers: Int = 20
 
-  @Value("\${rabbitmq.exchange}")
-  private val exchange: String? = null
-
-  @Value("\${rabbitmq.routingkey}")
-  private val routingkey: String? = null
-
-  @Value("\${rabbitmq.username}")
-  private val username: String? = null
-
-  @Value("\${rabbitmq.password}")
-  private val password: String? = null
-
-  @Value("\${rabbitmq.host}")
-  private val host: String? = null
-
-  @Value("\${rabbitmq.virtualhost}")
-  private val virtualHost: String? = null
-
-  @Value("\${rabbitmq.reply.timeout}")
-  private val replyTimeout: Int? = null
-
-  @Value("\${rabbitmq.concurrent.consumers}")
-  private val concurrentConsumers: Int? = null
-
-  @Value("\${rabbitmq.max.concurrent.consumers}")
-  private val maxConcurrentConsumers: Int? = null
   @Bean
   fun queue(): Queue {
     return Queue(queueName, false)
@@ -64,7 +41,7 @@ class RabbitMQConfig() {
 
   @Bean
   fun binding(queue: Queue?, exchange: DirectExchange?): Binding {
-    return BindingBuilder.bind(queue).to(exchange).with(routingkey)
+    return BindingBuilder.bind(queue).to(exchange).with(routingKey)
   }
 
   @Bean
@@ -73,35 +50,25 @@ class RabbitMQConfig() {
   }
 
   @Bean
-  fun connectionFactory(): ConnectionFactory {
-    val connectionFactory = CachingConnectionFactory()
-    connectionFactory.virtualHost = (virtualHost)!!
-    connectionFactory.host = (host)!!
-    connectionFactory.username = (username)!!
-    connectionFactory.setPassword(password!!)
-    return connectionFactory
-  }
-
-  @Bean
-  fun rabbitTemplate(connectionFactory: ConnectionFactory?): AmqpTemplate {
-    val rabbitTemplate = RabbitTemplate(connectionFactory!!)
-    rabbitTemplate.setDefaultReceiveQueue(queueName!!)
+  fun rabbitTemplate(connectionFactory: ConnectionFactory): AmqpTemplate {
+    val rabbitTemplate = RabbitTemplate(connectionFactory)
+    rabbitTemplate.setDefaultReceiveQueue(queueName)
     rabbitTemplate.messageConverter = jsonMessageConverter()
     rabbitTemplate.setReplyAddress(queue().name)
-    rabbitTemplate.setReplyTimeout(replyTimeout!!.toLong())
+    rabbitTemplate.setReplyTimeout(replyTimeout.toLong())
     rabbitTemplate.setUseDirectReplyToContainer(false)
     return rabbitTemplate
   }
 
   @Bean
-  fun amqpAdmin(): AmqpAdmin {
-    return RabbitAdmin(connectionFactory())
+  fun amqpAdmin(connectionFactory: ConnectionFactory): AmqpAdmin {
+    return RabbitAdmin(connectionFactory)
   }
 
   @Bean
-  fun rabbitListenerContainerFactory(): SimpleRabbitListenerContainerFactory {
+  fun rabbitListenerContainerFactory(connectionFactory: ConnectionFactory): SimpleRabbitListenerContainerFactory {
     val factory = SimpleRabbitListenerContainerFactory()
-    factory.setConnectionFactory(connectionFactory())
+    factory.setConnectionFactory(connectionFactory)
     factory.setMessageConverter(jsonMessageConverter())
     factory.setConcurrentConsumers(concurrentConsumers)
     factory.setMaxConcurrentConsumers(maxConcurrentConsumers)
@@ -118,11 +85,10 @@ class RabbitMQConfig() {
     private val logger = LogManager.getLogger(javaClass)
     override fun isFatal(t: Throwable): Boolean {
       if (t is ListenerExecutionFailedException) {
-        val lefe = t
         logger.error(
           "Failed to process inbound message from queue "
-              + lefe.failedMessage.messageProperties.consumerQueue
-              + "; failed message: " + lefe.failedMessage, t
+              + t.failedMessage.messageProperties.consumerQueue
+              + "; failed message: " + t.failedMessage, t
         )
       }
       return super.isFatal(t)

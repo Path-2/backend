@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: ignore folder .idea">
-      <change afterPath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/config/RabbitMQConfig.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/consumer/RabbitMQConsumer.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/service/EmailService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/service/EmailServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/msemail/MsEmailApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/MsEmailApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/msemail/config/Beans.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/config/Beans.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/src/main/resources/templates/news.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/src/main/resources/templates/verify-email.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/src/test/kotlin/ao/path2/msemail/MsEmailApplicationTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/src/test/kotlin/ao/path2/ms/email/MsEmailApplicationTests.kt" afterDir="false" />
-    </list>
+    <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: ignore folder .idea" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,21 +72,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "jdk.selected.JAVA_MODULE": "11",
-    "last_directory_selection": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/src/main/kotlin/ao/path2/app/config",
-    "last_opened_file_path": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-auth",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/src/main/kotlin/ao/path2/app/config&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-auth&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back" />
@@ -127,17 +115,10 @@
       <recent name="ao.path2.app.adapters.inbound.dto.response" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MSAuthApplicationKt (1)">
+  <component name="RunManager" selected="Kotlin.MsEmailApplicationKt">
     <configuration name="MSAuthApplicationKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ao.path2.ms.auth.MSAuthApplicationKt" />
       <module name="ms-auth" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MSAuthApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ao.path2.ms.user.MSAuthApplicationKt" />
-      <module name="ms-user" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -152,6 +133,13 @@
     <configuration name="MsDiscoveryApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ao.path2.msdiscovery.MsDiscoveryApplicationKt" />
       <module name="ms-discovery" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsEmailApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ao.path2.ms.email.MsEmailApplicationKt" />
+      <module name="ms-email" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -178,11 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MsEmailApplicationKt" />
         <item itemvalue="Kotlin.MSAuthApplicationKt (1)" />
         <item itemvalue="Kotlin.MsGatewayApplicationKt" />
         <item itemvalue="Kotlin.MSUserApplicationKt" />
         <item itemvalue="Kotlin.MsDiscoveryApplicationKt" />
-        <item itemvalue="Kotlin.MSAuthApplicationKt" />
       </list>
     </recent_temporary>
   </component>

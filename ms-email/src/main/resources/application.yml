@@ -5,8 +5,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: ${MAIL_USERNAME}
-    password: ${MAIL_PASSWORD}
+    username: ${MAIL_USERNAME:xxxxxxxx}
+    password: ${MAIL_PASSWORD:xxxxxxxx}
     smtp:
       auth: true
     properties:
@@ -14,3 +14,12 @@ spring:
         smtp:
           starttls:
             enable: true
+  application:
+    name: ms-email
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  main:
+    allow-bean-definition-overriding: true

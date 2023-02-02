@@ -56,7 +56,7 @@
       Equipa do <span>Path2</span>
     </p>
     <img
-      src="../static/assets/images/greetings.png"
+      src="./assets/images/greetings.png"
       alt=""
       width="100%"
       height="20vh"

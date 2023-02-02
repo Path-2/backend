@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Verificação do email</title>
+    <title>Verificação de email</title>
     <style>
       * {
         margin: 0;
@@ -24,6 +24,7 @@
 
       p span {
         color: #403ffb;
+        font-weight: bold;
       }
 
       p a {
@@ -55,12 +56,5 @@
       Atenciosamente, <br />
       Equipa do <span>Path2</span>
     </p>
-    <img
-      src="./assets/images/greetings.png"
-      alt=""
-      width="100%"
-      height="20vh"
-      srcset=""
-    />
   </body>
 </html>

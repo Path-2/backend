@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
-@Table
+@Table(name = "TB_EMAIL")
 class Email {
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "gn_email")
   @Id

@@ -46,6 +46,7 @@
         <option value="HTML File" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
+        <option value="com.haulmont.jpb.JpaRepository" />
       </list>
     </option>
   </component>

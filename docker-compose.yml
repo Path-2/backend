@@ -20,6 +20,8 @@ services:
     image: openjdk
     environment:
       - 1=1
+    ports:
+      - "80:8080"
   discovery:
     image: openjdk
     environment:

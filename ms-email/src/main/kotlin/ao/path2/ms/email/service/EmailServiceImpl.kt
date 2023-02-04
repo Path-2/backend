@@ -1,5 +1,6 @@
 package ao.path2.ms.email.service
 
+import ao.path2.core.models.EmailModel
 import freemarker.template.Configuration
 import freemarker.template.TemplateException
 import org.springframework.mail.javamail.JavaMailSender
@@ -16,20 +17,20 @@ class EmailServiceImpl(private val configuration: Configuration, private val sen
 
   }
 
-  override fun sendAttachedWithAssetsEmail(data: Map<String, Any>, subject: String, to: String, template: String) {
-    val mimeMessage: MimeMessage = sender.createMimeMessage();
+  @Throws(IOException::class, TemplateException::class)
+  override fun sendAttachedWithAssetsEmail(emailModel: EmailModel) {
+    val mimeMessage: MimeMessage = sender.createMimeMessage()
     val helper = MimeMessageHelper(mimeMessage)
-    helper.setSubject(subject);
-    helper.setTo(to);
-    val emailContent: String = getEmailContent(data, template)
-    helper.setText(emailContent, true);
-    sender.send(mimeMessage);
+    helper.setSubject(emailModel.subject)
+    helper.setTo(emailModel.to)
+    helper.setText(getEmailContent(emailModel), true)
+    sender.send(mimeMessage)
   }
 
   @Throws(IOException::class, TemplateException::class)
-  fun getEmailContent(data: Map<String, Any>, template: String): String {
+  fun getEmailContent(emailModel: EmailModel): String {
     val stringWriter = StringWriter()
-    configuration.getTemplate("$template.ftlh").process(data, stringWriter)
+    configuration.getTemplate("${emailModel.template}.ftlh").process(emailModel.data, stringWriter)
     return stringWriter.buffer.toString()
   }
 }

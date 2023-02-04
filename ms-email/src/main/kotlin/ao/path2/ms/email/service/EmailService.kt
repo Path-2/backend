@@ -1,6 +1,8 @@
 package ao.path2.ms.email.service
 
+import ao.path2.core.models.EmailModel
+
 interface EmailService {
   fun sendSimpleEmail()
-  fun sendAttachedWithAssetsEmail(data: Map<String, Any>, subject: String, to: String, template: String)
+  fun sendAttachedWithAssetsEmail(emailModel: EmailModel)
 }

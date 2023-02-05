@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/../path2-token/pom.xml" />
         <option value="$PROJECT_DIR$/path2-token/pom.xml" />
         <option value="$PROJECT_DIR$/ms-auth/pom.xml" />
+        <option value="$PROJECT_DIR$/token/pom.xml" />
       </list>
     </option>
   </component>

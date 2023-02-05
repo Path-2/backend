@@ -11,8 +11,8 @@
     <file url="file://$PROJECT_DIR$/ms-gateway/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ms-user/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ms-user/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/path2-token/src/main/kotlin" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/path2-token/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/token/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/token/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../path2-token/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../path2-token/src/main/resources" charset="UTF-8" />
   </component>

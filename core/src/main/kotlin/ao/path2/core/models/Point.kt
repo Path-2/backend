@@ -1,6 +1,12 @@
 package ao.path2.core.models
 
-import org.locationtech.jts.geom.Point
-import java.time.LocalDateTime
+import javax.persistence.Embeddable
+import javax.persistence.MappedSuperclass
 
-open class Point(var coordinates: Point, createdAt: LocalDateTime, createdBy: User) {}
+@MappedSuperclass
+@Embeddable
+open class Point {
+  var name: String = ""
+  var x: Double = .0
+  var y: Double = .0
+}

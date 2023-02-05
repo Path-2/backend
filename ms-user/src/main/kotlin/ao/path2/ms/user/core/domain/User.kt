@@ -8,5 +8,6 @@ class User() {
   var phone: String = ""
   var email: String = ""
   var password: String = ""
+  var facebookId: String = ""
   var roles: List<Role> = listOf()
 }

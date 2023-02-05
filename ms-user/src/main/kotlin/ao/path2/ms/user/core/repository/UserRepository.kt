@@ -13,4 +13,6 @@ interface UserRepository {
     fun existsByEmail(email: String): Boolean
     fun existsByPhone(phone: String): Boolean
     fun existsByUsername(username: String): Boolean
+    fun existsByFacebookId(username: String): Boolean
+    fun findByFacebookId(username: String): User
 }

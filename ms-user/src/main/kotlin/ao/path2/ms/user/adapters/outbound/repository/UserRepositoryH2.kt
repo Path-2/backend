@@ -48,5 +48,8 @@ class UserRepositoryH2(private val repository: UserRepositorySpringData, private
 
 
   override fun existsByUsername(username: String): Boolean = repository.existsByUsername(username)
+  override fun existsByFacebookId(username: String): Boolean = repository.existsByFacebookId(username)
+
+  override fun findByFacebookId(username: String): User = mapper.map(repository.findByFacebookId(username), User()) as User
 
 }

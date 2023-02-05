@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import java.util.*
 
 
-@Configuration
+
 class CORSConfig {
 
   /*@Value("\${cors.originPatterns:default}")
@@ -20,15 +20,15 @@ class CORSConfig {
   fun addCorsConfig(): WebMvcConfigurer {
     return object : WebMvcConfigurer {
       override fun addCorsMappings(registry: CorsRegistry) {
-        registry.addMapping("/**")
+        registry.addMapping("/**").allowedMethods("*").allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH")
       }
     }
   }
 
-  @Bean
+
   fun corsConfigurationSource(): CorsConfigurationSource? {
     val configuration = CorsConfiguration()
-    configuration.allowedOriginPatterns = listOf("*")
+    configuration.allowedOrigins = listOf("*")
     configuration.allowedMethods = listOf("GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS", "HEAD")
     configuration.allowCredentials = true
     configuration.allowedHeaders = listOf("*")

@@ -2,6 +2,7 @@ package ao.path2.ms.user.config.security.service
 
 import ao.path2.ms.user.config.security.model.UserSecurity
 import ao.path2.ms.user.core.domain.Role
+import ao.path2.ms.user.core.exceptions.ResourceNotFoundException
 import ao.path2.ms.user.core.repository.RoleRepository
 import ao.path2.ms.user.core.repository.UserRepository
 import org.springframework.security.core.GrantedAuthority
@@ -16,7 +17,13 @@ class UserDetailsServiceImpl(
 ) : UserDetailsService {
   override fun loadUserByUsername(username: String): UserSecurity? {
     // Create a method in your repo to find a user by its username
-    val user = userRepo.findByUsername(username)
+    val user = if (userRepo.existsByUsername(username))
+      userRepo.findByUsername(username)
+    else if (userRepo.existsByFacebookId(username))
+      userRepo.findByFacebookId(username)
+    else if (userRepo.existsByEmail(username))
+      userRepo.findByEmail(username)
+    else throw ResourceNotFoundException("User with username or email: $username not found")
 
     return UserSecurity(
       user.id,

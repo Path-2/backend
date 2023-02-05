@@ -9,6 +9,7 @@ import org.springframework.mail.javamail.MimeMessageHelper
 import org.springframework.stereotype.Service
 import java.io.IOException
 import java.io.StringWriter
+import java.nio.charset.StandardCharsets
 import javax.mail.internet.MimeMessage
 
 @Service
@@ -21,7 +22,8 @@ class EmailServiceImpl(private val configuration: Configuration, private val sen
   @Throws(IOException::class, TemplateException::class, MailException::class)
   override fun sendAttachedWithAssetsEmail(emailModel: EmailModel) {
     val mimeMessage: MimeMessage = sender.createMimeMessage()
-    val helper = MimeMessageHelper(mimeMessage)
+    val helper = MimeMessageHelper(mimeMessage, true, StandardCharsets.UTF_8.name())
+    helper.setFrom("path2app@gmail.com", "Path2 App")
     helper.setSubject(emailModel.subject)
     helper.setTo(emailModel.to)
     helper.setText(getEmailContent(emailModel), true)

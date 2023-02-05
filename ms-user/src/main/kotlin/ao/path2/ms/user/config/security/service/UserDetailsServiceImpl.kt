@@ -1,20 +1,22 @@
 package ao.path2.ms.user.config.security.service
 
+import ao.path2.ms.user.models.Role
+import ao.path2.ms.user.repository.RoleRepository
+import ao.path2.ms.user.repository.UserRepository
 import ao.path2.ms.user.config.security.model.UserSecurity
-import ao.path2.ms.user.core.domain.Role
 import ao.path2.ms.user.core.exceptions.ResourceNotFoundException
-import ao.path2.ms.user.core.repository.RoleRepository
-import ao.path2.ms.user.core.repository.UserRepository
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
+import javax.transaction.Transactional
 
 
 @Service
 class UserDetailsServiceImpl(
   private val userRepo: UserRepository, private val roleRepo: RoleRepository
 ) : UserDetailsService {
+  @Transactional
   override fun loadUserByUsername(username: String): UserSecurity? {
     // Create a method in your repo to find a user by its username
     val user = if (userRepo.existsByUsername(username))
@@ -28,8 +30,8 @@ class UserDetailsServiceImpl(
     return UserSecurity(
       user.id,
       user.email,
-      user.password,
-      getAuthorities(user.roles)
+      user.password!!,
+      getAuthorities(user.roles!!)
     )
   }
 

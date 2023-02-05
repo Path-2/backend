@@ -1,13 +1,14 @@
-package ao.path2.ms.user.core.service
+package ao.path2.ms.user.service
 
-import ao.path2.ms.user.core.domain.PageQuery
-import ao.path2.ms.user.core.domain.User
+import ao.path2.ms.user.models.User
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 
 interface UserService {
     fun save(user: User): User
     fun findByEmail(email: String): User
     fun findByPhone(phone: String): User
-    fun listAll(pageQuery: PageQuery): List<User>
+    fun listAll(page: Pageable): Page<User>
     fun update(user: User): User
     fun findByUsername(username: String): User
 }

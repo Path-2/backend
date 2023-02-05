@@ -1,17 +1,17 @@
-package ao.path2.ms.email.producer
+package ao.path2.ms.user.producers
 
 import ao.path2.core.models.EmailModel
 import org.springframework.amqp.AmqpException
-import org.springframework.amqp.core.Queue
 import org.springframework.amqp.rabbit.core.RabbitTemplate
 import org.springframework.stereotype.Service
 import kotlin.jvm.Throws
 
 @Service
-class RabbiMQEmailProducer(private val rabbitTemplate: RabbitTemplate, private val queue: Queue) {
+class RabbitMQProducer(private val rabbitTemplate: RabbitTemplate) {
 
   @Throws(AmqpException::class)
   fun enqueue(emailModel: EmailModel) {
-    rabbitTemplate.convertAndSend(queue.name, emailModel)
+    rabbitTemplate.convertAndSend("user.name", emailModel)
   }
+
 }

@@ -14,6 +14,8 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+  main:
+    allow-bean-definition-overriding: true
 jwt:
   secret: ${env.JWT_SECRET}
 eureka:

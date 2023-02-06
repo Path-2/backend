@@ -51,7 +51,7 @@
       não foi você quem solicitou pode ignorar.
     </p>
     <p>Enviamos abaixo o seu link de confirmação:</p>
-    <p><a href="$verifyLink" target="_blank">Clique aqui 😊</a></p>
+    <p><a href="${verifyLink}" target="_blank">Clique aqui 😊</a></p>
     <p>
       Atenciosamente, <br />
       Equipa do <span>Path2</span>

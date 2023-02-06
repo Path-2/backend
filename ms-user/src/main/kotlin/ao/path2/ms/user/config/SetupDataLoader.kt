@@ -1,12 +1,11 @@
 package ao.path2.ms.user.config
 
-import ao.path2.ms.user.core.domain.Role
-import ao.path2.ms.user.core.repository.RoleRepository
-import ao.path2.ms.user.core.repository.UserRepository
+import ao.path2.ms.user.models.Role
+import ao.path2.ms.user.repository.RoleRepository
+import ao.path2.ms.user.repository.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationListener
 import org.springframework.context.event.ContextRefreshedEvent
-import org.springframework.core.annotation.Order
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Component
 import javax.transaction.Transactional
@@ -30,7 +29,7 @@ class SetupDataLoader : ApplicationListener<ContextRefreshedEvent> {
 
     createRoleIfNotFound("ROLE_ADMIN")
     createRoleIfNotFound("ROLE_USER")
-    println("Config......")
+
     alreadySetup = true
   }
 

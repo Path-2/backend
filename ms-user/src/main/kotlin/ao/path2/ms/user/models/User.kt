@@ -1,11 +1,16 @@
-package ao.path2.ms.user.adapters.outbound.repository.entity
+package ao.path2.ms.user.models
 
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonInclude
 import javax.persistence.*
 import javax.validation.constraints.*
 
 @Entity(name = "User")
 @Table(name = "TB_USER")
-class User {
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(value = ["password"])
+class User() {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "gn_user")
   var id: Long = 0
@@ -35,7 +40,6 @@ class User {
   @NotBlank
   @NotEmpty
   @NotNull
-  @Email
   @Column(nullable = false, unique = true)
   var email: String = ""
 
@@ -46,7 +50,10 @@ class User {
   @NotEmpty
   @NotBlank
   @Column(nullable = false)
-  var password: String = ""
+  var password: String? = ""
+
+  var verified: Boolean = false
+  var cancelled: Boolean = false
 
   @ManyToMany
   @JoinTable(
@@ -58,5 +65,5 @@ class User {
       name = "role_id", referencedColumnName = "id"
     )]
   )
-  var roles: List<Role> = listOf()
+  var roles: List<Role>? = listOf()
 }

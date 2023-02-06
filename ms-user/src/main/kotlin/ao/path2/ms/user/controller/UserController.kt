@@ -1,12 +1,11 @@
-package ao.path2.ms.user.adapters.inbound.controller
+package ao.path2.ms.user.controller
 
-import ao.path2.ms.user.adapters.inbound.dto.UserDTO
-import ao.path2.ms.user.core.domain.PageQuery
-import ao.path2.ms.user.core.domain.User
-import ao.path2.ms.user.core.service.UserService
+import ao.path2.ms.user.models.User
+import ao.path2.ms.user.dto.UserDTO
+import ao.path2.ms.user.service.UserService
 import ao.path2.ms.user.utils.mapping.Mapper
 import ao.path2.token.JwtToken
-import org.springframework.data.domain.PageImpl
+import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault
 import org.springframework.http.ResponseEntity
@@ -19,12 +18,9 @@ import javax.validation.Valid
 @CrossOrigin("*")
 class UserController(private val service: UserService, private val mapper: Mapper, private val jwt: JwtToken) {
   @GetMapping
-  fun getAll(@PageableDefault(size = 15, page = 0) page: Pageable): ResponseEntity<PageImpl<User>> {
-    val pageQuery: PageQuery = PageQuery(page.pageSize, page.pageNumber)
+  fun getAll(@PageableDefault(size = 15, page = 0) page: Pageable): ResponseEntity<Page<User>> {
 
-    val pageResponse = PageImpl(service.listAll(pageQuery), page, page.pageSize.toLong())
-
-    return ResponseEntity.ok(pageResponse)
+    return ResponseEntity.ok(service.listAll(page))
   }
 
   @PostMapping

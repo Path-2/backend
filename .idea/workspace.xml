@@ -5,28 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: ignore folder .idea">
-      <change afterPath="$PROJECT_DIR$/core/src/main/kotlin/ao/path2/core/models/CustomAuthenticationFailureHandler.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/kotlin/ao/path2/core/models/ErrorDetails.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/filters/src/main/kotlin/ao/path2/filter/JwtAuthenticationFilter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/filters/src/main/kotlin/ao/path2/filter/JwtAuthorizationFilter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/filters/src/main/kotlin/ao/path2/filter/model/UserLoginDto.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/filters/src/main/kotlin/ao/path2/filter/model/UserSecurity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-stop/ms-stop/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/MSStopApplication.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/config/JacksonConfig.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/config/security/DelegatedAuthenticationEntryPoint.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/config/security/SecurityConfig.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/config/security/service/UserDetailsServiceImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/controller/StopController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/models/Stop.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/repository/StopRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/service/StopService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/service/StopServiceImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/repository/StopRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/repository/StopRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/service/StopService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/service/StopService.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

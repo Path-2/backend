@@ -8,18 +8,13 @@ import javax.transaction.Transactional
 
 @Repository
 interface UserRepository : PagingAndSortingRepository<User, Long> {
-  @Transactional
   fun save(user: User): User
-  @Transactional
   fun findByEmail(email: String): User
-  @Transactional
   fun findByPhone(phone: String): User
-  @Transactional
   fun findByUsername(username: String): User
   fun existsByEmail(email: String): Boolean
   fun existsByPhone(phone: String): Boolean
   fun existsByUsername(username: String): Boolean
   fun existsByFacebookId(username: String): Boolean
-  @Transactional
   fun findByFacebookId(username: String): User
 }

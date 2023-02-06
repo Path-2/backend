@@ -26,7 +26,6 @@ class UserServiceImpl(
 ) : UserService {
   private val log: Logger = LogManager.getLogger(UserService::class.java.toString())
 
-  @Transactional
   override fun save(user: User): User {
     log.info("Searching user...")
     if (repo.existsByEmail(user.email) || repo.existsByPhone(user.phone)) {
@@ -39,15 +38,8 @@ class UserServiceImpl(
 
     user.password = encoder.encode(user.password)
 
-    log.info("password encoded")
-
     if (repo.existsByUsername(user.username)) {
-      for (i in 1..9)
-        if (user.username.endsWith(".$i")) {
-          user.username += (i + 1)
-        }
-      if (!"[a-z.]+[.][0-9]".matches(user.username))
-        user.username += ".1"
+      user.username = "${user.username}.1"
     }
 
     val newUser = repo.save(user)
@@ -81,7 +73,6 @@ class UserServiceImpl(
     return newUser
   }
 
-  @Transactional
   override fun findByEmail(email: String): User {
     log.info("Searching an user with email $email...")
     if (!repo.existsByEmail(email)) {
@@ -93,7 +84,6 @@ class UserServiceImpl(
     return repo.findByEmail(email)
   }
 
-  @Transactional
   override fun findByPhone(phone: String): User {
     log.info("Searching an user with phone $phone...")
     if (!repo.existsByPhone(phone)) {
@@ -111,7 +101,6 @@ class UserServiceImpl(
     return user
   }
 
-  @Transactional
   override fun listAll(page: Pageable): Page<User> {
     val all = repo.findAll(page)
     val users = mutableListOf<User>()
@@ -122,7 +111,6 @@ class UserServiceImpl(
     return PageImpl(users, page, page.pageSize.toLong())
   }
 
-  @Transactional
   override fun update(user: User): User {
     log.info("Searching user...")
     if (!repo.existsByEmail(user.email)) {
@@ -133,7 +121,6 @@ class UserServiceImpl(
     return repo.save(user)
   }
 
-  @Transactional
   override fun findByUsername(username: String): User {
     log.info("Searching an user with username $username...")
     if (!repo.existsByUsername(username)) {

@@ -3,7 +3,7 @@ package ao.path2.ms.stop.service
 import ao.path2.core.exceptions.ResourceExistsException
 import ao.path2.ms.stop.models.Stop
 import ao.path2.ms.stop.repository.StopRepository
-import ao.path2.ms.user.core.exceptions.ResourceNotFoundException
+import ao.path2.core.exceptions.ResourceNotFoundException
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
@@ -23,8 +23,8 @@ class StopServiceImpl(private val repository: StopRepository): StopService {
     return repository.findById(id).orElseThrow { ResourceNotFoundException("") }
   }
 
-  override fun findStopsNear(lat: Double, lon: Double): List<Stop> {
-    return repository.findNear(lat, lon)
+  override fun findStopsNear(lat: Double, lon: Double, distance: Double?): List<Stop> {
+    return repository.findNear(lon, lat, distance)
   }
 
   override fun update(stop: Stop): Stop {

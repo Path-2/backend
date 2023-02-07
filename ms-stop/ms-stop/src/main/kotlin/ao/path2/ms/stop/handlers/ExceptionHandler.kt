@@ -1,14 +1,15 @@
-package ao.path2.ms.user.handlers
+package ao.path2.ms.stop.handlers
 
 
 import ao.path2.core.exceptions.ResourceExistsException
-import ao.path2.core.exceptions.ResourceNotFoundException
+import ao.path2.core.models.ErrorDetails
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.JwtException
 import io.jsonwebtoken.MalformedJwtException
 import io.jsonwebtoken.security.SignatureException
 import org.springframework.core.annotation.Order
 import org.springframework.http.HttpHeaders
+import ao.path2.core.exceptions.ResourceNotFoundException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler

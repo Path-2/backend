@@ -5,18 +5,16 @@ import ao.path2.core.models.enums.Template
 import ao.path2.ms.user.producers.RabbitMQProducer
 import ao.path2.core.exceptions.ResourceExistsException
 import ao.path2.ms.user.repository.UserRepository
-import ao.path2.ms.user.core.exceptions.ResourceNotFoundException
+import ao.path2.core.exceptions.ResourceNotFoundException
 import ao.path2.ms.user.models.User
 import org.apache.logging.log4j.LogManager
 import org.springframework.amqp.AmqpException
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
-import java.util.*
 import org.apache.logging.log4j.Logger
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable
-import javax.transaction.Transactional
 
 @Service
 class UserServiceImpl(

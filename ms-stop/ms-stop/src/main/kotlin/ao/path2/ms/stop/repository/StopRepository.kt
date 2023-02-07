@@ -7,7 +7,7 @@ import org.springframework.data.repository.PagingAndSortingRepository
 interface StopRepository : PagingAndSortingRepository<Stop, Long> {
   fun existsByName(name: String): Boolean
 
-  @Query("select s from Stop s")
-  fun findNear(lat: Double, lon: Double): List<Stop>
+  @Query(value = "select * from tb_stop where ST_DistanceSphere(geom, ST_Point(:lon, :lat)) < :distance", nativeQuery = true)
+  fun findNear(lon: Double, lat: Double, distance: Double?): List<Stop>
 
 }

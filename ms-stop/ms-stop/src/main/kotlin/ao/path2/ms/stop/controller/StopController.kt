@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class StopController(private val service: StopService) {
 
-  fun findAll(@PageableDefault(page = 0, size = 20) pageable: Pageable): ResponseEntity<Page<Stop>> =
-    ResponseEntity.ok(service.findAll())
+  fun findAll(@PageableDefault(page = 0, size = 20) page: Pageable): ResponseEntity<Page<Stop>> =
+    ResponseEntity.ok(service.findAll(page))
 
   fun save(stop: Stop): ResponseEntity<Stop> = ResponseEntity.status(HttpStatus.CREATED).body(service.save(stop))
 
   fun findById(id: Long): ResponseEntity<Stop> = ResponseEntity.ok(service.findById(id))
 
-  fun findStopsNear(lat: Double, lon: Double): ResponseEntity<List<Stop>> = ResponseEntity.ok(
+  fun findStopsNear(lat: Double, lon: Double, distance: Double?): ResponseEntity<List<Stop>> = ResponseEntity.ok(
     service.findStopsNear(
-      lat, lon
+      lat, lon, distance
     )
   )
 

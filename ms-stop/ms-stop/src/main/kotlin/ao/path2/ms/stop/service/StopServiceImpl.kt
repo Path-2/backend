@@ -32,7 +32,7 @@ class StopServiceImpl(private val repository: StopRepository): StopService {
   override fun findStopsNear(lat: Double, lon: Double, distance: Double?): List<Stop> {
 
     val point = GeometryFactory(PrecisionModel(PrecisionModel.FLOATING), 4326).createPoint(Coordinate(lon, lat))
-    
+
     return repository.findNear(point, distance)
   }
 

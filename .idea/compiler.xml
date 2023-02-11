@@ -7,16 +7,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ms-auth" />
-        <module name="ms-discovery" />
-        <module name="ms-user" />
-        <module name="filters" />
         <module name="ms-email" />
         <module name="ms-stop" />
+        <module name="ms-discovery" />
+        <module name="ms-user" />
         <module name="ms-gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="core" target="11" />
+      <module name="filters" target="11" />
       <module name="path2" target="11" />
       <module name="token" target="11" />
     </bytecodeTargetLevel>

@@ -13,9 +13,10 @@ import org.locationtech.jts.geom.PrecisionModel
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
+import java.time.LocalDateTime
 
 @Service
-class StopServiceImpl(private val repository: StopRepository): StopService {
+class StopServiceImpl(private val repository: StopRepository) : StopService {
   override fun findAll(page: Pageable): Page<Stop> = repository.findAll(page)
 
   override fun save(stop: Stop): Stop {
@@ -29,14 +30,22 @@ class StopServiceImpl(private val repository: StopRepository): StopService {
     return repository.findById(id).orElseThrow { ResourceNotFoundException("") }
   }
 
-  override fun findStopsNear(lat: Double, lon: Double, distance: Double?): List<Stop> {
+  override fun findStopsNear(lat: Double, lon: Double, distance: String): List<Stop> {
 
     val point = GeometryFactory(PrecisionModel(PrecisionModel.FLOATING), 4326).createPoint(Coordinate(lon, lat))
 
-    return repository.findNear(point, distance)
+    val dist = distance.trim()
+      .replace("k", "K")
+      .replace("M", "m")
+      .replace(",", ".")
+
+    return repository.findNear(point, convertStringDistanceToDouble(dist))
   }
 
   override fun update(stop: Stop): Stop {
+
+    stop.updatedAt = LocalDateTime.now()
+    
     return repository.save(stop)
   }
 
@@ -62,4 +71,8 @@ class StopServiceImpl(private val repository: StopRepository): StopService {
 
     repository.deleteById(id)
   }
+
+  private fun convertStringDistanceToDouble(distance: String): Double =
+    if (distance.matches(Regex.fromLiteral("[0-9]+Km"))) distance.toDouble()
+    else distance.toDouble()
 }

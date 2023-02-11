@@ -28,7 +28,7 @@ class StopController(private val service: StopService) {
   fun findStopsNear(
     @RequestParam(name = "lat", required = true) lat: Double,
     @RequestParam(name = "lon", required = true) lon: Double,
-    @RequestParam(name = "distance", required = false, defaultValue = "1000") distance: Double?
+    @RequestParam(name = "distance", required = false, defaultValue = "1000m") distance: String
   ): ResponseEntity<List<Stop>> = ResponseEntity.ok(
     service.findStopsNear(
       lat, lon, distance

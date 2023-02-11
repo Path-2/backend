@@ -1,9 +1,9 @@
 package ao.path2.ms.stop.config.security
 
 import ao.path2.core.models.CustomAuthenticationFailureHandler
-import ao.path2.filter.JwtAuthenticationFilter
-import ao.path2.filter.JwtAuthorizationFilter
-import ao.path2.token.JwtToken
+import ao.path2.ms.stop.filter.JwtAuthenticationFilter
+import ao.path2.ms.stop.filter.JwtAuthorizationFilter
+import ao.path2.ms.stop.token.JwtToken
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean

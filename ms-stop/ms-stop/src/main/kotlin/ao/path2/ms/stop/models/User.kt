@@ -1,10 +1,14 @@
-package ao.path2.core.models
+package ao.path2.ms.stop.models
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonInclude
 import javax.persistence.*
 import javax.validation.constraints.*
 
 @Entity(name = "User")
 @Table(name = "TB_USER")
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(value = ["password"])
 class User() {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "gn_user")
@@ -45,7 +49,7 @@ class User() {
   @NotEmpty
   @NotBlank
   @Column(nullable = false)
-  var password: String = ""
+  var password: String? = ""
 
   var verified: Boolean = false
   var cancelled: Boolean = false
@@ -60,5 +64,5 @@ class User() {
       name = "role_id", referencedColumnName = "id"
     )]
   )
-  var roles: List<Role> = listOf()
+  var roles: List<Role>? = listOf()
 }

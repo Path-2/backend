@@ -1,4 +1,4 @@
-package ao.path2.core.models
+package ao.path2.ms.stop.models
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue

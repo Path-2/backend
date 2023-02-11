@@ -1,6 +1,6 @@
 package ao.path2.ms.user.config.security.filter
 
-import ao.path2.token.JwtToken
+import ao.path2.ms.user.token.JwtToken
 import org.springframework.http.HttpHeaders
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken

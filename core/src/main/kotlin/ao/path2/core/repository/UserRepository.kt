@@ -1,6 +1,5 @@
 package ao.path2.core.repository;
 
-import ao.path2.core.models.User
 import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.PagingAndSortingRepository
 import org.springframework.stereotype.Repository

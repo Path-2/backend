@@ -4,6 +4,12 @@ import ao.path2.core.exceptions.ResourceExistsException
 import ao.path2.ms.stop.models.Stop
 import ao.path2.ms.stop.repository.StopRepository
 import ao.path2.core.exceptions.ResourceNotFoundException
+import org.geolatte.geom.G2D
+import org.geolatte.geom.Geometries
+import org.geolatte.geom.crs.CoordinateReferenceSystems
+import org.locationtech.jts.geom.Coordinate
+import org.locationtech.jts.geom.GeometryFactory
+import org.locationtech.jts.geom.PrecisionModel
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
@@ -24,7 +30,10 @@ class StopServiceImpl(private val repository: StopRepository): StopService {
   }
 
   override fun findStopsNear(lat: Double, lon: Double, distance: Double?): List<Stop> {
-    return repository.findNear(lon, lat, distance)
+
+    val point = GeometryFactory(PrecisionModel(PrecisionModel.FLOATING), 4326).createPoint(Coordinate(lon, lat))
+    
+    return repository.findNear(point, distance)
   }
 
   override fun update(stop: Stop): Stop {

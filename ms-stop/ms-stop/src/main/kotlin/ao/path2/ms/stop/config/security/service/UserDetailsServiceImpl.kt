@@ -1,20 +1,18 @@
-package ao.path2.ms.user.config.security.service
+package ao.path2.ms.stop.config.security.service
 
-import ao.path2.ms.user.models.Role
-import ao.path2.ms.user.repository.RoleRepository
-import ao.path2.ms.user.repository.UserRepository
-import ao.path2.ms.user.config.security.model.UserSecurity
 import ao.path2.core.exceptions.ResourceNotFoundException
+import ao.path2.ms.stop.config.security.model.UserSecurity
+import ao.path2.ms.stop.models.Role
+import ao.path2.ms.stop.repository.UserRepository
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
 import javax.transaction.Transactional
 
-
 @Service
 class UserDetailsServiceImpl(
-  private val userRepo: UserRepository, private val roleRepo: RoleRepository
+  private val userRepo: UserRepository
 ) : UserDetailsService {
   @Transactional
   override fun loadUserByUsername(username: String): UserSecurity? {

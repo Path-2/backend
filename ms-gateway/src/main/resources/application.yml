@@ -19,6 +19,13 @@ spring:
             - Path=/api/v1/auth/**
           filters:
             - StripPrefix=3
+        ## STOP SERVICE
+        - id: ms-stop
+          uri: lb://ms-stop
+          predicates:
+            - Path=/api/v1/stops/**
+          filters:
+            - StripPrefix=1
 
 server:
   port: 8080

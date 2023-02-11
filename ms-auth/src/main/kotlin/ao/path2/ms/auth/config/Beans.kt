@@ -1,6 +1,6 @@
 package ao.path2.ms.auth.config
 
-import ao.path2.token.JwtToken
+import ao.path2.ms.auth.token.JwtToken
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 

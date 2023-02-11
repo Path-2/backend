@@ -1,6 +1,5 @@
 package ao.path2.ms.stop.models
 
-import org.hibernate.annotations.Type
 import org.locationtech.jts.geom.Point
 import java.time.LocalDateTime
 import javax.persistence.*
@@ -9,13 +8,13 @@ import javax.validation.constraints.NotNull
 
 @Entity
 @Table(name = "TB_STOP")
+
 class Stop {
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "gn_stop")
   @Id
   var id: Long = 0
 
   @NotNull
-  @Type(type = "org.hibernate.spatial.JTSGeometryType")
   var point: Point? = null
 
   @NotEmpty

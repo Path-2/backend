@@ -1,8 +1,8 @@
 package ao.path2.ms.user.handlers
 
 
-import ao.path2.core.exceptions.ResourceExistsException
-import ao.path2.core.exceptions.ResourceNotFoundException
+import ao.path2.ms.user.core.exceptions.ResourceExistsException
+import ao.path2.ms.user.core.exceptions.ResourceNotFoundException
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.JwtException
 import io.jsonwebtoken.MalformedJwtException

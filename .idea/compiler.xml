@@ -16,7 +16,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="core" target="11" />
       <module name="path2" target="11" />
+      <module name="token" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

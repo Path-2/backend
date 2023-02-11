@@ -4,7 +4,7 @@ import ao.path2.ms.user.models.Role
 import ao.path2.ms.user.repository.RoleRepository
 import ao.path2.ms.user.repository.UserRepository
 import ao.path2.ms.user.config.security.model.UserSecurity
-import ao.path2.core.exceptions.ResourceNotFoundException
+import ao.path2.ms.user.core.exceptions.ResourceNotFoundException
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetailsService

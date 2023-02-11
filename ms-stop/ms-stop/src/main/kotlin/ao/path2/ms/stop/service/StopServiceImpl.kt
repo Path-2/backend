@@ -4,9 +4,8 @@ import ao.path2.core.exceptions.ResourceExistsException
 import ao.path2.ms.stop.models.Stop
 import ao.path2.ms.stop.repository.StopRepository
 import ao.path2.core.exceptions.ResourceNotFoundException
-import org.geolatte.geom.G2D
-import org.geolatte.geom.Geometries
-import org.geolatte.geom.crs.CoordinateReferenceSystems
+import ao.path2.ms.stop.dto.StatusDto
+import ao.path2.ms.stop.exceptions.ExceedMaxValueException
 import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.GeometryFactory
 import org.locationtech.jts.geom.PrecisionModel
@@ -17,11 +16,24 @@ import java.time.LocalDateTime
 
 @Service
 class StopServiceImpl(private val repository: StopRepository) : StopService {
-  override fun findAll(page: Pageable): Page<Stop> = repository.findAll(page)
+  override fun findAll(page: Pageable, status: Boolean): Page<Stop> = repository.findAllByEnabled(status, page)
 
   override fun save(stop: Stop): Stop {
     if (repository.existsByName(stop.name))
       throw ResourceExistsException("")
+
+    val lon = stop.point?.x
+    val lat = stop.point?.y
+
+    if (lon != null) {
+      if (lon >= 180 || lon <= -180)
+        throw ExceedMaxValueException("lon is greater 180 degree or lesser -180 degree")
+    }
+
+    if (lat != null) {
+      if (lat >= 90 || lat <= -90)
+        throw ExceedMaxValueException("lat is greater 90 degree or lesser -90 degree")
+    }
 
     return repository.save(stop)
   }
@@ -43,36 +55,32 @@ class StopServiceImpl(private val repository: StopRepository) : StopService {
   }
 
   override fun update(stop: Stop): Stop {
+    if (stop.id == null)
+      throw ResourceNotFoundException("Fails to try update a resource without id")
 
     stop.updatedAt = LocalDateTime.now()
-    
+
     return repository.save(stop)
   }
 
-  override fun disable(id: Long) {
-    val stop = repository.findById(id).orElseThrow { ResourceNotFoundException("") }
+  override fun status(id: Long, statusDto: StatusDto): Stop {
+    val stop = repository.findById(id).orElseThrow { ResourceNotFoundException("Stop not found $id") }
 
-    stop.enabled = false
+    stop.enabled = statusDto.status
 
-    repository.save(stop)
-  }
-
-  override fun enable(id: Long) {
-    val stop = repository.findById(id).orElseThrow { ResourceNotFoundException("") }
-
-    stop.enabled = true
-
-    repository.save(stop)
+    return repository.save(stop)
   }
 
   override fun delete(id: Long) {
     if (!repository.existsById(id))
-      throw ResourceNotFoundException("")
+      throw ResourceNotFoundException("Stop not found $id")
 
     repository.deleteById(id)
   }
 
   private fun convertStringDistanceToDouble(distance: String): Double =
-    if (distance.matches(Regex.fromLiteral("[0-9]+Km"))) distance.toDouble()
-    else distance.toDouble()
+    if (distance.matches(Regex.fromLiteral("[0-9]+Km")))
+      distance.replace("Km", "").toDouble() * 1000
+    else
+      distance.replace("m", "").toDouble()
 }

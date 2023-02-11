@@ -8,11 +8,11 @@ import javax.validation.constraints.NotNull
 
 @Entity
 @Table(name = "TB_STOP")
-
+@SuppressWarnings("all")
 class Stop {
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "gn_stop")
   @Id
-  var id: Long = 0
+  var id: Long? = 0
 
   @NotNull
   var point: Point? = null
@@ -24,6 +24,8 @@ class Stop {
 
   var verified: Boolean = false
   var enabled: Boolean = true
+
   var createdAt: LocalDateTime = LocalDateTime.now()
+
   var updatedAt: LocalDateTime = LocalDateTime.now()
 }

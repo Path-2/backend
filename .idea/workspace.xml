@@ -11,15 +11,76 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: ignore folder .idea">
-      <change afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/dto/StatusDto.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/exceptions/ExceedMaxValueException.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-discovery/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-stop/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-stop/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-stop/mvnw.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/controller/StopController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/controller/StopController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/handlers/ExceptionHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/handlers/ExceptionHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/models/Stop.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/models/Stop.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/repository/StopRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/repository/StopRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/service/StopService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/service/StopService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/service/StopServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/service/StopServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-auth/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-email/Dockerfile_Rabbit_MQ" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/MSStopApplication.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/config/Beans.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/config/JacksonConfig.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/config/security/DelegatedAuthenticationEntryPoint.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/config/security/SecurityConfig.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/config/security/model/UserLoginDto.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/config/security/model/UserSecurity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/config/security/service/UserDetailsServiceImpl.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/controller/StopController.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/dto/StatusDto.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/exceptions/ExceedMaxValueException.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/exceptions/ResourceExistsException.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/exceptions/ResourceNotFoundException.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/filter/JwtAuthenticationFilter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/filter/JwtAuthorizationFilter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/filter/model/UserLoginDto.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/filter/model/UserSecurity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/handlers/ExceptionHandler.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/models/CustomAuthenticationFailureHandler.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/models/ErrorDetails.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/models/Role.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/models/Stop.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/models/User.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/repository/StopRepository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/repository/UserRepository.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/service/StopService.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/service/StopServiceImpl.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/token/JwtToken.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/META-INF/ms-stop.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/core/exceptions/ResourceExistsException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/core/exceptions/ResourceNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/core/models/CustomAuthenticationFailureHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/core/models/ErrorDetails.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/MSStopApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/MSStopApplicationKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/config/Beans.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/config/JacksonConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/config/security/DelegatedAuthenticationEntryPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/config/security/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/config/security/model/UserLoginDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/config/security/model/UserSecurity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/config/security/service/UserDetailsServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/controller/StopController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/filter/JwtAuthenticationFilter$BadCredentialsError.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/filter/JwtAuthenticationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/filter/JwtAuthorizationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/filter/model/UserLoginDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/handlers/ExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/models/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/models/Stop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/models/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/repository/StopRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/service/StopService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/service/StopServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/stop/token/JwtToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/ao/path2/ms/user/config/security/model/UserSecurity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-stop/ms-stop/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-user/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,28 +151,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop/models&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "11",
+    "last_directory_selection": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop",
+    "last_opened_file_path": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-stop",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-stop" />
       <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-stop\ms-stop\src\main\kotlin\ao\path2\ms\stop\models" />
       <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-stop\ms-stop\src\main\kotlin\ao\path2\ms\stop\config\security" />
       <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-stop\ms-stop\src\main\kotlin\ao\path2\ms\stop" />
       <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-auth\src\main\kotlin\ao\path2\ms\auth" />
-      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-user\src\main\kotlin\ao\path2\ms\user" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back" />

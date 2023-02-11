@@ -1,28 +1,90 @@
 version: '3.7'
 services:
   auth:
-    image: openjdk
+    build:
+      context: ./ms-auth
+      dockerfile: Dockerfile
+    networks:
+      - app_net
+    depends_on:
+      - mq
+      - db
+      - gateway
+      - discovery
     environment:
       - 1=1
+
   user:
-    image: openjdk
+    build:
+      context: ./ms-user
+      dockerfile: Dockerfile
+    networks:
+      - app_net
+    depends_on:
+      - mq
+      - db
+      - gateway
+      - discovery
     environment:
       - 1=1
+
   email:
-    image: openjdk
+    build:
+      context: ./ms-email
+      dockerfile: Dockerfile
+    networks:
+      - app_net
+    depends_on:
+      - mq
+      - db
+      - gateway
+      - discovery
     environment:
       - 1=1
   mq:
-    image: openjdk
     environment:
       - 1=1
+  db:
+    image: mysql
+    environment:
+      - MYSQL_PASSWORD=1234
+
   gateway:
-    image: openjdk
+    build:
+      context: ./ms-gateway
+      dockerfile: Dockerfile
+    networks:
+      - app_net
+    depends_on:
+      - discovery
     environment:
       - 1=1
     ports:
-      - "80:8080"
+      - "8080:8080"
+
   discovery:
-    image: openjdk
+    build:
+      context: ./ms-discovery
+      dockerfile: Dockerfile
+    networks:
+      - app_net
     environment:
       - 1=1
+
+  stop:
+    build:
+      context: ./ms-stop
+      dockerfile: Dockerfile
+    networks:
+      - app_net
+    depends_on:
+      - mq
+      - db
+      - gateway
+      - discovery
+    environment:
+      - 1=1
+
+networks:
+  - db_net:
+  - app_net:

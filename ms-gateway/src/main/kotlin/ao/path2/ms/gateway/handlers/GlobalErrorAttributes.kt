@@ -43,11 +43,11 @@ class GlobalErrorAttributes : DefaultErrorAttributes() {
 
   private fun getMessage(message: String?, path: String): String {
     println(message)
-    return if (message?.startsWith("404") == true) "Path not found: $path"
-    else if (message?.startsWith("503") == true)
-      message
-        .replace("503 SERVICE_UNAVAILABLE \\\" ", "")
-        .replace("\\\"", "")
-    else "Server internal error"
+    return if (message?.contains("404") == true)
+      "Path not found: $path"
+    else if (message?.contains("503") == true)
+      message.substring(25, message.length - 1)
+    else
+      "Server internal error"
   }
 }

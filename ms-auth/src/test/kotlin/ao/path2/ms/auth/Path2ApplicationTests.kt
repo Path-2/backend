@@ -1,7 +1,7 @@
 package ao.path2.ms.auth
 
-import ao.path2.ms.user.core.domain.User
-import ao.path2.ms.user.core.repository.UserRepository
+import ao.path2.ms.auth.entity.User
+import ao.path2.ms.auth.repository.UserRepository
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

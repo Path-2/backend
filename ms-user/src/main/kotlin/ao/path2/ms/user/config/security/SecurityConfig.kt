@@ -1,10 +1,9 @@
 package ao.path2.ms.user.config.security
 
-import ao.path2.ms.user.config.CustomCorsFilter
 import ao.path2.ms.user.config.security.filter.JwtAuthenticationFilter
 import ao.path2.ms.user.config.security.filter.JwtAuthorizationFilter
 import ao.path2.ms.user.handlers.CustomAuthenticationFailureHandler
-import ao.path2.token.JwtToken
+import ao.path2.ms.user.token.JwtToken
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
@@ -19,7 +18,6 @@ import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.AuthenticationEntryPoint
 import org.springframework.security.web.SecurityFilterChain
-import org.springframework.security.web.access.channel.ChannelProcessingFilter
 
 
 @EnableGlobalMethodSecurity(prePostEnabled = true)

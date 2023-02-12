@@ -4,7 +4,7 @@ import ao.path2.ms.user.models.User
 import ao.path2.ms.user.dto.UserDTO
 import ao.path2.ms.user.service.UserService
 import ao.path2.ms.user.utils.mapping.Mapper
-import ao.path2.token.JwtToken
+import ao.path2.ms.user.token.JwtToken
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault

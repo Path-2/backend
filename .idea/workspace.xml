@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ms-auth:jar" />
+      <artifact name="ms-user:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: ignore folder .idea">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/repository/UserRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/repository/UserRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/service/UserServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/service/UserServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-gateway/src/main/kotlin/ao/path2/ms/gateway/handlers/GlobalErrorAttributes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-gateway/src/main/kotlin/ao/path2/ms/gateway/handlers/GlobalErrorAttributes.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +54,7 @@
         <option value="Kotlin Data Class" />
         <option value="HTML File" />
         <option value="Kotlin Interface" />
+        <option value="Interface" />
         <option value="com.haulmont.jpb.JpaRepository" />
         <option value="Kotlin Class" />
       </list>
@@ -77,38 +83,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/src/main/kotlin/ao/path2/app/config&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-user/src/main/kotlin/ao/path2/ms/user&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "11",
+    "last_directory_selection": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop",
+    "last_opened_file_path": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-gateway/src/main/kotlin/ao/path2/ms/gateway/handlers",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-user\src\main\kotlin\ao\path2\ms\user" />
-      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\core\src\main\kotlin\ao\path2\core" />
-      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back" />
-      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\core\src\main\kotlin\ao\path2\core\models" />
-      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\src\main\resources" />
+      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-gateway\src\main\kotlin\ao\path2\ms\gateway\handlers" />
+      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-gateway\src\main\kotlin\ao\path2\ms\gateway" />
+      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-stop" />
+      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-stop\ms-stop\src\main\kotlin\ao\path2\ms\stop\models" />
+      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-stop\ms-stop\src\main\kotlin\ao\path2\ms\stop\config\security" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back" />
     </key>
     <key name="CreateKotlinClassDialog.RecentsKey">
+      <recent name="ao.path2.ms.stop.dto" />
       <recent name="ao.path2.ms.auth.core" />
       <recent name="ao.path2.app.core.repository" />
       <recent name="ao.path2.app.utils.jwt" />
       <recent name="ao.path2.app.core.domain" />
-      <recent name="ao.path2.app.config.security" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="ao.path2.ms.user.service" />
@@ -118,15 +124,42 @@
       <recent name="ao.path2.ms.user.config.security.model" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="ao.path2.ms.stop.repository" />
+      <recent name="ao.path2.core.models" />
       <recent name="ao.path2.ms.user.config" />
       <recent name="ao.path2.token" />
       <recent name="ao.path2.app.adapters.inbound.dto.response" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MSUserApplicationKt">
-    <configuration name="MSAuthApplicationKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Kotlin.MsDiscoveryApplicationKt">
+    <configuration name="Path2ApplicationTests.createUser_OK" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="ms-user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ao.path2.ms.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ao.path2.ms.user" />
+      <option name="MAIN_CLASS_NAME" value="ao.path2.ms.user.Path2ApplicationTests" />
+      <option name="METHOD_NAME" value="createUser_OK" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MSAuthApplicationKt" type="JetRunConfigurationType">
       <option name="MAIN_CLASS_NAME" value="ao.path2.ms.auth.MSAuthApplicationKt" />
       <module name="ms-auth" />
+      <shortenClasspath name="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MSStopApplicationKt" type="JetRunConfigurationType" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ao.path2.ms.stop.MSStopApplicationKt" />
+      <module name="ms-stop" />
+      <shortenClasspath name="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -138,23 +171,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsDiscoveryApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+    <configuration name="MsDiscoveryApplicationKt" type="JetRunConfigurationType" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ao.path2.msdiscovery.MsDiscoveryApplicationKt" />
       <module name="ms-discovery" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsEmailApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+    <configuration name="MsEmailApplicationKt" type="JetRunConfigurationType" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ao.path2.ms.email.MsEmailApplicationKt" />
       <module name="ms-email" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsGatewayApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ao.path2.msgateway.MsGatewayApplicationKt" />
+    <configuration name="MsGatewayApplicationKt" type="JetRunConfigurationType" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ao.path2.ms.gateway.MsGatewayApplicationKt" />
       <module name="ms-gateway" />
+      <shortenClasspath name="NONE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -172,13 +206,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.Path2ApplicationTests.createUser_OK" />
+      <item itemvalue="Kotlin.MSAuthApplicationKt" />
+      <item itemvalue="Kotlin.MsDiscoveryApplicationKt" />
+      <item itemvalue="Kotlin.MsEmailApplicationKt" />
+      <item itemvalue="Kotlin.MsGatewayApplicationKt" />
+      <item itemvalue="Kotlin.MSStopApplicationKt" />
+      <item itemvalue="Kotlin.MSUserApplicationKt" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.MSUserApplicationKt" />
-        <item itemvalue="Kotlin.MsGatewayApplicationKt" />
-        <item itemvalue="Kotlin.MsDiscoveryApplicationKt" />
-        <item itemvalue="Kotlin.MSAuthApplicationKt (1)" />
-        <item itemvalue="Kotlin.MsEmailApplicationKt" />
       </list>
     </recent_temporary>
   </component>

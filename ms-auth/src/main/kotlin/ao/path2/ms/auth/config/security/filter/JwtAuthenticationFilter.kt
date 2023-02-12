@@ -3,7 +3,7 @@ package ao.path2.ms.auth.config.security.filter
 import ao.path2.ms.auth.config.security.model.UserLoginDto
 import ao.path2.ms.auth.config.security.model.UserSecurity
 import ao.path2.ms.auth.core.JWSAuthToken
-import ao.path2.token.JwtToken
+import ao.path2.ms.auth.token.JwtToken
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken

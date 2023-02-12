@@ -2,7 +2,7 @@ package ao.path2.ms.auth.config.security
 
 import ao.path2.ms.auth.config.security.filter.JwtAuthenticationFilter
 import ao.path2.ms.auth.handlers.CustomAuthenticationFailureHandler
-import ao.path2.token.JwtToken
+import ao.path2.ms.auth.token.JwtToken
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean

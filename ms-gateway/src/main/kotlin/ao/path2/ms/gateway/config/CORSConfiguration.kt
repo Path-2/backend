@@ -1,4 +1,4 @@
-package ao.path2.msgateway.config
+package ao.path2.ms.gateway.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

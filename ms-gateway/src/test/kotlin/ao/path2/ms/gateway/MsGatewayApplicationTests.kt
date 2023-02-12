@@ -1,4 +1,4 @@
-package ao.path2.msgateway
+package ao.path2.ms.gateway
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

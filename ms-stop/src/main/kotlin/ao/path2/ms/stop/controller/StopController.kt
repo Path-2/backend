@@ -43,7 +43,7 @@ class StopController(private val service: StopService) {
   )
 
   @PutMapping("/{id}")
-  fun update(@RequestBody stop: Stop): ResponseEntity<Stop> = ResponseEntity.ok(service.update(stop))
+  fun update(@RequestBody stop: Stop, @PathVariable id: Long): ResponseEntity<Stop> = ResponseEntity.ok(service.update(stop, id))
 
   @PatchMapping("/{id}/status")
   fun disable(@PathVariable id: Long, statusDto: StatusDto) = ResponseEntity.ok(service.status(id, statusDto))

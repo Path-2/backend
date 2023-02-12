@@ -9,6 +9,7 @@ import ao.path2.ms.stop.exceptions.ExceedMaxValueException
 import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.GeometryFactory
 import org.locationtech.jts.geom.PrecisionModel
+import org.springframework.beans.BeanUtils
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
@@ -27,12 +28,12 @@ class StopServiceImpl(private val repository: StopRepository) : StopService {
 
     if (lon != null) {
       if (lon >= 180 || lon <= -180)
-        throw ExceedMaxValueException("lon is greater 180 degree or lesser -180 degree")
+        throw ExceedMaxValueException("lon is greater than 180 degree or lesser than -180 degree")
     }
 
     if (lat != null) {
       if (lat >= 90 || lat <= -90)
-        throw ExceedMaxValueException("lat is greater 90 degree or lesser -90 degree")
+        throw ExceedMaxValueException("lat is greater than 90 degree or lesser than -90 degree")
     }
 
     return repository.save(stop)
@@ -51,12 +52,31 @@ class StopServiceImpl(private val repository: StopRepository) : StopService {
       .replace("M", "m")
       .replace(",", ".")
 
+    if (lon >= 180 || lon <= -180)
+      throw ExceedMaxValueException("lon is greater than 180 degree or lesser than -180 degree")
+
+    if (lat >= 90 || lat <= -90)
+      throw ExceedMaxValueException("lat is greater than 90 degree or lesser than -90 degree")
+
     return repository.findNear(point, convertStringDistanceToDouble(dist))
   }
 
-  override fun update(stop: Stop): Stop {
+  override fun update(stop: Stop, id: Long): Stop {
     if (stop.id == null)
       throw ResourceNotFoundException("Fails to try update a resource without id")
+
+    val s = repository.findById(id).get()
+
+    if (s.enabled != stop.enabled)
+      throw IllegalStateException("You cannot update this field [enabled]")
+
+    if (s.verified != stop.verified)
+      throw IllegalStateException("You cannot update this field [verified]")
+
+    if (id != stop.id)
+      throw RuntimeException("You try update $id through ${stop.id}")
+
+    BeanUtils.copyProperties(stop, s)
 
     stop.updatedAt = LocalDateTime.now()
 
@@ -79,7 +99,7 @@ class StopServiceImpl(private val repository: StopRepository) : StopService {
   }
 
   private fun convertStringDistanceToDouble(distance: String): Double =
-    if (distance.matches(Regex.fromLiteral("[0-9]+Km")))
+    if (distance.endsWith("Km"))
       distance.replace("Km", "").toDouble() * 1000
     else
       distance.replace("m", "").toDouble()

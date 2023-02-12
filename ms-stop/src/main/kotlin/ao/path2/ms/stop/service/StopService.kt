@@ -9,7 +9,7 @@ interface StopService {
   fun findAll(page: Pageable, status: Boolean): Page<Stop>
   fun save(stop: Stop): Stop
   fun findById(id: Long): Stop
-  fun update(stop: Stop): Stop
+  fun update(stop: Stop, id: Long): Stop
   fun delete(id: Long)
   fun findStopsNear(lat: Double, lon: Double, distance: String): List<Stop>
   fun status(id: Long, statusDto: StatusDto): Stop

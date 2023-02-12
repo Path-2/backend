@@ -47,10 +47,16 @@ class StopServiceImpl(private val repository: StopRepository) : StopService {
 
     val point = GeometryFactory(PrecisionModel(PrecisionModel.FLOATING), 4326).createPoint(Coordinate(lon, lat))
 
+
     val dist = distance.trim()
       .replace("k", "K")
       .replace("M", "m")
       .replace(",", ".")
+
+    val numberRegex = Regex.fromLiteral("[0-9]+([.][0-9]+){0,}")
+
+    if (!distance.endsWith("Km") || !distance.endsWith("m"))
+      throw IllegalArgumentException("You send an unit unexpected ${distance.replace(numberRegex, "")}")
 
     if (lon >= 180 || lon <= -180)
       throw ExceedMaxValueException("lon is greater than 180 degree or lesser than -180 degree")

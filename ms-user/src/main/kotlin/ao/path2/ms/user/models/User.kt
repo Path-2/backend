@@ -1,6 +1,5 @@
 package ao.path2.ms.user.models
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import javax.persistence.*
@@ -43,7 +42,11 @@ class User() {
   @Column(nullable = false, unique = true)
   var email: String = ""
 
-  var facebookId: String = ""
+  @Column(nullable = true, unique = true)
+  var facebookId: String? = null
+
+  @Enumerated(EnumType.STRING)
+  var createdBy: UserSource = UserSource.EMAIL
 
   @Size(min = 8)
   @NotNull

@@ -1,7 +1,6 @@
 package ao.path2.ms.auth.repository
 
-import ao.path2.ms.auth.entity.User
-import ao.path2.ms.auth.utils.mapping.Mapper
+import ao.path2.ms.auth.models.User
 import org.springframework.core.annotation.Order
 import org.springframework.stereotype.Component
 

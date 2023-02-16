@@ -1,7 +1,9 @@
 package ao.path2.ms.auth.config.security
 
+import ao.path2.ms.auth.config.security.filter.FacebookAuthenticationFilter
 import ao.path2.ms.auth.config.security.filter.JwtAuthenticationFilter
 import ao.path2.ms.auth.handlers.CustomAuthenticationFailureHandler
+import ao.path2.ms.auth.repository.UserRepository
 import ao.path2.ms.auth.token.JwtToken
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Qualifier
@@ -17,12 +19,14 @@ import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.AuthenticationEntryPoint
 import org.springframework.security.web.SecurityFilterChain
+import org.springframework.web.client.RestTemplate
 
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @Configuration
 class SecurityConfig(
   private val userDetailsService: UserDetailsService,
-  private val jwtToken: JwtToken
+  private val jwtToken: JwtToken,
+  private val userRepository: UserRepository
 ) {
   @Autowired
   @Qualifier("delegatedAuthenticationEntryPoint")
@@ -48,7 +52,7 @@ class SecurityConfig(
       .cors()
       .and()
       .authorizeRequests()
-      .antMatchers(HttpMethod.POST, "/login").permitAll()
+      .antMatchers("/login").permitAll()
       .anyRequest().authenticated()
       .and()
       .authenticationManager(authenticationManager)
@@ -59,6 +63,10 @@ class SecurityConfig(
       .authenticationEntryPoint(authEntryPoint)
       .and()
       .addFilter(JwtAuthenticationFilter(jwtToken, authenticationManager))
+      .addFilterBefore(
+        FacebookAuthenticationFilter(RestTemplate(), jwtToken, userRepository),
+        JwtAuthenticationFilter::class.java
+      )
 
     return http.build()
   }

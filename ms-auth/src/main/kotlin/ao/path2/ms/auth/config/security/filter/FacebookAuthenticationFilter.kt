@@ -19,7 +19,7 @@ class FacebookAuthenticationFilter(
   private val restTemplate: RestTemplate,
   private val jwtToken: JwtToken,
   private val userRepository: UserRepository
-) : OncePerRequestFilter() {
+) : OncePerRequestFilter(), SocialAuthenticationFilter {
 
   override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, filterChain: FilterChain) {
 
@@ -76,12 +76,5 @@ class FacebookAuthenticationFilter(
 
   }
 
-  private fun stringfy(obj: Any): String = ObjectMapper().writeValueAsString(obj)
-
-  private fun extractTokenIfNotNull(request: HttpServletRequest): String? = request.getHeader("facebook_token")
-
-  private fun populateResponse(response: HttpServletResponse, data: Any, httpStatus: HttpStatus) {
-    response.status = httpStatus.value()
-    response.writer.append(stringfy(data))
-  }
+  override fun extractTokenIfNotNull(request: HttpServletRequest): String? = request.getHeader("facebook_token")
 }

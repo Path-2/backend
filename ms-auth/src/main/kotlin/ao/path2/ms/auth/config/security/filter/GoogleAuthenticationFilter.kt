@@ -5,9 +5,7 @@ import ao.path2.ms.auth.core.JWSAuthToken
 import ao.path2.ms.auth.handlers.ErrorDetails
 import ao.path2.ms.auth.repository.UserRepository
 import ao.path2.ms.auth.token.JwtToken
-import ao.path2.ms.auth.utils.security.getFacebookAuthURL
 import ao.path2.ms.auth.utils.security.getGoogleAuthURL
-import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.http.HttpStatus
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.filter.OncePerRequestFilter
@@ -20,7 +18,7 @@ class GoogleAuthenticationFilter(
   private val restTemplate: RestTemplate,
   private val jwtToken: JwtToken,
   private val userRepository: UserRepository
-) : OncePerRequestFilter() {
+) : OncePerRequestFilter(), SocialAuthenticationFilter {
 
   override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, filterChain: FilterChain) {
 
@@ -77,12 +75,5 @@ class GoogleAuthenticationFilter(
 
   }
 
-  private fun stringfy(obj: Any): String = ObjectMapper().writeValueAsString(obj)
-
-  private fun extractTokenIfNotNull(request: HttpServletRequest): String? = request.getHeader("google_token")
-
-  private fun populateResponse(response: HttpServletResponse, data: Any, httpStatus: HttpStatus) {
-    response.status = httpStatus.value()
-    response.writer.append(stringfy(data))
-  }
+  override fun extractTokenIfNotNull(request: HttpServletRequest): String? = request.getHeader("google_token")
 }

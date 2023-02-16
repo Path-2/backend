@@ -7,9 +7,6 @@ import ao.path2.ms.auth.repository.UserRepository
 import ao.path2.ms.auth.token.JwtToken
 import ao.path2.ms.auth.utils.security.getFacebookAuthURL
 import com.fasterxml.jackson.databind.ObjectMapper
-import me.paulschwarz.springdotenv.DotenvApplicationInitializer
-import me.paulschwarz.springdotenv.DotenvConfig
-import org.springframework.core.env.ConfigurableEnvironment
 import org.springframework.http.HttpStatus
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.filter.OncePerRequestFilter
@@ -29,48 +26,53 @@ class FacebookAuthenticationFilter(
     val fbToken = extractTokenIfNotNull(request)
 
     if (fbToken != null) {
-      //getFacebookAuthURL(fbToken)
       try {
         //get data from Facebook
         val res =
-          restTemplate.getForEntity("http://localhost:9000/auth?access_token=$fbToken", SocialUserData::class.java)
+          restTemplate.getForEntity(getFacebookAuthURL(fbToken), SocialUserData::class.java)
 
         if (res.statusCode == HttpStatus.OK) {
           val body = res.body
 
           if (!userRepository.existsByFacebookId(body?.id!!)) {
-            response.status = 401
-            response.writer.append(
-              stringfy(
-                ErrorDetails(
-                  401,
-                  "Cannot authenticate user",
-                  LocalDateTime.now(),
-                  "Invalid token"
-                )
-              )
+            populateResponse(
+              response, ErrorDetails(
+                401,
+                "Cannot authenticate user",
+                LocalDateTime.now(),
+                "Invalid token"
+              ), HttpStatus.UNAUTHORIZED
             )
             return
           }
 
           val user = userRepository.findByFacebookId(body.id!!)
 
-          val responseToken = jwtToken.generateToken(user.username)
+          val roles = listOf("ROLE_USER")
 
-          response.status = 200
-          response.writer.append(stringfy(JWSAuthToken(responseToken)))
+          val responseToken = jwtToken.generateToken(user.username, roles.toTypedArray())
+
+          populateResponse(response, JWSAuthToken(responseToken), HttpStatus.OK)
 
           return
 
         }
       } catch (err: Exception) {
-        print(err.message)
+        populateResponse(
+          response,
+          ErrorDetails(
+            HttpStatus.INTERNAL_SERVER_ERROR.value(),
+            err.message,
+            LocalDateTime.now(),
+            err.cause.toString()
+          ),
+          HttpStatus.INTERNAL_SERVER_ERROR
+        )
       }
 
       filterChain.doFilter(request, response)
 
     }
-
 
   }
 
@@ -78,4 +80,8 @@ class FacebookAuthenticationFilter(
 
   private fun extractTokenIfNotNull(request: HttpServletRequest): String? = request.getHeader("facebook_token")
 
+  private fun populateResponse(response: HttpServletResponse, data: Any, httpStatus: HttpStatus) {
+    response.status = httpStatus.value()
+    response.writer.append(stringfy(data))
+  }
 }

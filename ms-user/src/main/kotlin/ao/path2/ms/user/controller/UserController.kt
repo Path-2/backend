@@ -45,7 +45,14 @@ class UserController(private val service: UserService, private val mapper: Mappe
     mapper.map(
       service.findByUsername(username),
       UserDTO(),
-      transform = { data -> (data as UserDTO).password = null }
+      transform = { data ->
+        run {
+          val user = data as UserDTO
+
+          user.password = null
+          user.facebookId = null
+        }
+      }
     )
   )
 }

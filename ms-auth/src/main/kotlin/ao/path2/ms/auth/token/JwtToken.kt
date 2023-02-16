@@ -17,7 +17,7 @@ class JwtToken() {
   private var expirationInMillis = 24 * 60 * 1000
   private val key = Keys.hmacShaKeyFor(secret.toByteArray(StandardCharsets.UTF_8));
 
-  fun generateToken(username: String, vararg roles: String): String {
+  fun generateToken(username: String, roles: Array<Any>): String {
     val builder = Jwts.builder()
       .setSubject(username)
       .setIssuer("path2")

@@ -10,6 +10,6 @@ class UserDTO() {
   var phone: String = ""
   var image: String = ""
   var email: String = ""
-  var facebookId: String = ""
+  var facebookId: String? = ""
   var password: String? = ""
 }

@@ -11,25 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: ignore folder .idea">
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/FacebookAuthenticationFilter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/model/SocialUserData.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/model/UserSocial.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/models/UserSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/utils/security/SecurityUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/models/UserSource.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/SecurityConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/SecurityConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/JwtAuthenticationFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/JwtAuthenticationFilter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/model/UserLoginDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/model/UserLoginDto.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/service/UserDetailsServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/service/UserDetailsServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/entity/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/models/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/repository/UserRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/repository/UserRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/repository/UserRepositoryH2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/repository/UserRepositoryH2.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/repository/UserRepositorySpringData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/repository/UserRepositorySpringData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/FacebookAuthenticationFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/FacebookAuthenticationFilter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/handlers/ErrorDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/handlers/ErrorDetails.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/token/JwtToken.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/token/JwtToken.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-auth/src/test/kotlin/ao/path2/ms/auth/Path2ApplicationTests.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/test/kotlin/ao/path2/ms/auth/Path2ApplicationTests.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/models/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/models/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/service/UserServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/service/UserServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/controller/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/controller/UserController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/dto/UserDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/dto/UserDTO.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

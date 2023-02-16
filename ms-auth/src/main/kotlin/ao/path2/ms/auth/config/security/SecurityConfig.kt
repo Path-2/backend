@@ -1,6 +1,7 @@
 package ao.path2.ms.auth.config.security
 
 import ao.path2.ms.auth.config.security.filter.FacebookAuthenticationFilter
+import ao.path2.ms.auth.config.security.filter.GoogleAuthenticationFilter
 import ao.path2.ms.auth.config.security.filter.JwtAuthenticationFilter
 import ao.path2.ms.auth.handlers.CustomAuthenticationFailureHandler
 import ao.path2.ms.auth.repository.UserRepository
@@ -64,12 +65,18 @@ class SecurityConfig(
       .and()
       .addFilter(JwtAuthenticationFilter(jwtToken, authenticationManager))
       .addFilterBefore(
-        FacebookAuthenticationFilter(RestTemplate(), jwtToken, userRepository),
+        FacebookAuthenticationFilter(restTemplate(), jwtToken, userRepository),
         JwtAuthenticationFilter::class.java
+      ).addFilterBefore(
+        GoogleAuthenticationFilter(restTemplate(), jwtToken, userRepository),
+        FacebookAuthenticationFilter::class.java
       )
 
     return http.build()
   }
+
+  @Bean
+  fun restTemplate() = RestTemplate()
 
   @Bean
   fun passwordEncoder(): BCryptPasswordEncoder {

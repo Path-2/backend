@@ -7,6 +7,7 @@ import ao.path2.ms.user.core.exceptions.ResourceExistsException
 import ao.path2.ms.user.repository.UserRepository
 import ao.path2.ms.user.core.exceptions.ResourceNotFoundException
 import ao.path2.ms.user.models.User
+import ao.path2.ms.user.models.UserSource
 import org.apache.logging.log4j.LogManager
 import org.springframework.amqp.AmqpException
 import org.springframework.security.crypto.password.PasswordEncoder
@@ -15,6 +16,7 @@ import org.apache.logging.log4j.Logger
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable
+import java.util.*
 
 @Service
 class UserServiceImpl(
@@ -26,15 +28,27 @@ class UserServiceImpl(
 
   override fun save(user: User): User {
     log.info("Searching user...")
-    if (repo.existsByEmail(user.email) || repo.existsByPhone(user.phone)) {
+    if (repo.existsByEmail(user.email) ||
+      repo.existsByPhone(user.phone) ||
+      repo.existsByFacebookId(user.facebookId.toString())
+    ) {
       log.error("User exists...")
       throw ResourceExistsException("User exists!!!")
     }
+
     log.info("User not found...")
+
+    if (user.facebookId == null) {
 
     user.username = "@${user.email.substring(0, user.email.indexOf("@"))}"
 
     user.password = encoder.encode(user.password)
+
+    } else {
+      user.username = "@${user.name.split(" ")[0].lowercase()}"
+      user.password = ""
+      user.createdBy = UserSource.FACEBOOK
+    }
 
     if (repo.existsByUsername(user.username)) {
       user.username = "${user.username}.1"
@@ -42,30 +56,33 @@ class UserServiceImpl(
 
     val newUser = repo.save(user)
 
-    val emailModel = EmailModel()
+    if (user.facebookId == null) {
 
-    emailModel.id = newUser.id
-    emailModel.template = Template.VERIFY.value
-    emailModel.subject = "Verificação de email"
-    emailModel.to = listOf(newUser.email).toTypedArray()
+      val emailModel = EmailModel()
 
-    val data = mutableMapOf<String, Any>()
+      emailModel.id = newUser.id
+      emailModel.template = Template.VERIFY.value
+      emailModel.subject = "Verificação de email"
+      emailModel.to = listOf(newUser.email).toTypedArray()
 
-    data["name"] = newUser.name
-    data["verifyLink"] = "http://localhost:7777/v/u/${newUser.username}"
+      val data = mutableMapOf<String, Any>()
 
-    emailModel.data = data
+      data["name"] = newUser.name
+      data["verifyLink"] = "http://localhost:7777/v/u/${newUser.username}"
 
-    try {
+      emailModel.data = data
 
-      producer.enqueue(emailModel)
+      try {
 
-      log.info("User will be verify...")
+        producer.enqueue(emailModel)
 
-    } catch (ex: AmqpException) {
+        log.info("User will be verify...")
 
-      log.error("User verify email failed...")
+      } catch (ex: AmqpException) {
 
+        log.error("User verify email failed...")
+
+      }
     }
 
     return newUser

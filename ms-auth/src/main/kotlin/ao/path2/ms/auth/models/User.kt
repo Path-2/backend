@@ -1,11 +1,15 @@
-package ao.path2.ms.auth.entity
+package ao.path2.ms.auth.models
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonInclude
 import javax.persistence.*
 import javax.validation.constraints.*
 
 @Entity(name = "User")
 @Table(name = "TB_USER")
-class User {
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(value = ["password"])
+class User() {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "gn_user")
   var id: Long = 0
@@ -35,9 +39,14 @@ class User {
   @NotBlank
   @NotEmpty
   @NotNull
-  @Email
   @Column(nullable = false, unique = true)
   var email: String = ""
+
+  @Column(nullable = true, unique = true)
+  var facebookId: String? = null
+
+  @Enumerated(EnumType.STRING)
+  var createdBy: UserSource = UserSource.EMAIL
 
   @Size(min = 8)
   @NotNull
@@ -46,6 +55,6 @@ class User {
   @Column(nullable = false)
   var password: String = ""
 
-
-  var facebookId: String = ""
+  var verified: Boolean = false
+  var cancelled: Boolean = false
 }

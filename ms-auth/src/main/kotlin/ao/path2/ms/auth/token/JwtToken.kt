@@ -17,13 +17,13 @@ class JwtToken() {
   private var expirationInMillis = 24 * 60 * 1000
   private val key = Keys.hmacShaKeyFor(secret.toByteArray(StandardCharsets.UTF_8));
 
-  fun generateToken(username: String, id: Long? = -1, vararg roles: String): String {
+  fun generateToken(username: String, vararg roles: String): String {
     val builder = Jwts.builder()
       .setSubject(username)
       .setIssuer("path2")
-      .setAudience("path2")
+      .setAudience("ms.path2")
       .setIssuedAt(Date())
-      .setId(String.format("%d", id))
+      .setId(UUID.randomUUID().toString())
       .setExpiration(expireAt(expirationInMillis))
       .signWith(key, SignatureAlgorithm.HS512)
 

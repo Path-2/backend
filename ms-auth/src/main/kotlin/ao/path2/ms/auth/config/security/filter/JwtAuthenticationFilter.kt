@@ -23,11 +23,6 @@ class JwtAuthenticationFilter(
 
   override fun attemptAuthentication(req: HttpServletRequest, response: HttpServletResponse): Authentication {
     val credentials = ObjectMapper().readValue(req.inputStream, UserLoginDto::class.java)
-    println(credentials.username)
-
-    if(credentials.username.isEmpty() || credentials.username.isBlank()) {
-
-    }
 
     val auth = UsernamePasswordAuthenticationToken(
       credentials.username,

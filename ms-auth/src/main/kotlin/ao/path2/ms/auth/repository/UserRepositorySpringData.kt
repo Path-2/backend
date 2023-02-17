@@ -1,6 +1,6 @@
 package ao.path2.ms.auth.repository
 
-import ao.path2.ms.auth.entity.User
+import ao.path2.ms.auth.models.User
 import org.springframework.data.repository.PagingAndSortingRepository
 import org.springframework.stereotype.Repository
 

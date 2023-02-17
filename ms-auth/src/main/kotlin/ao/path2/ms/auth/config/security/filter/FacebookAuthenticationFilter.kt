@@ -50,7 +50,7 @@ class FacebookAuthenticationFilter(
 
           val roles = listOf("ROLE_USER")
 
-          val responseToken = jwtToken.generateToken(user.username, roles.toTypedArray())
+          val responseToken = jwtToken.generateToken(user.username)
 
           populateResponse(response, JWSAuthToken(responseToken), HttpStatus.OK)
 

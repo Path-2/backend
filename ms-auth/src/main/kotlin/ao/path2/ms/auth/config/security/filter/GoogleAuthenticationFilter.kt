@@ -1,11 +1,16 @@
 package ao.path2.ms.auth.config.security.filter
 
+import ao.path2.ms.auth.config.security.model.GoogleUserData
 import ao.path2.ms.auth.config.security.model.SocialUserData
 import ao.path2.ms.auth.core.JWSAuthToken
 import ao.path2.ms.auth.handlers.ErrorDetails
 import ao.path2.ms.auth.repository.UserRepository
 import ao.path2.ms.auth.token.JwtToken
 import ao.path2.ms.auth.utils.security.getGoogleAuthURL
+import org.springframework.http.HttpEntity
+import org.springframework.http.HttpHeaders
+import org.springframework.http.HttpMethod
+import org.springframework.http.HttpRequest
 import org.springframework.http.HttpStatus
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.filter.OncePerRequestFilter
@@ -27,12 +32,23 @@ class GoogleAuthenticationFilter(
     if (googleToken != null) {
       try {
         //get data from Facebook
+
+        val headers = HttpHeaders()
+
+        headers.set("Authorization", "Bearer $googleToken")
+
+        val httpEntity = HttpEntity("", headers)
+
+        println(httpEntity.headers)
+
         val res =
-          restTemplate.getForEntity(getGoogleAuthURL(googleToken), SocialUserData::class.java)
+          restTemplate.exchange(getGoogleAuthURL(), HttpMethod.GET, httpEntity, GoogleUserData::class.java)
+
+        println(res)
 
         if (res.statusCode == HttpStatus.OK) {
           val body = res.body
-
+          
           if (!userRepository.existsByEmail(body?.email!!)) {
             populateResponse(
               response, ErrorDetails(
@@ -47,9 +63,7 @@ class GoogleAuthenticationFilter(
 
           val user = userRepository.findByEmail(body.email!!)
 
-          val roles = listOf("ROLE_USER")
-
-          val responseToken = jwtToken.generateToken(user.username, roles.toTypedArray())
+          val responseToken = jwtToken.generateToken(user.username)
 
           populateResponse(response, JWSAuthToken(responseToken), HttpStatus.OK)
 

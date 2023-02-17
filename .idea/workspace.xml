@@ -11,9 +11,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: ignore folder .idea">
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/GoogleAuthenticationFilter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/model/GoogleUserData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/Beans.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/Beans.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/SecurityConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/SecurityConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/FacebookAuthenticationFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/FacebookAuthenticationFilter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/GoogleAuthenticationFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/GoogleAuthenticationFilter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/SocialAuthenticationFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/SocialAuthenticationFilter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/token/JwtToken.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/token/JwtToken.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/utils/security/SecurityUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/utils/security/SecurityUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/config/JacksonConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/config/JacksonConfig.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,14 +132,14 @@
       <recent name="ao.path2.ms.user.config" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="ao.path2.ms.auth.config.security.model" />
       <recent name="ao.path2.ms.auth.models" />
       <recent name="ao.path2.ms.stop.repository" />
       <recent name="ao.path2.core.models" />
       <recent name="ao.path2.ms.user.config" />
-      <recent name="ao.path2.token" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MSUserApplicationKt">
+  <component name="RunManager" selected="Kotlin.MSAuthApplicationKt">
     <configuration name="Path2ApplicationTests.createUser_OK" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="ms-user" />
       <extension name="coverage">

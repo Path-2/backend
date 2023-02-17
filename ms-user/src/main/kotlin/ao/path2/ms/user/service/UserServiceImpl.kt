@@ -6,6 +6,8 @@ import ao.path2.ms.user.producers.RabbitMQProducer
 import ao.path2.ms.user.core.exceptions.ResourceExistsException
 import ao.path2.ms.user.repository.UserRepository
 import ao.path2.ms.user.core.exceptions.ResourceNotFoundException
+import ao.path2.ms.user.models.FacebookUserData
+import ao.path2.ms.user.models.GoogleUserData
 import ao.path2.ms.user.models.User
 import ao.path2.ms.user.models.UserSource
 import org.apache.logging.log4j.LogManager
@@ -16,13 +18,18 @@ import org.apache.logging.log4j.Logger
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable
+import org.springframework.http.HttpEntity
+import org.springframework.http.HttpHeaders
+import org.springframework.http.HttpMethod
+import org.springframework.web.client.RestTemplate
 import java.util.*
 
 @Service
 class UserServiceImpl(
   private val repo: UserRepository,
   private val encoder: PasswordEncoder,
-  private val producer: RabbitMQProducer
+  private val producer: RabbitMQProducer,
+  private val restTemplate: RestTemplate
 ) : UserService {
   private val log: Logger = LogManager.getLogger(UserService::class.java.toString())
 
@@ -40,9 +47,9 @@ class UserServiceImpl(
 
     if (user.facebookId == null) {
 
-    user.username = "@${user.email.substring(0, user.email.indexOf("@"))}"
+      user.username = "@${user.email.substring(0, user.email.indexOf("@"))}"
 
-    user.password = encoder.encode(user.password)
+      user.password = encoder.encode(user.password)
 
     } else {
       user.username = "@${user.name.split(" ")[0].lowercase()}"
@@ -51,7 +58,7 @@ class UserServiceImpl(
     }
 
     if (repo.existsByUsername(user.username)) {
-      user.username = "${user.username}.1"
+      user.username = "${user.username}.\${UUID.randomUUID().toString().substring(0)"
     }
 
     val newUser = repo.save(user)
@@ -146,6 +153,76 @@ class UserServiceImpl(
 
     return repo.findByUsername(username)
   }
+
+  override fun signupWithGoogle(token: String): User {
+    val headers = HttpHeaders()
+
+    headers.set("Authorization", "Bearer $token")
+
+    val httpEntity = HttpEntity("", headers)
+
+    val res =
+      restTemplate.exchange(getGoogleAuthURL(), HttpMethod.GET, httpEntity, GoogleUserData::class.java)
+
+    val body = res.body
+
+    if (body != null) {
+      val user = User()
+      log.info("Searching user...")
+
+      if (repo.existsByEmail(body.email)) {
+        log.error("User exists...")
+        throw ResourceExistsException("User exists!!!")
+      }
+
+      log.info("User not found...")
+
+      user.name = body.name
+      user.image = body.profilePicture ?: ""
+      user.username = "@${body.email.substring(0, body.email.indexOf("@"))}"
+      user.password = encoder.encode(UUID.randomUUID().toString().substring(0, 17))
+      user.createdBy = UserSource.GOOGLE
+
+      if (repo.existsByUsername(user.username)) {
+        user.username = "${user.username}.\${UUID.randomUUID().toString().substring(0)"
+      }
+
+      return repo.save(user)
+
+    } else throw RuntimeException("")
+  }
+
+  override fun signupWithFacebook(token: String): User {
+    val res =
+      restTemplate.getForEntity(getFacebookAuthURL(token), FacebookUserData::class.java)
+
+    val body = res.body
+
+    if (body != null) {
+      val user = User()
+      log.info("Searching user...")
+
+      if (repo.existsByEmail(body.id)) {
+        log.error("User exists...")
+        throw ResourceExistsException("User exists!!!")
+      }
+
+      log.info("User not found...")
+
+      user.name = body.name
+      user.image = body.profilePicture ?: ""
+      user.username = "@${body.firstName.replace(" ", "")}"
+      user.password = encoder.encode(UUID.randomUUID().toString().substring(0, 17))
+      user.createdBy = UserSource.FACEBOOK
+
+      if (repo.existsByUsername(user.username)) {
+        user.username = "${user.username}.${UUID.randomUUID().toString().substring(0)}"
+      }
+
+      return repo.save(user)
+
+    } else throw RuntimeException("")
+  }
 }
 
 private fun String.substring(startIndex: Int, endString: String): String {
@@ -156,3 +233,9 @@ private fun String.substring(startIndex: Int, endString: String): String {
 }
 
 private fun String.matches(regex: String?): Boolean = regex!!.endsWith(".1")
+
+fun getFacebookAuthURL(token: String) =
+  "https://graph.facebook.com/me?access_token=${token}&fields=id,name,last_name,first_name"
+
+fun getGoogleAuthURL() =
+  "https://openidconnect.googleapis.com/v1/userinfo"

@@ -39,12 +39,8 @@ class GoogleAuthenticationFilter(
 
         val httpEntity = HttpEntity("", headers)
 
-        println(httpEntity.headers)
-
         val res =
           restTemplate.exchange(getGoogleAuthURL(), HttpMethod.GET, httpEntity, GoogleUserData::class.java)
-
-        println(res)
 
         if (res.statusCode == HttpStatus.OK) {
           val body = res.body

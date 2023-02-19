@@ -1,7 +1,6 @@
 package ao.path2.ms.user.dto
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import javax.validation.constraints.*
 
 @JsonInclude(value = JsonInclude.Include.NON_NULL, content = JsonInclude.Include.NON_EMPTY)
 class UserDTO() {

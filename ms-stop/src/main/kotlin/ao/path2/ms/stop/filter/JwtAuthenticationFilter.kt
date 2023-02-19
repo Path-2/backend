@@ -1,8 +1,8 @@
 package ao.path2.ms.stop.filter
 
+import ao.path2.ms.stop.config.security.model.UserSecurity
 import ao.path2.ms.stop.filter.model.UserLoginDto
 import ao.path2.ms.stop.token.JwtToken
-import ao.path2.ms.stop.config.security.model.UserSecurity
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken

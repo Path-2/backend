@@ -1,6 +1,5 @@
 package ao.path2.ms.user.config
 
-import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
 import javax.servlet.FilterChain
 import javax.servlet.http.HttpServletRequest

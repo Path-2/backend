@@ -9,5 +9,5 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient
 class MSAuthApplication
 
 fun main(args: Array<String>) {
-	runApplication<ao.path2.ms.auth.MSAuthApplication>(*args)
+  runApplication<ao.path2.ms.auth.MSAuthApplication>(*args)
 }

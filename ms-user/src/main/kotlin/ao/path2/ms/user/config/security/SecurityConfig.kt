@@ -64,7 +64,7 @@ class SecurityConfig(
       .and()
       .addFilter(JwtAuthenticationFilter(jwtToken, authenticationManager))
       .addFilter(JwtAuthorizationFilter(jwtToken, userDetailsService, authenticationManager))
-      //.addFilterBefore(CustomCorsFilter(), ChannelProcessingFilter::class.java)
+    //.addFilterBefore(CustomCorsFilter(), ChannelProcessingFilter::class.java)
 
     return http.build()
   }

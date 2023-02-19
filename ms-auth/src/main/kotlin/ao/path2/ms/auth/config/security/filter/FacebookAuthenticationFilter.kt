@@ -6,7 +6,6 @@ import ao.path2.ms.auth.handlers.ErrorDetails
 import ao.path2.ms.auth.repository.UserRepository
 import ao.path2.ms.auth.token.JwtToken
 import ao.path2.ms.auth.utils.security.getFacebookAuthURL
-import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.http.HttpStatus
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.filter.OncePerRequestFilter

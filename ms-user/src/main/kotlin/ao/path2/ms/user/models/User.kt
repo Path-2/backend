@@ -9,7 +9,7 @@ import javax.validation.constraints.*
 @Table(name = "TB_USER")
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(value = ["password"])
-class User() {
+class User {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "gn_user")
   var id: Long = 0

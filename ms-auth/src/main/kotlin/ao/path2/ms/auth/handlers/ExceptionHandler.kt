@@ -33,7 +33,8 @@ class ExceptionHandler : ResponseEntityExceptionHandler() {
   }
 
   @ExceptionHandler(Exception::class)
-  fun globalHandler(exception: Exception, request: WebRequest) = handleExceptionInternal(exception, null, HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request)
+  fun globalHandler(exception: Exception, request: WebRequest) =
+    handleExceptionInternal(exception, null, HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request)
 
   override fun handleExceptionInternal(
     ex: Exception,

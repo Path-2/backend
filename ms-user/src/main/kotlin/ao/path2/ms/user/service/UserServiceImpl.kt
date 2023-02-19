@@ -1,26 +1,26 @@
 package ao.path2.ms.user.service
 
 import ao.path2.core.models.EmailModel
-import ao.path2.ms.user.models.enums.Template
-import ao.path2.ms.user.producers.RabbitMQProducer
 import ao.path2.ms.user.core.exceptions.ResourceExistsException
-import ao.path2.ms.user.repository.UserRepository
 import ao.path2.ms.user.core.exceptions.ResourceNotFoundException
 import ao.path2.ms.user.models.FacebookUserData
 import ao.path2.ms.user.models.GoogleUserData
 import ao.path2.ms.user.models.User
 import ao.path2.ms.user.models.UserSource
+import ao.path2.ms.user.models.enums.Template
+import ao.path2.ms.user.producers.RabbitMQProducer
+import ao.path2.ms.user.repository.UserRepository
+import ao.path2.ms.user.utils.mapping.Mapper
 import org.apache.logging.log4j.LogManager
-import org.springframework.amqp.AmqpException
-import org.springframework.security.crypto.password.PasswordEncoder
-import org.springframework.stereotype.Service
 import org.apache.logging.log4j.Logger
+import org.springframework.amqp.AmqpException
 import org.springframework.data.domain.Page
-import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpMethod
+import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
 import java.util.*
 
@@ -29,7 +29,8 @@ class UserServiceImpl(
   private val repo: UserRepository,
   private val encoder: PasswordEncoder,
   private val producer: RabbitMQProducer,
-  private val restTemplate: RestTemplate
+  private val restTemplate: RestTemplate,
+  private val mapper: Mapper
 ) : UserService {
   private val log: Logger = LogManager.getLogger(UserService::class.java.toString())
 
@@ -46,9 +47,7 @@ class UserServiceImpl(
     log.info("User not found...")
 
     if (user.facebookId == null) {
-
       user.username = "@${user.email.substring(0, user.email.indexOf("@"))}"
-
       user.password = encoder.encode(user.password)
 
     } else {
@@ -58,38 +57,35 @@ class UserServiceImpl(
     }
 
     if (repo.existsByUsername(user.username)) {
-      user.username = "${user.username}.\${UUID.randomUUID().toString().substring(0)"
+      user.username = "${user.username}.${UUID.randomUUID().toString().substring(0)}"
     }
 
     val newUser = repo.save(user)
 
-    if (user.facebookId == null) {
+    val emailModel = EmailModel()
 
-      val emailModel = EmailModel()
+    emailModel.id = newUser.id
+    emailModel.template = Template.VERIFY.value
+    emailModel.subject = "Verificação de email"
+    emailModel.to = listOf(newUser.email).toTypedArray()
 
-      emailModel.id = newUser.id
-      emailModel.template = Template.VERIFY.value
-      emailModel.subject = "Verificação de email"
-      emailModel.to = listOf(newUser.email).toTypedArray()
+    val data = mutableMapOf<String, Any>()
 
-      val data = mutableMapOf<String, Any>()
+    data["name"] = newUser.name
+    data["verifyLink"] = "http://localhost:7777/v/u/${newUser.username}"
 
-      data["name"] = newUser.name
-      data["verifyLink"] = "http://localhost:7777/v/u/${newUser.username}"
+    emailModel.data = data
 
-      emailModel.data = data
+    try {
 
-      try {
+      producer.enqueue(emailModel)
 
-        producer.enqueue(emailModel)
+      log.info("User will be verify...")
 
-        log.info("User will be verify...")
+    } catch (ex: AmqpException) {
 
-      } catch (ex: AmqpException) {
+      log.error("User verify email failed...")
 
-        log.error("User verify email failed...")
-
-      }
     }
 
     return newUser
@@ -117,21 +113,14 @@ class UserServiceImpl(
     return repo.findByPhone(phone)
   }
 
-  private fun withoutPasswordAndRoles(user: User): User {
-    user.password = null
-    user.roles = null
-    return user
-  }
+  private fun withoutPasswordAndRoles(user: User): User = mapper.map(user, User()) { data ->
+    run {
+      (data as User).password = null
+      data.roles = null
+    }
+  } as User
 
-  override fun listAll(page: Pageable): Page<User> {
-    val all = repo.findAll(page)
-    val users = mutableListOf<User>()
-
-    for (user in all.content)
-      users.add(withoutPasswordAndRoles(user))
-
-    return PageImpl(users, page, page.pageSize.toLong())
-  }
+  override fun listAll(page: Pageable): Page<User> = repo.findAll(page).map { data -> withoutPasswordAndRoles(data) }
 
   override fun update(user: User): User {
     log.info("Searching user...")
@@ -159,7 +148,7 @@ class UserServiceImpl(
 
     headers.set("Authorization", "Bearer $token")
 
-    val httpEntity = HttpEntity("", headers)
+    val httpEntity = httpEntity(headers)
 
     val res =
       restTemplate.exchange(getGoogleAuthURL(), HttpMethod.GET, httpEntity, GoogleUserData::class.java)
@@ -184,7 +173,7 @@ class UserServiceImpl(
       user.createdBy = UserSource.GOOGLE
 
       if (repo.existsByUsername(user.username)) {
-        user.username = "${user.username}.\${UUID.randomUUID().toString().substring(0)"
+        user.username = "${user.username}.${UUID.randomUUID().toString().substring(0)}"
       }
 
       return repo.save(user)
@@ -202,7 +191,7 @@ class UserServiceImpl(
       val user = User()
       log.info("Searching user...")
 
-      if (repo.existsByEmail(body.id)) {
+      if (repo.existsByFacebookId(body.id)) {
         log.error("User exists...")
         throw ResourceExistsException("User exists!!!")
       }
@@ -211,6 +200,7 @@ class UserServiceImpl(
 
       user.name = body.name
       user.image = body.profilePicture ?: ""
+      user.facebookId = body.id
       user.username = "@${body.firstName.replace(" ", "")}"
       user.password = encoder.encode(UUID.randomUUID().toString().substring(0, 17))
       user.createdBy = UserSource.FACEBOOK
@@ -239,3 +229,5 @@ fun getFacebookAuthURL(token: String) =
 
 fun getGoogleAuthURL() =
   "https://openidconnect.googleapis.com/v1/userinfo"
+
+private fun httpEntity(headers: HttpHeaders): HttpEntity<*> = HttpEntity("", headers)

@@ -16,7 +16,7 @@ class GoogleUserData {
   var name: String = ""
 
   @JsonSetter("picture", nulls = Nulls.SKIP)
-  var profilePicture: String? = ""
+  var imageUrl: String? = ""
 
   @JsonSetter("email", nulls = Nulls.SKIP)
   var email: String = ""
@@ -24,6 +24,6 @@ class GoogleUserData {
   @JsonSetter("id", nulls = Nulls.SKIP)
   var id: String? = ""
   override fun toString(): String =
-    "SocialUserData(firstName=$firstName, lastName=$lastName, name=$name, profilePicture=$profilePicture, email=$email, id=$id)"
+    "GoogleUserData(firstName=$firstName, lastName=$lastName, name=$name, profilePicture=$imageUrl, email=$email, id=$id)"
 
 }

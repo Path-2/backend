@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
 import javax.transaction.Transactional
 
-
 @Service
 class UserDetailsServiceImpl(
   private val userRepo: UserRepository, private val roleRepo: RoleRepository
@@ -21,23 +20,19 @@ class UserDetailsServiceImpl(
     // Create a method in your repo to find a user by its username
     val user = if (userRepo.existsByUsername(username))
       userRepo.findByUsername(username)
-    else if (userRepo.existsByFacebookId(username))
-      userRepo.findByFacebookId(username)
     else if (userRepo.existsByEmail(username))
       userRepo.findByEmail(username)
     else throw ResourceNotFoundException("User with username or email: $username not found")
 
     return UserSecurity(
-      user.id,
-      user.email,
+      user.id!!,
+      user.email!!,
       user.password!!,
-      getAuthorities(user.roles!!)
+      getAuthorities(user.roles ?: listOf())
     )
   }
 
   private fun getAuthorities(
     roles: List<Role>
-  ): List<GrantedAuthority> {
-    return roles.map { role -> SimpleGrantedAuthority(role.name) }
-  }
+  ): List<GrantedAuthority> = roles.map { role -> SimpleGrantedAuthority(role.name) }
 }

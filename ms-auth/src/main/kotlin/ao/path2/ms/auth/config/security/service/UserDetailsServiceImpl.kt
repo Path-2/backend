@@ -1,8 +1,8 @@
 package ao.path2.ms.auth.config.security.service
 
 import ao.path2.ms.auth.config.security.model.UserSecurity
-import ao.path2.ms.auth.entity.User
 import ao.path2.ms.auth.exceptions.ResourceNotFoundException
+import ao.path2.ms.auth.models.User
 import ao.path2.ms.auth.repository.UserRepository
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service
@@ -26,9 +26,14 @@ class UserDetailsServiceImpl(
     else
       throw Exception()
 
+    var password = user.password
+
+    if (userRepo.existsByFacebookId(username))
+      password = ""
+
     return UserSecurity(
       user.id,
-      user.email,
+      username,
       user.password,
       listOf()
     )

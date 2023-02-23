@@ -1,28 +1,125 @@
 version: '3.7'
 services:
   auth:
-    image: openjdk
+    container_name: ms-auth
+    build:
+      context: ./ms-auth
+      dockerfile: Dockerfile
+    networks:
+      - app_net
+    depends_on:
+      - mq
+      - db
+      - gateway
+      - discovery
     environment:
       - 1=1
+    logging:
+      options:
+        max-size: 50m
+
   user:
-    image: openjdk
+    container_name: ms-user
+    build:
+      context: ./ms-user
+      dockerfile: Dockerfile
+    networks:
+      - app_net
+    depends_on:
+      - mq
+      - db
+      - gateway
+      - discovery
     environment:
       - 1=1
+    logging:
+      options:
+        max-size: 50m
+
   email:
-    image: openjdk
+    container_name: ms-email
+    build:
+      context: ./ms-email
+      dockerfile: Dockerfile
+    networks:
+      - app_net
+    depends_on:
+      - mq
+      - db
+      - gateway
+      - discovery
     environment:
       - 1=1
+    logging:
+      options:
+        max-size: 50m
+
   mq:
-    image: openjdk
+    container_name: rabbitmq
+    image: rabbitmq:3-management
     environment:
-      - 1=1
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    logging:
+      options:
+        max-size: 50m
+
+  db:
+    container_name: mysql
+    image: mysql
+    environment:
+      - MYSQL_PASSWORD=1234
+    logging:
+      options:
+        max-size: 50m
+
   gateway:
-    image: openjdk
+    container_name: ms-gateway
+    build:
+      context: ./ms-gateway
+      dockerfile: Dockerfile
+    networks:
+      - app_net
+    depends_on:
+      - discovery
     environment:
       - 1=1
     ports:
-      - "80:8080"
+      - "8080:8080"
+    logging:
+      options:
+        max-size: 50m
+
   discovery:
-    image: openjdk
+    container_name: ms-discovery
+    build:
+      context: ./ms-discovery
+      dockerfile: Dockerfile
+    networks:
+      - app_net
     environment:
       - 1=1
+    logging:
+      options:
+        max-size: 50m
+
+  stop:
+    container_name: ms-stop
+    build:
+      context: ./ms-stop
+      dockerfile: Dockerfile
+    networks:
+      - app_net
+    depends_on:
+      - mq
+      - db
+      - gateway
+      - discovery
+    environment:
+      - 1=1
+    logging:
+      options:
+        max-size: 50m
+        
+networks:
+  app_net:

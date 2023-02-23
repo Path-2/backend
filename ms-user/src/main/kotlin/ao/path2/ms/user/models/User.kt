@@ -1,8 +1,9 @@
 package ao.path2.ms.user.models
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
+import org.hibernate.validator.constraints.URL
+import java.time.LocalDateTime
 import javax.persistence.*
 import javax.validation.constraints.*
 
@@ -10,10 +11,10 @@ import javax.validation.constraints.*
 @Table(name = "TB_USER")
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(value = ["password"])
-class User() {
+class User {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO, generator = "gn_user")
-  var id: Long = 0
+  var id: Long? = null
 
   @NotBlank
   @NotEmpty
@@ -27,23 +28,19 @@ class User() {
   @Column(nullable = false, unique = true)
   var username: String = ""
 
-  @NotNull
-  @NotEmpty
-  @NotBlank
-  @Size(min = 9, max = 9)
-  @Column(nullable = false, unique = true)
-  var phone: String = ""
+  @Column
+  var phone: String? = null
 
-  @NotNull
   var image: String = ""
 
-  @NotBlank
-  @NotEmpty
-  @NotNull
-  @Column(nullable = false, unique = true)
-  var email: String = ""
+  @Column
+  var email: String? = null
 
-  var facebookId: String = ""
+  @Column(nullable = true)
+  var facebookId: String? = null
+
+  @Enumerated(EnumType.STRING)
+  var createdBy: UserSource = UserSource.EMAIL
 
   @Size(min = 8)
   @NotNull
@@ -52,12 +49,18 @@ class User() {
   @Column(nullable = false)
   var password: String? = ""
 
+  @Column(nullable = false)
   var verified: Boolean = false
+
+  @Column(nullable = false)
   var cancelled: Boolean = false
+
+  @Column(nullable = false)
+  var createdAt: LocalDateTime = LocalDateTime.now()
 
   @ManyToMany
   @JoinTable(
-    name = "users_roles",
+    name = "tb_permissions",
     joinColumns = [JoinColumn(
       name = "user_id", referencedColumnName = "id"
     )],
@@ -66,4 +69,7 @@ class User() {
     )]
   )
   var roles: List<Role>? = listOf()
+  override fun toString(): String {
+    return "User(id=$id, name='$name', username='$username', phone='$phone', image='$image', email='$email', facebookId=$facebookId, createdBy=$createdBy, password=$password, verified=$verified, cancelled=$cancelled, roles=$roles)"
+  }
 }

@@ -1,1 +1,9 @@
-FROM openjdk:11
+FROM maven:3.8.5
+
+WORKDIR /app
+
+COPY . /app
+
+RUN mvn install package
+
+CMD ["java", "-jar", "./target/app.jar"]

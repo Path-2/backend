@@ -1,7 +1,7 @@
 package ao.path2.ms.user.handlers
 
 
-import ao.path2.core.exceptions.ResourceExistsException
+import ao.path2.ms.user.core.exceptions.ResourceExistsException
 import ao.path2.ms.user.core.exceptions.ResourceNotFoundException
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.JwtException
@@ -33,7 +33,8 @@ class ExceptionHandler : ResponseEntityExceptionHandler() {
   }
 
   @ExceptionHandler(Exception::class)
-  fun globalHandler(exception: Exception, request: WebRequest) = handleExceptionInternal(exception, null, HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request)
+  fun globalHandler(exception: Exception, request: WebRequest) =
+    handleExceptionInternal(exception, null, HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request)
 
   override fun handleExceptionInternal(
     ex: Exception,

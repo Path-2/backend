@@ -8,7 +8,6 @@ import org.apache.logging.log4j.Logger
 import org.springframework.amqp.rabbit.annotation.RabbitListener
 import org.springframework.messaging.handler.annotation.Payload
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class RabbitMQEmailConsumer(private val emailSender: EmailService, private val producer: RabbiMQEmailProducer) {
@@ -22,7 +21,7 @@ class RabbitMQEmailConsumer(private val emailSender: EmailService, private val p
 
     try {
 
-      if (model.subject == ""){
+      if (model.subject == "") {
         log.warn("Subject is empty")
         messageValid = false
       }

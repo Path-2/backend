@@ -1,10 +1,8 @@
 package ao.path2.ms.user.repository;
 
 import ao.path2.ms.user.models.User
-import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.PagingAndSortingRepository
 import org.springframework.stereotype.Repository
-import javax.transaction.Transactional
 
 @Repository
 interface UserRepository : PagingAndSortingRepository<User, Long> {

@@ -8,22 +8,28 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ms-auth" />
         <module name="ms-email" />
+        <module name="ms-stop" />
         <module name="ms-discovery" />
         <module name="ms-user" />
         <module name="ms-gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="core" target="11" />
+      <module name="filters" target="11" />
       <module name="path2" target="11" />
+      <module name="token" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="core" options="" />
+      <module name="filters" options="-parameters" />
       <module name="ms-auth" options="-parameters" />
       <module name="ms-discovery" options="-parameters" />
       <module name="ms-email" options="-parameters" />
       <module name="ms-gateway" options="-parameters" />
+      <module name="ms-stop" options="-parameters" />
       <module name="ms-user" options="-parameters" />
       <module name="path2" options="-parameters" />
       <module name="token" options="" />

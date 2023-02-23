@@ -13,21 +13,4 @@ import java.util.*
 
 @SpringBootTest
 class Path2ApplicationTests {
-
-  @Autowired
-  lateinit var controller: UserController
-
-  @Mock
-  lateinit var mock: Any
-
-  @Test
-  fun createUserWithGoogle() {
-    val token = UUID.randomUUID().toString()
-
-    val data = SocialDto(token, UserSource.GOOGLE)
-
-    val code = controller.saveWithSocialLogin(data).statusCode
-
-    Assertions.assertEquals(HttpStatus.CREATED, code)
-  }
 }

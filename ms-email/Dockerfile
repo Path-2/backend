@@ -1,3 +1,9 @@
-FROM openjdk:11
-COPY ./target/ms-email:1.0.0-SNAPSHOT.jar /opt/auth/app.jar
-CMD ["java", "-jar", "/opt/auth/app.jar"]
+FROM maven:3.8.5
+
+WORKDIR /app
+
+COPY . /app
+
+RUN mvn install package
+
+CMD ["java", "-jar", "./target/app.jar"]

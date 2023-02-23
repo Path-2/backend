@@ -1,6 +1,7 @@
 version: '3.7'
 services:
   auth:
+    container_name: ms-auth
     build:
       context: ./ms-auth
       dockerfile: Dockerfile
@@ -13,8 +14,12 @@ services:
       - discovery
     environment:
       - 1=1
+    logging:
+      options:
+        max-size: 50m
 
   user:
+    container_name: ms-user
     build:
       context: ./ms-user
       dockerfile: Dockerfile
@@ -27,8 +32,12 @@ services:
       - discovery
     environment:
       - 1=1
+    logging:
+      options:
+        max-size: 50m
 
   email:
+    container_name: ms-email
     build:
       context: ./ms-email
       dockerfile: Dockerfile
@@ -41,15 +50,31 @@ services:
       - discovery
     environment:
       - 1=1
+    logging:
+      options:
+        max-size: 50m
+
   mq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
     environment:
-      - 1=1
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    logging:
+      options:
+        max-size: 50m
+
   db:
+    container_name: mysql
     image: mysql
     environment:
       - MYSQL_PASSWORD=1234
+    logging:
+      options:
+        max-size: 50m
 
   gateway:
+    container_name: ms-gateway
     build:
       context: ./ms-gateway
       dockerfile: Dockerfile
@@ -61,8 +86,12 @@ services:
       - 1=1
     ports:
       - "8080:8080"
+    logging:
+      options:
+        max-size: 50m
 
   discovery:
+    container_name: ms-discovery
     build:
       context: ./ms-discovery
       dockerfile: Dockerfile
@@ -70,8 +99,12 @@ services:
       - app_net
     environment:
       - 1=1
+    logging:
+      options:
+        max-size: 50m
 
   stop:
+    container_name: ms-stop
     build:
       context: ./ms-stop
       dockerfile: Dockerfile
@@ -84,7 +117,9 @@ services:
       - discovery
     environment:
       - 1=1
-
+    logging:
+      options:
+        max-size: 50m
+        
 networks:
-  - db_net:
-  - app_net:
+  app_net:

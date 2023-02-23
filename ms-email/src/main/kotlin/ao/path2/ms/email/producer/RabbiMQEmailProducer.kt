@@ -5,7 +5,6 @@ import org.springframework.amqp.AmqpException
 import org.springframework.amqp.core.Queue
 import org.springframework.amqp.rabbit.core.RabbitTemplate
 import org.springframework.stereotype.Service
-import kotlin.jvm.Throws
 
 @Service
 class RabbiMQEmailProducer(private val rabbitTemplate: RabbitTemplate, private val queue: Queue) {

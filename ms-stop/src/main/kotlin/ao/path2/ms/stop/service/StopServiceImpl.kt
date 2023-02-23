@@ -1,11 +1,11 @@
 package ao.path2.ms.stop.service
 
 import ao.path2.core.exceptions.ResourceExistsException
-import ao.path2.ms.stop.models.Stop
-import ao.path2.ms.stop.repository.StopRepository
 import ao.path2.core.exceptions.ResourceNotFoundException
 import ao.path2.ms.stop.dto.StatusDto
 import ao.path2.ms.stop.exceptions.ExceedMaxValueException
+import ao.path2.ms.stop.models.Stop
+import ao.path2.ms.stop.repository.StopRepository
 import org.locationtech.jts.geom.Coordinate
 import org.locationtech.jts.geom.GeometryFactory
 import org.locationtech.jts.geom.PrecisionModel

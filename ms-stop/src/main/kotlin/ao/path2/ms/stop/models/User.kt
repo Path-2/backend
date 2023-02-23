@@ -3,7 +3,10 @@ package ao.path2.ms.stop.models
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
 import javax.persistence.*
-import javax.validation.constraints.*
+import javax.validation.constraints.NotBlank
+import javax.validation.constraints.NotEmpty
+import javax.validation.constraints.NotNull
+import javax.validation.constraints.Size
 
 @Entity(name = "User")
 @Table(name = "TB_USER")

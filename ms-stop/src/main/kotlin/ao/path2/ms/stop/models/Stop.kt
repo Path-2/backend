@@ -1,6 +1,5 @@
 package ao.path2.ms.stop.models
 
-import org.hibernate.annotations.Type
 import org.locationtech.jts.geom.Point
 import java.time.LocalDateTime
 import javax.persistence.*

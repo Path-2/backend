@@ -19,7 +19,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.web.AuthenticationEntryPoint
 import org.springframework.security.web.SecurityFilterChain
 
-
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @Configuration
 class SecurityConfig(
@@ -49,7 +48,7 @@ class SecurityConfig(
     http.cors().and()
       .csrf().disable()
       .authorizeRequests()
-      .antMatchers(HttpMethod.POST, "/v1/users").permitAll()
+      .antMatchers(HttpMethod.POST, "/v1/users/**").permitAll()
       .and()
       .authorizeRequests()
       .antMatchers(HttpMethod.GET, "/h2-console").permitAll()
@@ -64,7 +63,7 @@ class SecurityConfig(
       .and()
       .addFilter(JwtAuthenticationFilter(jwtToken, authenticationManager))
       .addFilter(JwtAuthorizationFilter(jwtToken, userDetailsService, authenticationManager))
-      //.addFilterBefore(CustomCorsFilter(), ChannelProcessingFilter::class.java)
+    //.addFilterBefore(CustomCorsFilter(), ChannelProcessingFilter::class.java)
 
     return http.build()
   }

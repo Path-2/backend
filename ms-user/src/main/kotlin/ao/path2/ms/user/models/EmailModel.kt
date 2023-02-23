@@ -1,4 +1,4 @@
-package ao.path2.core.models
+package ao.path2.ms.user.models
 
 class EmailModel {
   var id: Long = 0

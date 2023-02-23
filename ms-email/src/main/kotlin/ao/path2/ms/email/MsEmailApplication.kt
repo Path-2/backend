@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class MsEmailApplication
 
 fun main(args: Array<String>) {
-	runApplication<MsEmailApplication>(*args)
+  runApplication<MsEmailApplication>(*args)
 }

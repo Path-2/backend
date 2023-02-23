@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate
 
 @SpringBootTest
 class Path2ApplicationTests {
+<<<<<<< Updated upstream
 	@Autowired
 	private lateinit var repository: UserRepository
 
@@ -28,4 +29,7 @@ class Path2ApplicationTests {
 
 		Assertions.assertEquals(resp.statusCode.value(), HttpStatus.CREATED.value())
 	}
+=======
+
+>>>>>>> Stashed changes
 }

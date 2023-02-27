@@ -41,6 +41,7 @@ class JwtAuthenticationFilter(
     res.addHeader("Authorization", token)
     res.addHeader("AuthorizationType", "Bearer")
     res.addHeader("Access-Control-Expose-Headers", "Authorization")
+    res.contentType = "application/json"
 
     res.writer.write(stringfy(JWSAuthToken(token)))
   }

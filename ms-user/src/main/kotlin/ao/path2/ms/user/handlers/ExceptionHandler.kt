@@ -43,7 +43,13 @@ class ExceptionHandler : ResponseEntityExceptionHandler() {
     status: HttpStatus,
     request: WebRequest
   ): ResponseEntity<Any> {
-    return ResponseEntity.status(status.value()).headers(headers)
-      .body(ErrorDetails(status.value(), ex.message, LocalDateTime.now(), ex.cause?.message))
+    return ResponseEntity
+      .status(getStatus(ex.message ?: "", status))
+      .headers(headers)
+      .body(ErrorDetails(getStatus(ex.message ?: "", status), ex.message, LocalDateTime.now(), ex.cause?.message))
   }
+
+  fun getStatus(message: String, status: HttpStatus) =
+    if (message.startsWith("Access is d")) HttpStatus.FORBIDDEN.value() else status.value();
+
 }

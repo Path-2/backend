@@ -67,11 +67,14 @@ class FacebookAuthenticationFilter(
           ),
           HttpStatus.INTERNAL_SERVER_ERROR
         )
+
+        filterChain.doFilter(request, response)
+        return
       }
 
-      filterChain.doFilter(request, response)
-
     }
+
+    filterChain.doFilter(request, response)
 
   }
 

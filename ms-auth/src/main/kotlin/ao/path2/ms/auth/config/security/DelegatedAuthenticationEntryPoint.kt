@@ -31,10 +31,13 @@ class DelegatedAuthenticationEntryPoint : AuthenticationEntryPoint {
     mapper.registerModule(JavaTimeModule())
     mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
 
-    val data = ErrorDetails(status.value(), ex?.message, LocalDateTime.now(), ex?.cause?.message)
+    val data = ErrorDetails(getStatus(ex?.message?:"", status), ex?.message, LocalDateTime.now(), ex?.cause?.message)
 
     // setting the response HTTP status code
-    response?.status = status.value();
+    response?.status = getStatus(ex?.message?:"", status);
+
+    // setting content type
+    response?.setHeader("Content-Type", "application/json")
 
     // serializing the response body in JSON
     response
@@ -43,4 +46,8 @@ class DelegatedAuthenticationEntryPoint : AuthenticationEntryPoint {
         mapper.writeValueAsString(data)
       );
   }
+
+  fun getStatus(message: String, status: HttpStatus) =
+    if (message.startsWith("Access is d")) HttpStatus.FORBIDDEN.value() else status.value();
+
 }

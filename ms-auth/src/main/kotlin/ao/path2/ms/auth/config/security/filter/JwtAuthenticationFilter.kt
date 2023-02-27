@@ -38,9 +38,9 @@ class JwtAuthenticationFilter(
   ) {
     val username = (auth.principal as UserSecurity).username
     val token: String = jwtTokenUtil.generateToken(username)
-    res.addHeader("Authorization", token)
     res.addHeader("AuthorizationType", "Bearer")
     res.addHeader("Access-Control-Expose-Headers", "Authorization")
+    res.contentType = "application/json"
 
     res.writer.write(stringfy(JWSAuthToken(token)))
   }

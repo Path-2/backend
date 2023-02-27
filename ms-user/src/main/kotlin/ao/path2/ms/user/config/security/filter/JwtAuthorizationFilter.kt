@@ -4,6 +4,7 @@ import ao.path2.ms.user.token.JwtToken
 import org.springframework.http.HttpHeaders
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken.authenticated
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter
@@ -38,11 +39,10 @@ class JwtAuthorizationFilter(
   }
 
   private fun getAuthentication(token: String): UsernamePasswordAuthenticationToken? {
-    println(token)
     if (!jwtTokenUtil.isTokenValid(token)) return null
     val username = jwtTokenUtil.getUsername(token)
     val user = service.loadUserByUsername(username)
 
-    return UsernamePasswordAuthenticationToken(user, null, user.authorities)
+    return authenticated(user, null, user.authorities)
   }
 }

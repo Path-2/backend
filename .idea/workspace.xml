@@ -11,20 +11,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: ignore folder .idea">
-      <change afterPath="$PROJECT_DIR$/ms-stop/src/main/kotlin/ao/path2/ms/stop/annotation/AuthorizeAdmin.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-stop/src/main/kotlin/ao/path2/ms/stop/annotation/AuthorizeUser.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/annotation/AuthorizeOwner.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/annotation/AuthorizeUser.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/core/exceptions/UnSupportedSocialNetworking.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/MSForgotPassWordApplication.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/Beans.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/RabbitMQConfig.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/security/DelegatedAuthenticationEntryPoint.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/security/SecurityConfig.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/security/filter/JwtAuthenticationFilter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/security/filter/JwtAuthorizationFilter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/security/model/UserLoginDto.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/security/model/UserSecurity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/security/service/UserDetailsServiceImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/controller/ForgotController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/dto/ForgotUserDto.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/exceptions/ResourceExistsException.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/exceptions/ResourceNotFoundException.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/handlers/CustomAuthenticationFailureHandler.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/handlers/ErrorDetails.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/handlers/ExceptionHandler.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/models/User.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/repository/UserRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/service/ForgotService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/token/JwtToken.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/DelegatedAuthenticationEntryPoint.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/DelegatedAuthenticationEntryPoint.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/FacebookAuthenticationFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/FacebookAuthenticationFilter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/GoogleAuthenticationFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/GoogleAuthenticationFilter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/JwtAuthenticationFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/JwtAuthenticationFilter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/config/security/DelegatedAuthenticationEntryPoint.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/config/security/DelegatedAuthenticationEntryPoint.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/config/security/filter/JwtAuthorizationFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/config/security/filter/JwtAuthorizationFilter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/controller/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/controller/UserController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/handlers/ExceptionHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/handlers/ExceptionHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/handlers/ErrorDetails.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/handlers/ErrorDetails.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,28 +114,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "jdk.selected.JAVA_MODULE": "11",
-    "last_directory_selection": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-stop/ms-stop/src/main/kotlin/ao/path2/ms/stop",
-    "last_opened_file_path": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-stop/src/main/kotlin/ao/path2/ms/stop",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-forgot-password\src\main\kotlin\ao\path2\ms\forgot" />
+      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-forgot-password\src\main\resources" />
+      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-forgot-password" />
       <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-stop\src\main\kotlin\ao\path2\ms\stop" />
       <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-auth\src\test\kotlin\ao\path2\ms\auth" />
-      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-user\src\main\resources" />
-      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-user\src\main\kotlin\ao\path2\ms\user\models" />
-      <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-gateway\src\main\kotlin\ao\path2\ms\gateway\handlers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back" />
@@ -136,11 +155,11 @@
       <recent name="ao.path2.ms.user.config" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="ao.path2.ms.forgot.config" />
+      <recent name="ao.path2.ms.forgot.repository" />
+      <recent name="ao.path2.ms.forgot" />
       <recent name="ao.path2.ms.auth.config.security.model" />
       <recent name="ao.path2.ms.auth.models" />
-      <recent name="ao.path2.ms.stop.repository" />
-      <recent name="ao.path2.core.models" />
-      <recent name="ao.path2.ms.user.config" />
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.MSAuthApplicationKt">
@@ -331,11 +350,6 @@
           <url>file://$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/FacebookAuthenticationFilter.kt</url>
           <line>26</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/JwtAuthenticationFilter.kt</url>
-          <line>26</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/GoogleAuthenticationFilter.kt</url>

@@ -1,4 +1,4 @@
-package ao.path2.ms.user.handlers
+package ao.path2.ms.forgot.handlers
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import java.time.LocalDateTime

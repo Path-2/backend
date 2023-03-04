@@ -6,8 +6,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient
 
 @EnableEurekaClient
 @SpringBootApplication
-class MSForgotPassWordApplication
+class MSForgotPasswordApplication
 
 fun main(args: Array<String>) {
-  runApplication<MSForgotPassWordApplication>(*args)
+  runApplication<MSForgotPasswordApplication>(*args)
 }

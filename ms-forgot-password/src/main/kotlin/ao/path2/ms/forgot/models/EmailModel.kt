@@ -1,7 +1,9 @@
 package ao.path2.ms.forgot.models
 
-import java.time.LocalDateTime
-
-class EmailModel(name: String, to: String?, token: String, timestamp: LocalDateTime) {
-
-}
+data class EmailModel(
+  val subject: String,
+  val name: String,
+  val token: String,
+  val to: List<String>,
+  val template: String
+)

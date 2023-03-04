@@ -1,8 +1,8 @@
 package ao.path2.ms.user.models
 
+import ao.path2.ms.user.models.enums.UserSource
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonInclude
-import org.hibernate.validator.constraints.URL
 import java.time.LocalDateTime
 import javax.persistence.*
 import javax.validation.constraints.*
@@ -57,6 +57,12 @@ class User {
 
   @Column(nullable = false)
   var createdAt: LocalDateTime = LocalDateTime.now()
+
+  @Column(nullable = false)
+  var updatedAt: LocalDateTime = LocalDateTime.now()
+
+  @Column(nullable = false)
+  var passwordUpdatedAt: LocalDateTime = LocalDateTime.now()
 
   @ManyToMany
   @JoinTable(

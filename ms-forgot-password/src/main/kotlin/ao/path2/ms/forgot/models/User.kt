@@ -41,4 +41,22 @@ class User {
   @Column(nullable = false)
   var password: String? = ""
 
+  //@Column(nullable = false)
+  var updatedAt: LocalDateTime = LocalDateTime.now()
+
+  //@Column(nullable = false)
+  var passwordUpdatedAt: LocalDateTime? = null
+
+  @ManyToMany
+  @JoinTable(
+    name = "tb_permissions",
+    joinColumns = [JoinColumn(
+      name = "user_id", referencedColumnName = "id"
+    )],
+    inverseJoinColumns = [JoinColumn(
+      name = "role_id", referencedColumnName = "id"
+    )]
+  )
+  var roles: List<Role>? = listOf()
+
 }

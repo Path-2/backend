@@ -9,11 +9,15 @@ spring:
   application:
     name: ms-forgot-password
   jpa:
-    database-platform: org.hibernate.spatial.dialect.mysql.MySQL56InnoDBSpatialDialect
     open-in-view: false
     show-sql: true
     hibernate:
       ddl-auto: update
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
   main:
     allow-bean-definition-overriding: true
 jwt:

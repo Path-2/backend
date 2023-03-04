@@ -26,7 +26,13 @@ spring:
             - Path=/api/v1/stops/**
           filters:
             - StripPrefix=1
-
+        ## FORGOT PASSWORD SERVICE
+        - id: ms-forgot-password
+          uri: lb://ms-forgot-password
+          predicates:
+            - Path=/api/v1/forgot/**
+          filters:
+            - StripPrefix=1
 server:
   port: 8080
 

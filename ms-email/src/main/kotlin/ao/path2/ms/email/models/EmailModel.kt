@@ -1,9 +1,10 @@
-package ao.path2.core.models
+package ao.path2.ms.email.models
 
 class EmailModel {
   var id: Long = 0
-  var data: Map<String, Any> = mapOf()
-  var subject: String = ""
-  var to: Array<String> = arrayOf()
-  var template: String = ""
+  lateinit var subject: String
+  lateinit var name: String
+  lateinit var token: String
+  lateinit var to: List<String>
+  lateinit var template: String
 }

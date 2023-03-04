@@ -1,6 +1,6 @@
 package ao.path2.ms.email.service
 
-import ao.path2.core.models.EmailModel
+import ao.path2.ms.email.models.EmailModel
 import freemarker.template.Configuration
 import freemarker.template.TemplateException
 import org.springframework.mail.MailException
@@ -25,7 +25,7 @@ class EmailServiceImpl(private val configuration: Configuration, private val sen
     val helper = MimeMessageHelper(mimeMessage, true, StandardCharsets.UTF_8.name())
     helper.setFrom("path2app@gmail.com", "Path2 App")
     helper.setSubject(emailModel.subject)
-    helper.setTo(emailModel.to)
+    helper.setTo(emailModel.to.toTypedArray())
     helper.setText(getEmailContent(emailModel), true)
     sender.send(mimeMessage)
   }
@@ -33,7 +33,7 @@ class EmailServiceImpl(private val configuration: Configuration, private val sen
   @Throws(IOException::class, TemplateException::class)
   fun getEmailContent(emailModel: EmailModel): String {
     val stringWriter = StringWriter()
-    configuration.getTemplate("${emailModel.template}.ftlh").process(emailModel.data, stringWriter)
+    configuration.getTemplate("${emailModel.template}.ftlh").process(emailModel, stringWriter)
     return stringWriter.buffer.toString()
   }
 }

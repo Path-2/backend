@@ -42,7 +42,7 @@ class CustomAuthenticationFailureHandler : AuthenticationFailureHandler, AccessD
     mapper.registerModule(JavaTimeModule())
     mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
 
-    val data = ErrorDetails(status.value(), ex?.message, LocalDateTime.now(), ex?.cause?.message)
+    val data = ErrorDetails(status.value(), ex?.message ?: "unknown", LocalDateTime.now(), ex?.cause?.message)
 
     // setting the response HTTP status code
     response?.status = status.value();

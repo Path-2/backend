@@ -1,6 +1,6 @@
-package ao.path2.ms.user.config.security
+package ao.path2.ms.forgot.config.security
 
-import ao.path2.ms.user.handlers.ErrorDetails
+import ao.path2.ms.forgot.handlers.ErrorDetails
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
@@ -33,7 +33,7 @@ class DelegatedAuthenticationEntryPoint : AuthenticationEntryPoint {
 
     val data = ErrorDetails(
       getStatus(ex?.message ?: "", status),
-      ex?.message,
+      ex?.message ?: "",
       LocalDateTime.now(),
       ex?.cause?.message
     )

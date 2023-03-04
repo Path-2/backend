@@ -20,7 +20,8 @@ import org.springframework.util.ErrorHandler
 @EnableRabbit
 @Configuration
 class RabbitMQConfig() {
-  private val queueName: String = "user.name"
+  private val queueName: String = "user.verify"
+  private val forgotQueueName: String = "user.forgot"
   private val exchange: String = "amqp.direct"
   private val routingKey: String = ""
   private val replyTimeout: Int = 2
@@ -28,18 +29,24 @@ class RabbitMQConfig() {
   private val maxConcurrentConsumers: Int = 20
 
   @Bean
-  fun queue(): Queue {
-    return Queue(queueName, false)
-  }
-
-  @Bean
   fun exchange(): DirectExchange {
     return DirectExchange(exchange)
   }
 
   @Bean
-  fun binding(queue: Queue?, exchange: DirectExchange?): Binding {
-    return BindingBuilder.bind(queue).to(exchange).with(routingKey)
+  fun verifyQueue() = Queue(queueName, false)
+
+  @Bean
+  fun bindingVerify(): Binding {
+    return BindingBuilder.bind(verifyQueue()).to(exchange()).with(routingKey)
+  }
+
+  @Bean
+  fun forgotQueue() = Queue(forgotQueueName, false)
+
+  @Bean
+  fun bindingForgot(): Binding {
+    return BindingBuilder.bind(forgotQueue()).to(exchange()).with(routingKey)
   }
 
   @Bean
@@ -52,7 +59,18 @@ class RabbitMQConfig() {
     val rabbitTemplate = RabbitTemplate(connectionFactory)
     rabbitTemplate.setDefaultReceiveQueue(queueName)
     rabbitTemplate.messageConverter = jsonMessageConverter()
-    rabbitTemplate.setReplyAddress(queue().name)
+    rabbitTemplate.setReplyAddress(queueName)
+    rabbitTemplate.setReplyTimeout(replyTimeout.toLong())
+    rabbitTemplate.setUseDirectReplyToContainer(false)
+    return rabbitTemplate
+  }
+
+  @Bean
+  fun rabbitTemplateForgot(connectionFactory: ConnectionFactory): AmqpTemplate {
+    val rabbitTemplate = RabbitTemplate(connectionFactory)
+    rabbitTemplate.setDefaultReceiveQueue(forgotQueueName)
+    rabbitTemplate.messageConverter = jsonMessageConverter()
+    rabbitTemplate.setReplyAddress(forgotQueueName)
     rabbitTemplate.setReplyTimeout(replyTimeout.toLong())
     rabbitTemplate.setUseDirectReplyToContainer(false)
     return rabbitTemplate

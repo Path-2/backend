@@ -39,8 +39,8 @@ class RabbitMQConfig() {
   }
 
   @Bean
-  fun binding(queue: Queue?, exchange: DirectExchange?): Binding {
-    return BindingBuilder.bind(queue).to(exchange).with(routingKey)
+  fun binding(): Binding {
+    return BindingBuilder.bind(queue()).to(exchange()).with(routingKey)
   }
 
   @Bean

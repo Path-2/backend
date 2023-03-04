@@ -4,6 +4,7 @@ import ao.path2.ms.user.core.exceptions.ResourceExistsException
 import ao.path2.ms.user.core.exceptions.ResourceNotFoundException
 import ao.path2.ms.user.models.*
 import ao.path2.ms.user.models.enums.Template
+import ao.path2.ms.user.models.enums.UserSource
 import ao.path2.ms.user.producers.RabbitMQProducer
 import ao.path2.ms.user.repository.RoleRepository
 import ao.path2.ms.user.repository.UserRepository
@@ -56,6 +57,8 @@ class UserServiceImpl(
 
     val role = roleRepo.findByNameContainingIgnoreCase("user")
     user.createdAt = LocalDateTime.now()
+    user.updatedAt = user.createdAt
+    user.passwordUpdatedAt = user.createdAt.minusDays(30)
 
     if (role != null) {
       log.info("Adding role ${role.name}...")
@@ -64,19 +67,18 @@ class UserServiceImpl(
 
     val newUser = repo.save(user)
 
-    val emailModel = EmailModel()
-
-    emailModel.id = newUser.id ?: (-1 * Random(System.currentTimeMillis() / 1000).nextLong())
-    emailModel.template = Template.VERIFY.value
-    emailModel.subject = "Verificação de email"
-    emailModel.to = arrayOf(newUser.email ?: "")
-
     val data = mutableMapOf<String, Any>()
 
     data["name"] = newUser.name
     data["verifyLink"] = "http://localhost:7777/v/u/${newUser.username}"
 
-    emailModel.data = data
+    val emailModel = EmailModel(
+      "Verificação da conta",
+      newUser.name ,
+      "",
+      listOf(newUser.email ?: ""),
+      Template.VERIFY.value
+    )
 
     try {
 

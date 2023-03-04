@@ -11,6 +11,8 @@
     <file url="file://$PROJECT_DIR$/ms-discovery/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ms-email/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ms-email/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-forgot-password/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-forgot-password/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ms-gateway/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ms-stop/ms-stop/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ms-stop/ms-stop/src/main/resources" charset="UTF-8" />

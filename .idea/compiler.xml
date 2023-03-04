@@ -7,10 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ms-auth" />
-        <module name="ms-email" />
-        <module name="ms-stop" />
+        <module name="ms-forgot-password" />
         <module name="ms-discovery" />
         <module name="ms-user" />
+        <module name="ms-email" />
+        <module name="ms-stop" />
         <module name="ms-gateway" />
       </profile>
     </annotationProcessing>
@@ -28,6 +29,7 @@
       <module name="ms-auth" options="-parameters" />
       <module name="ms-discovery" options="-parameters" />
       <module name="ms-email" options="-parameters" />
+      <module name="ms-forgot-password" options="-parameters" />
       <module name="ms-gateway" options="-parameters" />
       <module name="ms-stop" options="-parameters" />
       <module name="ms-user" options="-parameters" />

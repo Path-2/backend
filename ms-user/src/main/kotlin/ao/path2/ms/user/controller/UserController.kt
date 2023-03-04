@@ -6,7 +6,7 @@ import ao.path2.ms.user.core.exceptions.UnSupportedSocialNetworking
 import ao.path2.ms.user.dto.UserDTO
 import ao.path2.ms.user.models.SocialDto
 import ao.path2.ms.user.models.User
-import ao.path2.ms.user.models.UserSource
+import ao.path2.ms.user.models.enums.UserSource
 import ao.path2.ms.user.service.UserService
 import ao.path2.ms.user.token.JwtToken
 import ao.path2.ms.user.utils.mapping.Mapper
@@ -16,7 +16,6 @@ import org.springframework.data.web.PageableDefault
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import java.net.URI
 import javax.validation.Valid
 
 @RequestMapping("/v1/users")

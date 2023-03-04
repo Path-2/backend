@@ -1,5 +1,12 @@
 package ao.path2.ms.user.handlers
 
+import com.fasterxml.jackson.annotation.JsonInclude
 import java.time.LocalDateTime
 
-data class ErrorDetails(val statusCode: Int, val message: String?, val timestamp: LocalDateTime, val cause: String?)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+data class ErrorDetails(
+  val statusCode: Int = 500,
+  val message: String = "Internal server error",
+  val timestamp: LocalDateTime = LocalDateTime.now(),
+  val cause: String?
+)

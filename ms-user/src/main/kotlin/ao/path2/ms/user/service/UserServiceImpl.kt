@@ -57,6 +57,8 @@ class UserServiceImpl(
 
     val role = roleRepo.findByNameContainingIgnoreCase("user")
     user.createdAt = LocalDateTime.now()
+    user.updatedAt = user.createdAt
+    user.passwordUpdatedAt = user.createdAt.minusDays(30)
 
     if (role != null) {
       log.info("Adding role ${role.name}...")
@@ -64,8 +66,6 @@ class UserServiceImpl(
     }
 
     val newUser = repo.save(user)
-
-
 
     val data = mutableMapOf<String, Any>()
 

@@ -120,6 +120,29 @@ services:
     logging:
       options:
         max-size: 50m
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prom/prometheus
+    networks:
+      - app_net
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "7000:3000"
+    networks:
+      - app_net
         
 networks:
   app_net:
+    driver: bridge
+
+volumes:
+  prometheus_data:

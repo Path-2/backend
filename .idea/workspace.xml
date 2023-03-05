@@ -11,40 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: ignore folder .idea">
-      <change afterPath="$PROJECT_DIR$/ms-email/src/main/resources/templates/forgot-password.ftlh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/annotations/AuthorizeUser.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/models/Role.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/models/enums/Template.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/prometheus.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/config/RabbitMQConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/config/RabbitMQConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/consumer/RabbitMQEmailConsumer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/consumer/RabbitMQEmailConsumer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/models/EmailModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/models/EmailModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/producer/RabbiMQEmailProducer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/producer/RabbiMQEmailProducer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/service/EmailService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/service/EmailService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/service/EmailServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/service/EmailServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/MSForgotPassWordApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/MSForgotPasswordApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/RabbitMQConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/RabbitMQConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/security/DelegatedAuthenticationEntryPoint.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/security/DelegatedAuthenticationEntryPoint.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/security/SecurityConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/security/SecurityConfig.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/security/service/UserDetailsServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/config/security/service/UserDetailsServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/controller/ForgotController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/controller/ForgotController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/dto/ForgotUserDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/dto/ForgotUserDto.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/handlers/CustomAuthenticationFailureHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/handlers/CustomAuthenticationFailureHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/handlers/ExceptionHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/handlers/ExceptionHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/models/EmailModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/models/EmailModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/models/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/models/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/repository/UserRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/repository/UserRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/service/ForgotService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/service/ForgotService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/token/JwtToken.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot/token/JwtToken.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-forgot-password/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-forgot-password/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/controller/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/controller/UserController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/models/EmailModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/models/EmailModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/models/SocialDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/models/SocialDto.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/models/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/models/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/models/UserSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/models/enums/UserSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/service/UserServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/service/UserServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-discovery/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-discovery/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,21 +86,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "11",
+    "last_directory_selection": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot",
+    "last_opened_file_path": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "PLAIN_TEXT"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-forgot-password\src\main\kotlin\ao\path2\ms\forgot" />

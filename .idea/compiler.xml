@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ms-auth" />
+        <module name="ms-compute-routes-kt" />
         <module name="ms-forgot-password" />
         <module name="ms-discovery" />
         <module name="ms-user" />
+        <module name="ms-compute-routes" />
         <module name="ms-email" />
         <module name="ms-stop" />
         <module name="ms-gateway" />
@@ -27,6 +29,8 @@
       <module name="core" options="" />
       <module name="filters" options="-parameters" />
       <module name="ms-auth" options="-parameters" />
+      <module name="ms-compute-routes" options="-parameters" />
+      <module name="ms-compute-routes-kt" options="-parameters" />
       <module name="ms-discovery" options="-parameters" />
       <module name="ms-email" options="-parameters" />
       <module name="ms-forgot-password" options="-parameters" />

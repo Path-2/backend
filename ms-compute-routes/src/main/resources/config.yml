@@ -1,0 +1,4 @@
+profiles:
+  - name: car
+    vehicle: car
+    weighting: fastest

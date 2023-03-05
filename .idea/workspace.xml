@@ -11,10 +11,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: ignore folder .idea">
-      <change afterPath="$PROJECT_DIR$/prometheus.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/config/RabbitMQConfig.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/config/beans/GraphHopperBean.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/consumer/RouteRequestConsumer.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/models/Point.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/models/Route.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/models/RouteRequest.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/service/BestRoute.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-discovery/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-discovery/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-compute-routes-kt/src/main/kotlin/ao/path2/mscomputeroutes/MsComputeRoutesApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-compute-routes-kt/src/main/kotlin/ao/path2/ms/compute/routes/MsComputeRoutesApplication.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/mscomputeroutes/MsComputeRoutesApplication.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/MsComputeRoutesApplication.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-compute-routes/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +86,6 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
         <option name="useMavenConfig" value="true" />
         <option name="usePluginRegistry" value="true" />
       </MavenGeneralSettings>
@@ -93,12 +103,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "jdk.selected.JAVA_MODULE": "11",
-    "last_directory_selection": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot",
-    "last_opened_file_path": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-forgot-password/src/main/kotlin/ao/path2/ms/forgot",
+    "last_directory_selection": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-compute-routes/src/main/groovy/ao/path2",
+    "last_opened_file_path": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-compute-routes-kt",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "MavenSettings"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
@@ -139,7 +149,33 @@
       <recent name="ao.path2.ms.auth.config.security.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.MSForgotPasswordApplicationKt">
+  <component name="RunManager" selected="Application.ao.path2.ms.compute.routes.MsComputeRoutesApplication">
+    <configuration name="MsComputeRoutesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ao.path2.mscomputeroutes.MsComputeRoutesApplication" />
+      <module name="ms-compute-routes" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ao.path2.mscomputeroutes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ao.path2.ms.compute.routes.MsComputeRoutesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ao.path2.ms.compute.routes.MsComputeRoutesApplication" />
+      <module name="ms-compute-routes" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ao.path2.ms.compute.routes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MSAuthApplicationKt" type="JetRunConfigurationType">
       <option name="MAIN_CLASS_NAME" value="ao.path2.ms.auth.MSAuthApplicationKt" />
       <module name="ms-auth" />
@@ -205,32 +241,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="docker-compose.yml.auth: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="auth" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml.discovery: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="discovery" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration name="ms-auth/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
@@ -240,8 +250,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Docker.docker-compose.yml.auth: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.discovery: Compose Deployment" />
+      <item itemvalue="Application.MsComputeRoutesApplication" />
+      <item itemvalue="Application.ao.path2.ms.compute.routes.MsComputeRoutesApplication" />
       <item itemvalue="Docker.ms-auth/Dockerfile" />
       <item itemvalue="Kotlin.MSAuthApplicationKt" />
       <item itemvalue="Kotlin.MsDiscoveryApplicationKt" />
@@ -253,11 +263,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ao.path2.ms.compute.routes.MsComputeRoutesApplication" />
+        <item itemvalue="Application.MsComputeRoutesApplication" />
         <item itemvalue="Kotlin.MSForgotPasswordApplicationKt" />
         <item itemvalue="Kotlin.MSUserApplicationKt" />
         <item itemvalue="Docker.ms-auth/Dockerfile" />
-        <item itemvalue="Docker.docker-compose.yml.auth: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.discovery: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>

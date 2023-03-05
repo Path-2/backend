@@ -20,6 +20,8 @@
         <option value="$PROJECT_DIR$/filters/pom.xml" />
         <option value="$PROJECT_DIR$/ms-stop/pom.xml" />
         <option value="$PROJECT_DIR$/ms-forgot-password/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-compute-routes/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-compute-routes-kt/pom.xml" />
       </list>
     </option>
   </component>

@@ -14,6 +14,7 @@ class UserDetailsServiceImpl(
   override fun loadUserByUsername(username: String): UserSecurity? {
     // Create a method in your repo to find a user by its username
 
+    println(username)
     if (username.isEmpty() || username.isBlank())
       throw ResourceNotFoundException("???")
 
@@ -25,11 +26,6 @@ class UserDetailsServiceImpl(
       userRepo.findByEmail(username)
     else
       throw Exception()
-
-    var password = user.password
-
-    if (userRepo.existsByFacebookId(username))
-      password = ""
 
     return UserSecurity(
       user.id,

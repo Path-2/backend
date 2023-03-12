@@ -10,6 +10,7 @@ interface SocialAuthenticationFilter {
   fun extractTokenIfNotNull(request: HttpServletRequest): String?
   fun stringfy(obj: Any): String = ObjectMapper().registerModule(JavaTimeModule()).writeValueAsString(obj)
   fun populateResponse(response: HttpServletResponse, data: Any, httpStatus: HttpStatus) {
+    response.contentType = "application/json"
     response.status = httpStatus.value()
     response.writer.append(stringfy(data))
   }

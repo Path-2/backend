@@ -207,7 +207,7 @@ class UserServiceImpl(
   override fun signupWithFacebook(token: String): User {
     val res =
       restTemplate.getForEntity(
-        "http://localhost:9000/signup/facebook?access_token=${token}&fields=id,name,last_name,first_name",
+        getFacebookAuthURL(token),
         FacebookUserData::class.java
       )
 

@@ -11,21 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: ignore folder .idea">
-      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/config/RabbitMQConfig.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/config/beans/GraphHopperBean.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/consumer/RouteRequestConsumer.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/models/Point.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/models/Route.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/models/RouteRequest.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/service/BestRoute.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-compute-routes-kt/src/main/kotlin/ao/path2/mscomputeroutes/MsComputeRoutesApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-compute-routes-kt/src/main/kotlin/ao/path2/ms/compute/routes/MsComputeRoutesApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/mscomputeroutes/MsComputeRoutesApplication.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/MsComputeRoutesApplication.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-compute-routes/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/SocialAuthenticationFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/filter/SocialAuthenticationFilter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/service/UserDetailsServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/config/security/service/UserDetailsServiceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/config/security/DelegatedAuthenticationEntryPoint.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/config/security/DelegatedAuthenticationEntryPoint.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/controller/UserController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/controller/UserController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/handlers/CustomAuthenticationFailureHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/handlers/CustomAuthenticationFailureHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/handlers/ExceptionHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/handlers/ExceptionHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/service/UserServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/service/UserServiceImpl.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,26 +90,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "jdk.selected.JAVA_MODULE": "11",
-    "last_directory_selection": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-compute-routes/src/main/groovy/ao/path2",
-    "last_opened_file_path": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-compute-routes-kt",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-compute-routes/src/main/groovy/ao/path2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-compute-routes-kt&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "PLAIN_TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;PLAIN_TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-forgot-password\src\main\kotlin\ao\path2\ms\forgot" />
@@ -149,7 +143,7 @@
       <recent name="ao.path2.ms.auth.config.security.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ao.path2.ms.compute.routes.MsComputeRoutesApplication">
+  <component name="RunManager" selected="Kotlin.MSUserApplicationKt">
     <configuration name="MsComputeRoutesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ao.path2.mscomputeroutes.MsComputeRoutesApplication" />
       <module name="ms-compute-routes" />
@@ -199,7 +193,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MSUserApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+    <configuration name="MSUserApplicationKt" type="JetRunConfigurationType" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ao.path2.ms.user.MSUserApplicationKt" />
       <module name="ms-user" />
       <method v="2">
@@ -258,15 +252,14 @@
       <item itemvalue="Kotlin.MsEmailApplicationKt" />
       <item itemvalue="Kotlin.MsGatewayApplicationKt" />
       <item itemvalue="Kotlin.MSStopApplicationKt" />
-      <item itemvalue="Kotlin.MSForgotPasswordApplicationKt" />
       <item itemvalue="Kotlin.MSUserApplicationKt" />
+      <item itemvalue="Kotlin.MSForgotPasswordApplicationKt" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ao.path2.ms.compute.routes.MsComputeRoutesApplication" />
         <item itemvalue="Application.MsComputeRoutesApplication" />
         <item itemvalue="Kotlin.MSForgotPasswordApplicationKt" />
-        <item itemvalue="Kotlin.MSUserApplicationKt" />
         <item itemvalue="Docker.ms-auth/Dockerfile" />
       </list>
     </recent_temporary>

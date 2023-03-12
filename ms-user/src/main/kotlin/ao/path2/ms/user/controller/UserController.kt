@@ -20,7 +20,6 @@ import javax.validation.Valid
 
 @RequestMapping("/v1/users")
 @RestController
-@CrossOrigin("*")
 class UserController(private val service: UserService, private val mapper: Mapper, private val jwt: JwtToken) {
   @AuthorizeUser
   @GetMapping

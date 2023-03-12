@@ -33,7 +33,7 @@ class DelegatedAuthenticationEntryPoint : AuthenticationEntryPoint {
 
     val data = ErrorDetails(
       getStatus(ex?.message ?: "", status),
-      ex?.message,
+      ex?.message ?: "",
       LocalDateTime.now(),
       ex?.cause?.message
     )

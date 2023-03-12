@@ -46,7 +46,7 @@ class ExceptionHandler : ResponseEntityExceptionHandler() {
     return ResponseEntity
       .status(getStatus(ex.message ?: "", status))
       .headers(headers)
-      .body(ErrorDetails(getStatus(ex.message ?: "", status), ex.message, LocalDateTime.now(), ex.cause?.message))
+      .body(ErrorDetails(getStatus(ex.message ?: "", status), ex.message ?: "", LocalDateTime.now(), ex.cause?.message))
   }
 
   fun getStatus(message: String, status: HttpStatus) =

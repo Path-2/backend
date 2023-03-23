@@ -4,8 +4,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:path2}
-    username: root
-    password: 1234
+    username: ${USR_DB:root}
+    password: ${PWD_DB:1234}
 
   application:
     name: ms-auth
@@ -16,11 +16,16 @@ spring:
     hibernate:
       ddl-auto: update
 jwt:
-  secret: ${env.JWT_SECRET}
+  secret: ${JWT_SECRET}
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URI:http://localhost}:8761/eureka
   instance:
     hostname: localhost
     preferIpAddress: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include=health,info,prometheus

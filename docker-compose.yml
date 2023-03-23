@@ -13,7 +13,14 @@ services:
       - gateway
       - discovery
     environment:
-      - 1=1
+      - PORT=8080
+      - USERNAME_DB=root
+      - PWD_DB=1234
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=path2
+      - JWT_SECRET=1
+      - EUREKA_URI=discovery
     logging:
       options:
         max-size: 50m
@@ -49,13 +56,15 @@ services:
       - gateway
       - discovery
     environment:
-      - 1=1
+      - EUREKA_URI=discovery
+      - MAIL_USERNAME=path2app@gmail.com
+      - MAIL_PASSWORD=xxxxxxxx
     logging:
       options:
         max-size: 50m
 
   mq:
-    container_name: rabbitmq
+    container_name: rabbitmq_path2
     image: rabbitmq:3-management
     environment:
       - RABBITMQ_DEFAULT_USER=guest
@@ -64,15 +73,31 @@ services:
       options:
         max-size: 50m
 
-  db:
-    container_name: mysql
+  db_user:
+    container_name: db_user
     image: mysql
     environment:
       - MYSQL_PASSWORD=1234
     logging:
       options:
         max-size: 50m
-
+  db_path:
+    container_name: db_path
+    image: mysql
+    environment:
+      - MYSQL_PASSWORD=1234
+      - MYSQL_DATABASE=paths
+    logging:
+      options:
+        max-size: 50m
+  db:
+    container_name: mysql_path2
+    image: mysql
+    environment:
+      - MYSQL_PASSWORD=1234
+    logging:
+      options:
+        max-size: 50m
   gateway:
     container_name: ms-gateway
     build:

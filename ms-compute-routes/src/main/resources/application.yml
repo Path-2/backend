@@ -19,6 +19,8 @@ spring:
     port: 5672
     username: guest
     password: guest
+    queue:
+      name: route.new.request
   main:
     allow-bean-definition-overriding: true
 

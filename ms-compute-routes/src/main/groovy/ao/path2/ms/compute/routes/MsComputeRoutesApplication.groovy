@@ -17,7 +17,9 @@ class MsComputeRoutesApplication {
 	static void main(String[] args) {
 		SpringApplication.run(MsComputeRoutesApplication, args)
 
-		bestRoute.compute(Point.from(-8.831769, 13.219112), Point.from(-8.957064, 13.148580))
+		def best = bestRoute.compute(Point.from(-8.85214, 13.27589), Point.from(-8.8211, 13.2173))
+
+		println best
 	}
 
 }

@@ -11,14 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="243936d6-4a54-42da-83ac-210b22718a93" name="Changes" comment="feat: ignore folder .idea">
-      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/test/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-compute-routes/src/test/resources/osm-data/angola.osm.pbf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/dto/UserDTO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/dto/UserDTO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/models/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/kotlin/ao/path2/ms/auth/models/User.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ms-auth/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-auth/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-compute-routes/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-email/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prometheus.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prometheus.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/MsComputeRoutesApplication.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/MsComputeRoutesApplication.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/config/beans/GraphHopperBean.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/config/beans/GraphHopperBean.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/consumer/RouteRequestConsumer.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/consumer/RouteRequestConsumer.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/service/BestRoute.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/ms-compute-routes/src/main/groovy/ao/path2/ms/compute/routes/service/BestRoute.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/consumer/RabbitMQEmailConsumer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/src/main/kotlin/ao/path2/ms/email/consumer/RabbitMQEmailConsumer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-email/src/main/resources/templates/verify-email.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/ms-email/src/main/resources/templates/verify-email.ftlh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/config/RabbitMQConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/config/RabbitMQConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/producers/RabbitMQProducer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ms-user/src/main/kotlin/ao/path2/ms/user/producers/RabbitMQProducer.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,26 +93,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "jdk.selected.JAVA_MODULE": "11",
-    "last_directory_selection": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-compute-routes/src/main/groovy/ao/path2",
-    "last_opened_file_path": "C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "http.proxy"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back/ms-compute-routes/src/main/groovy/ao/path2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dumildes.fernando/Desktop/MyApps/trmp/path2-back&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "PLAIN_TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;PLAIN_TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\dumildes.fernando\Desktop\MyApps\trmp\path2-back\ms-compute-routes\src\test\resources" />
@@ -142,7 +146,7 @@
       <recent name="ao.path2.ms.auth.config.security.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsComputeRoutesApplication">
+  <component name="RunManager" selected="Kotlin.MSAuthApplicationKt">
     <configuration name="MsComputeRoutesApplication" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="ao.path2.ms.compute.routes.MsComputeRoutesApplication" />
       <module name="ms-compute-routes" />
@@ -240,8 +244,6 @@
     </configuration>
     <list>
       <item itemvalue="Application.MsComputeRoutesApplication" />
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Docker.ms-auth/Dockerfile" />
       <item itemvalue="Kotlin.MSAuthApplicationKt" />
       <item itemvalue="Kotlin.MsDiscoveryApplicationKt" />
       <item itemvalue="Kotlin.MsEmailApplicationKt" />
@@ -253,8 +255,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MsComputeRoutesApplication" />
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="Docker.ms-auth/Dockerfile" />
       </list>
     </recent_temporary>
   </component>

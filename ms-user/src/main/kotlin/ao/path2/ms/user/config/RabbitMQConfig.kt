@@ -21,7 +21,7 @@ import org.springframework.util.ErrorHandler
 @EnableRabbit
 @Configuration
 class RabbitMQConfig() {
-  private val queueName: String = "user.name"
+  private val queueName: String = "user.verify"
   private val exchange: String = "amqp.direct"
   private val routingKey: String = ""
   private val replyTimeout: Int = 2

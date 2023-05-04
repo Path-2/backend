@@ -22,11 +22,16 @@ class GraphHopperBean {
         println new File("osm-data/angola.osm.pbf").getCanonicalPath()
         println new File("osm-data/angola.osm.pbf").getPath()
 
-        def hopper = new GraphHopper().setOSMFile(OSM_FILE)
+        def hopper = new GraphHopper()
+                .setOSMFile(OSM_FILE)
                 .setGraphHopperLocation(OSM_PATH)
-                .setProfiles(new Profile("car").setVehicle("car").setWeighting("fastest").setTurnCosts(false))
+                .setProfiles(new Profile("car")
+                        .setVehicle("car")
+                        .setWeighting("fastest")
+                        .setTurnCosts(false))
 
-        hopper.getCHPreparationHandler().setCHProfiles(new CHProfile("car"))
+        hopper.getCHPreparationHandler()
+                .setCHProfiles(new CHProfile("car"))
 
         return hopper.importOrLoad()
     }

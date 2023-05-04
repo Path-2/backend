@@ -10,7 +10,7 @@ class RabbitMQProducer(private val rabbitTemplate: RabbitTemplate) {
 
   @Throws(AmqpException::class)
   fun enqueue(emailModel: EmailModel) {
-    rabbitTemplate.convertAndSend("user.name", emailModel)
+    rabbitTemplate.convertAndSend("user.verify", emailModel)
   }
 
 }

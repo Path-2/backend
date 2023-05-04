@@ -10,7 +10,6 @@ spring:
   application:
     name: ms-auth
   jpa:
-    database-platform: org.hibernate.spatial.dialect.mysql.MySQL56InnoDBSpatialDialect
     open-in-view: false
     show-sql: true
     hibernate:
@@ -25,7 +24,12 @@ eureka:
     hostname: localhost
     preferIpAddress: true
 management:
+  security:
+    enabled: false
   endpoints:
     web:
       exposure:
-        include=health,info,prometheus
+        include:
+          - health
+          - info
+          - prometheus

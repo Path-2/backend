@@ -44,6 +44,7 @@ class RabbitMQEmailConsumer(private val emailSender: EmailService, private val p
       log.info("Email sent with success - Message with EmailModel Identifier : ${model.id}")
     } catch (ex: Exception) {
       log.error("Sent email failed...")
+      println(ex.message)
       tryingEnQueue(model, 0, "user.verify")
     }
   }

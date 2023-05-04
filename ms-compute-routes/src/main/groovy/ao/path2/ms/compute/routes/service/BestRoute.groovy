@@ -7,6 +7,7 @@ import com.graphhopper.GHResponse
 import com.graphhopper.GraphHopper
 import com.graphhopper.ResponsePath
 import com.graphhopper.util.PointList
+import com.graphhopper.util.exceptions.PointNotFoundException
 import com.graphhopper.util.shapes.GHPoint
 import org.springframework.stereotype.Service
 
@@ -25,7 +26,7 @@ class BestRoute {
         this.hopper = hopper
     }
 
-    def compute(Point start, Point end) {
+    def compute(Point start, Point end) throws PointNotFoundException {
 
         // Calcula a rota mais curta entre os pontos
         GHRequest req = new GHRequest(start.lat, start.lon, end.lat, end.lon)

@@ -3,7 +3,7 @@ services:
   auth:
     container_name: ms-auth
     build:
-      context: ./ms-auth
+      context: auth
       dockerfile: Dockerfile
     networks:
       - app_net
@@ -106,7 +106,7 @@ services:
   stop:
     container_name: ms-stop
     build:
-      context: ./ms-stop
+      context: stops
       dockerfile: Dockerfile
     networks:
       - app_net

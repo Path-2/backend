@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0">
+    <mirrors>
+        <mirror>
+            <id>maven-default-http-blocker</id>
+            <mirrorOf>external:http:*</mirrorOf>
+            <name>Pseudo repository to mirror external repositories initially using HTTP.</name>
+            <url>http://0.0.0.0/</url>
+        </mirror>
+    </mirrors>
+</settings>

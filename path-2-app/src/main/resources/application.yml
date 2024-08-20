@@ -1,0 +1,15 @@
+vaadin:
+  launch-browser: true
+  bun:
+    enable: true
+  url-mapping: /app/*
+
+spring:
+  application:
+    name: Path2App
+  threads:
+    virtual:
+      enabled: true
+  docker:
+    compose:
+      enabled: false
